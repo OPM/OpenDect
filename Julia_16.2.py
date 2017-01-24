@@ -35,6 +35,7 @@ import dicom
 import os
 from os import listdir
 from os.path import join
+from mpl_toolkits.mplot3d import axes3d, Axes3D
 
 try:
     _fromUtf8 = QtCore.QString.fromUtf8
@@ -57,8 +58,9 @@ class Ui_MainWindow(object):
     Padding_bottom=0
     Offsetx=0
     Offsety=0
-    Diameter=10
-    Crop_pct=1
+    Diameter=100
+    Crop_pct=37
+    Orientation="Vertical"
     
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
@@ -199,8 +201,6 @@ class Ui_MainWindow(object):
         MainWindow.setWindowTitle(_translate("MainWindow", "Julia", None))
         self.pushButton_2.setText(_translate("MainWindow", "Import Low Energy CT", None))
         self.pushButton.setText(_translate("MainWindow", "Import High Energy CT", None))
-        self.pushButton.clicked.connect(self.GetHighEnergy)
-        self.pushButton_2.clicked.connect(self.GetLowEnergy)
         self.label.setText(_translate("MainWindow", "Core diameter (mm)", None))
         self.label_2.setText(_translate("MainWindow", "Selected Core diameter (mm)", None))
         self.label_4.setText(_translate("MainWindow", "Cropping Top (mm)", None))
@@ -217,39 +217,62 @@ class Ui_MainWindow(object):
         self.actionOpen.setText(_translate("MainWindow", "Open", None))
         self.actionSave.setText(_translate("MainWindow", "Save", None))
         self.actionExit.setText(_translate("MainWindow", "Exit", None))
+        
+        ###ADDED#
         self.pushButton_3.clicked.connect(self.CreateGrid)
 	self.grid  = QtGui.QGridLayout(self.widget)
+	self.pushButton.clicked.connect(self.GetHighEnergy)
+        self.pushButton_2.clicked.connect(self.GetLowEnergy)
+        self.horizontalSlider.valueChanged.connect(self.UpdatePaddingTop)
+        self.horizontalSlider_2.valueChanged.connect(self.UpdatePaddingBottom)
+        self.horizontalSlider_3.valueChanged.connect(self.UpdateOffsetX)
+        self.horizontalSlider_4.valueChanged.connect(self.UpdateOffsetY)
+        
+    def UpdatePaddingTop(self):
+	self.Padding_top=self.horizontalSlider.value()
 
-    def plotCT(self,plot):
-    	fig  = plt.figure()
+    def UpdatePaddingBottom(self):
+	self.Padding_bottom=self.horizontalSlider_2.value()
+
+    def UpdateOffsetX(self):
+	self.Offsetx=self.horizontalSlider_3.value()
+	self.UpdateCircle()
+
+    def UpdateOffsetY(self):
+	self.Offsety=self.horizontalSlider_4.value()
+	self.UpdateCircle()
+    	
+    def UpdateCircle(self):
+    	if self.LowEnergyPath=="":return
+    	plt.clf()
+    	ds1 = dicom.read_file(join(str(self.LowEnergyPath), os.listdir(self.LowEnergyPath)[0]))
+	fig  = plt.figure()
 	axs  = fig.add_subplot(111)
-	axs.plot([1,2,3,4],[5,6,7,8])
+	a = ds1.pixel_array.shape[0]/2 
+	Offsetr=2*a*self.Offsetx/self.Diameter
+	Offsetc=2*a*self.Offsety/self.Diameter
+	a=int(ds1.pixel_array.shape[0]*self.Crop_pct/self.Diameter/2)
+	axs.imshow(ds1.pixel_array, cmap=pylab.cm.bone)
+	circle=plt.Circle((ds1.pixel_array.shape[0]/2+Offsetr,ds1.pixel_array.shape[0]/2+Offsetc),a,color='r',linewidth=1,fill=False)
+
+	plt.gcf().gca().add_artist(circle)
+	axs.plot((a-10+Offsetr , a+10+Offsetr), (a+Offsetc, a+Offsetc), 'k')
+	axs.plot((a+Offsetr, a+Offsetr),(a-10+Offsetc , a+10+Offsetc), 'k')
+
 	canv = FigureCanvas(fig)   
-	canv.setMaximumHeight(100) 
 	self.grid.addWidget(canv, 0, 0)
-	self.grid.addWidget(QtGui.QLabel('test'),1,0)
-	win.setLayout(grid)
-	win.show()
-	win.setFixedSize(150,100)
+	self.widget.setLayout(self.grid)
+	self.widget.show()
+	self.widget.setFixedSize(550,550)
 	
     def GetLowEnergy(self):
    	self.LowEnergyPath=QtGui.QFileDialog.getExistingDirectory()
-   	ds1 = dicom.read_file(join(str(self.LowEnergyPath), os.listdir(self.LowEnergyPath)[0]))
-	fig  = plt.figure()
-	axs  = fig.add_subplot(111)
-
-	axs.imshow(ds1.pixel_array, cmap=pylab.cm.bone)
-	canv = FigureCanvas(fig)   
-	self.grid.addWidget(canv, 0, 0)
-	self.widget.setLayout(grid)
-	self.widget.show()
-	self.widget.setFixedSize(550,550)
    
     def GetHighEnergy(self):
 	self.HighEnergyPath=QtGui.QFileDialog.getExistingDirectory()
 
     def CreateGrid(self):
-    
+
 	    files=[f for f in listdir(self.HighEnergyPath)]
 	    files2=[f for f in listdir(self.LowEnergyPath)]
 	    files=sorted(files)
@@ -273,26 +296,11 @@ class Ui_MainWindow(object):
 		a = ds1.pixel_array.shape[0]/2 
 		Offsetr=2*a*self.Offsetx/self.Diameter
 		Offsetc=2*a*self.Offsety/self.Diameter
-
 		x1=GetMaskedValues2(ds1.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
 		x2=GetMaskedValues2(ds2.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
 
 		if (firstime):
 			n,nblocks=GetMult(x1.shape[0])
-			fig  = plt.figure()
-			axs  = fig.add_subplot(111)
-			a=int(ds1.pixel_array.shape[0]*self.Crop_pct/self.Diameter/2)
-			axs.imshow(ds1.pixel_array, cmap=pylab.cm.bone)
-			circle=plt.Circle((ds1.pixel_array.shape[0]/2+Offsetr,ds1.pixel_array.shape[0]/2+Offsetc),a,color='r',linewidth=1,fill=False)
-			plt.gcf().gca().add_artist(circle)
-			axs.plot((a-10+Offsetr , a+10+Offsetr), (a+Offsetc, a+Offsetc), 'k')
-			axs.plot((a+Offsetr, a+Offsetr),(a-10+Offsetc , a+10+Offsetc), 'k')
-
-			canv = FigureCanvas(fig)   
-			self.grid.addWidget(canv, 0, 0)
-			self.widget.setLayout(self.grid)
-			self.widget.show()
-			self.widget.setFixedSize(550,550)
 			PORO=np.zeros(shape=(nblocks_z,nblocks,nblocks))
 			ACTNUM=np.zeros(shape=(nblocks_z,nblocks,nblocks))
 			PERMX=np.zeros(shape=(nblocks_z,nblocks,nblocks))
@@ -321,6 +329,74 @@ class Ui_MainWindow(object):
 		    poro_coarse_avg=poro_coarse_avg*(i-self.Padding_top)/((i-self.Padding_top)+1)+poro_coarse/((i-self.Padding_top)+1)
 	        i+=1
 	    self.progressBar.setProperty("value", 0)
+	    fig = plt.figure()
+	    ax = Axes3D(fig)
+	    PORO[PORO<0]=0
+	    PORO[PORO>1]=1
+	    #PORO=PORO*1.7
+	    ACTNUM[ACTNUM!=0]=1
+	    PERMX=10**(PORO/0.1)
+	    PERMX[PERMX<10]=10
+	    
+	    fig  = plt.figure()
+	    ax  = fig.add_subplot(111, projection='3d')
+	    
+	    Poro_string="PORO\n"
+	    actnum_string="ACTNUM\n"
+	    permx_string="PERMX\n"
+	    nz=0
+	    if self.Orientation=="Vertical":
+	        for k in range(0,nblocks_z):
+	            for j in range(0,nblocks):
+	                for i in range(0,nblocks):
+	                    porov=PORO[k][j][i]
+	                    permxv=PERMX[k][j][i]
+	                    actnumv=ACTNUM[k][j][i]
+	                    permx_string+=str(int(permxv))+"\t"
+	                    Poro_string+='%.2E'%Decimal(porov)+"\t"
+	                    actnum_string+=str(int(actnumv))+"\t"
+	                    nz+=1
+	                    if actnumv==1:
+				    r1=[i*n,(i+1)*n]
+				    r2=[j*n,(j+1)*n]
+				    z=[k*n_z,(k+1)*n_z]
+				    X, Y = np.meshgrid(r1, r2)
+				    Z,Z = np.meshgrid(z, z)
+				    ax.plot_surface(X,Y,z[0],  color = (1-porov,porov,porov) )
+				    ax.plot_surface(X,Y,z[1], color = (1-porov,porov,porov))
+				    ax.plot_surface(X,r2[0],Z, color = (1-porov,porov,porov) )
+				    ax.plot_surface(r1[0],Y,z, color = (1-porov,porov,porov) )
+	    			    ax.plot_surface(r1[1],Y,z, color = (1-porov,porov,porov) )
+	                    if nz%4==0:
+	                        Poro_string+="\n"
+	                        permx_string+="\n"
+	                        actnum_string+="\n"
+	    else:
+	        for i in range(0,nblocks):
+	            for j in range(0,nblocks):
+	                for k in range(0,nblocks_z):
+	                    porov=PORO[k][j][i]
+	                    permxv=PERMX[k][j][i]
+	                    actnumv=ACTNUM[k][j][i]
+	                    permx_string+=str(int(permxv))+"\t"
+	                    Poro_string+='%.2E'%Decimal(porov)+"\t"
+	                    actnum_string+=str(int(actnumv))+"\t"
+	                    nz+=1
+	                    if nz%4==0:
+	                        Poro_string+="\n"
+	                        permx_string+="\n"
+	                        actnum_string+="\n"
+	    canv = FigureCanvas(fig)   
+	    self.grid.addWidget(canv, 0, 0)
+	    self.widget.setLayout(self.grid)
+	    self.widget.show()
+	    Poro_string+="\n/\n"
+	    actnum_string+="\n/\n"
+	    permx_string+="\n/\n"
+	    
+	    WriteString(actnum_string,"temp/ACTNUM.INC")
+	    WriteString(Poro_string,"temp/PORO.INC")
+	    WriteString(permx_string,"temp/PERMX.INC")
 
 if __name__ == "__main__":
     import sys
