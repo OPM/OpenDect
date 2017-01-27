@@ -17,19 +17,8 @@
    along with OPM.  If not, see <http://www.gnu.org/licenses/>. 
 '''
 
-import dicom
 import numpy as np
 import math
-import pylab
-import matplotlib.pyplot as plt
-import os
-import sys
-from os import listdir
-from os.path import join
-from decimal import Decimal
-import subprocess
-import ert.ecl as ecl
-from pyswarm import pso
 
 def GetMult(rows):
     
@@ -41,9 +30,6 @@ def GetMult(rows):
                 found=True
                 return max(i,rows/i),min(i,rows/i)
         rows+=1
-
-
-     
 
 
 def UpscaleGrid(x,y,n):
@@ -76,7 +62,7 @@ def UpscalePoro(z,x,y,nblocks,n):
 			new[i[0]][j[0]]=j[1]/float(n**2)
 
     return new
- 
+
 def GetMaskedValues(x,Offsetr,Offsetc):
 
 	# A circle shape is generated based on the diameter and the x/y offsets
@@ -92,7 +78,7 @@ def GetMaskedValues(x,Offsetr,Offsetc):
     x[mask]=0
 
     return x
-
+    
 def GetMaskedValues2(x,Offsetr,Offsetc,Crop_pct,Diameter):
 
 	# A circle shape is generated based on the diameter and the x/y offsets
@@ -117,14 +103,6 @@ def GetPoro(x1,x2,parameters):
  
     return Phi
 
-def pltCircle(ds1,Offsetr,Offsetc):
-    a=int(ds1.shape[0]*Crop_pct/Diameter/2)
-    pylab.imshow(ds1, cmap=pylab.cm.bone)
-    circle=plt.Circle((ds1.shape[0]/2+Offsetr,ds1.shape[0]/2+Offsetc),a,color='r',linewidth=1,fill=False)
-    pylab.gcf().gca().add_artist(circle)
-    pylab.plot((a-10+Offsetr , a+10+Offsetr), (a+Offsetc, a+Offsetc), 'k')
-    pylab.plot((a+Offsetr, a+Offsetr),(a-10+Offsetc , a+10+Offsetc), 'k')
-    pylab.show()
 
 
 

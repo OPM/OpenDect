@@ -17,20 +17,33 @@
    along with OPM.  If not, see <http://www.gnu.org/licenses/>. 
 '''
 
-import dicom
-import numpy as np
-import math
-import pylab
 import matplotlib.pyplot as plt
 import os
-import sys
-from os import listdir
-from os.path import join
-from decimal import Decimal
 import subprocess
 import ert.ecl as ecl
-from pyswarm import pso
 
+def GetRGB(poro):
+	if poro<1/3:
+		R=0
+		G=poro*3
+		B=1
+	elif poro>=1/3 and poro <0.5:
+		R=0
+		G=1
+		B=-6*poro+3
+	elif poro>=0.5 and poro <2/3:
+		R=6*poro-3
+		G=1
+		B=0
+	else:
+		R=1
+		G=-2*poro+2
+		B=0
+	if R>1:R=1
+	if G>1:G=1
+	if B>1:B=1
+	return R,G,B
+	
 def create_SWFN_LET_Skj(Lw,Ew,Tw, Swcr,Sorw,Krwmax,Cw,Co,Aw,Ao):
     string = "\nSWFN\n"
     lines=30
