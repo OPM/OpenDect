@@ -1,5 +1,5 @@
 # OpenDect
-Core simulation tool based on CT-images
+3D Core simulation tool based on CT-images
 ## Structure
 Here are described the major steps in the code:
 
@@ -9,3 +9,8 @@ Here are described the major steps in the code:
 4. A 3D grid model is built based on upscaled porosity from the CT scan. Permeability is user-defined or picked from a trend.
 5. The flowing experiment is chosen and an eclipse file is run using OPM Flow
 6. The relative permeabilities are history-matched using ERT Ensemble
+
+##Dependencies
+pydicom python library
+
+##License
