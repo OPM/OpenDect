@@ -48,13 +48,25 @@ except AttributeError:
 class Ui_MainWindow(object):
     HighEnergyPath=""
     LowEnergyPath=""
-    Padding_top=0
-    Padding_bottom=0
+    Padding_top=500
+    Padding_bottom=350
     Offsetx=0
     Offsety=0
     Diameter=100
     Crop_pct=37
     Orientation="Vertical"
+    nblocks=1
+    nblocks_z=1
+    Swir=0.15
+    Method="USS"
+    WaterRate=12
+    Oil_density=780
+    Water_density=1000
+    Oil_compressibility=0
+    Water_compressibility=0
+    Oil_viscosity=1.2
+    Water_viscosity=0.36
+    ExpParams=[WaterRate,Oil_density,Water_density,Oil_compressibility,Water_compressibility,Oil_viscosity,Water_viscosity,Swir,Method]
     
     def setupUi(self, MainWindow):
         MainWindow.setObjectName(_fromUtf8("MainWindow"))
@@ -508,15 +520,17 @@ class Ui_MainWindow(object):
         self.actionSave.setText(_translate("MainWindow", "Save", None))
         self.actionExit.setText(_translate("MainWindow", "Exit", None))
 	###ADDED#
-	self.pushButton_3.clicked.connect(self.CreateGrid)
 	self.grid  = QtGui.QGridLayout(self.widget)
+	self.pushButton_3.clicked.connect(self.CreateGrid)
+	self.pushButton_4.clicked.connect(self.Simulate)
 	self.pushButton.clicked.connect(self.GetHighEnergy)
 	self.pushButton_2.clicked.connect(self.GetLowEnergy)
 	self.horizontalSlider.valueChanged.connect(self.UpdatePaddingTop)
 	self.horizontalSlider_2.valueChanged.connect(self.UpdatePaddingBottom)
 	self.horizontalSlider_3.valueChanged.connect(self.UpdateOffsetX)
 	self.horizontalSlider_4.valueChanged.connect(self.UpdateOffsetY)
-        
+
+	
     def UpdatePaddingTop(self):
 	self.Padding_top=self.horizontalSlider.value()
 
@@ -552,7 +566,7 @@ class Ui_MainWindow(object):
 	self.grid.addWidget(canv, 0, 0)
 	self.widget.setLayout(self.grid)
 	self.widget.show()
-	self.widget.setFixedSize(550,550)
+	self.widget.setFixedSize(600,600)
 
     def GetLowEnergy(self):
 	self.LowEnergyPath=QtGui.QFileDialog.getExistingDirectory()
@@ -562,28 +576,35 @@ class Ui_MainWindow(object):
 
     def SetProgress(self,value):
 	self.progressBar.setProperty("value", value)
+	
+    def Simulate(self):
+	WriteDATAfile(self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,4.3,2.5,1,self.Swir,0.15,1,5,1,0.86,0,0,1,1)
+	RunEclipse("temp/CORE_TEST.DATA")
+	PlotEclipseResults("temp/CORE_TEST",self.ExpParams,self.Orientation,self.nblocks,self.nblocks_z)
 
 
     def CreateGrid(self):
-
-	    files=[f for f in listdir(self.HighEnergyPath)]
-	    files2=[f for f in listdir(self.LowEnergyPath)]
+	    files=[f for f in listdir(self.LowEnergyPath)]
+	    files2=[f for f in listdir(self.HighEnergyPath)]
 	    files=sorted(files)
 	    files2=sorted(files2)
-	    length=min(len(listdir(self.HighEnergyPath))-1,len(listdir(self.LowEnergyPath))-1)
-	    nslices=length-self.Padding_bottom-self.Padding_top
+	    length=len(listdir(self.HighEnergyPath))-1
+	    Padding_top=self.Padding_top*length/1000  #avoid slices at the beginning
+	    Padding_bottom=self.Padding_bottom*length/1000# avoid Slices at the end
+	    nslices=length-Padding_bottom-Padding_top
 	    nblocks_z,n_z=GetMult(nslices)
 	    firstime=True
 	    i=0
+	    CoreSurface=[]
 
 	    for f1,f2 in zip(files,files2):
-		if i<self.Padding_top:
+
+		if i<Padding_top:
 		    i+=1
 		    continue
-		if i>=length-self.Padding_bottom:break
+		if i>=length-Padding_bottom:break
 
-		self.SetProgress(float(i-self.Padding_top)*100/(length-self.Padding_bottom-self.Padding_top))
-
+		self.SetProgress(float(i-Padding_top)*100/(length-Padding_bottom-Padding_top))
 		ds1 = dicom.read_file(join(str(self.LowEnergyPath), f1))
 		ds2 = dicom.read_file(join(str(self.HighEnergyPath), f2))
 		a = ds1.pixel_array.shape[0]/2 
@@ -614,13 +635,13 @@ class Ui_MainWindow(object):
 
 
 
-		if (i-self.Padding_bottom)%n_z==0:
-		    PORO[(i-self.Padding_top)/n_z]=poro_coarse_avg
-		    ACTNUM[(i-self.Padding_top)/n_z]=GetMaskedValues(poro_coarse_avg,Offsetr,Offsetc)
+		if (i-Padding_bottom)%n_z==0:
+		    PORO[(i-Padding_top)/n_z]=poro_coarse_avg
+		    ACTNUM[(i-Padding_top)/n_z]=GetMaskedValues(poro_coarse_avg,Offsetr,Offsetc)
 
 
 		else:
-		    poro_coarse_avg=poro_coarse_avg*(i-self.Padding_top)/((i-self.Padding_top)+1)+poro_coarse/((i-self.Padding_top)+1)
+		    poro_coarse_avg=poro_coarse_avg*(i-Padding_top)/((i-Padding_top)+1)+poro_coarse/((i-Padding_top)+1)
 		i+=1
 	    self.progressBar.setProperty("value", 0)
 	    fig = plt.figure()
@@ -632,7 +653,8 @@ class Ui_MainWindow(object):
 	    ACTNUM[ACTNUM!=0]=1
 	    PERMX=10**(PORO/0.1)
 	    PERMX[PERMX<10]=10
-
+	    self.nblocks=nblocks
+	    self.nblocks_z=nblocks_z
 	    fig  = plt.figure(facecolor="white")
 	    ax  = fig.add_subplot(111, projection='3d')
 
@@ -654,20 +676,7 @@ class Ui_MainWindow(object):
 			    Poro_string+='%.2E'%Decimal(porov)+"\t"
 			    actnum_string+=str(int(actnumv))+"\t"
 			    nz+=1
-			    if actnumv==1 :
 
-				    r1=[i*n,(i+1)*n]
-				    r2=[j*n,(j+1)*n]
-				    z=[k*n_z,(k+1)*n_z]
-				    X, Y = np.meshgrid(r1, r2)
-				    Z,Z = np.meshgrid(z, z)
-				    R,G,B=GetRGB(porov)
-				    ax.plot_surface(X,Y,z[0],  color = (R,G,B) )
-				    ax.plot_surface(X,Y,z[1], color = (R,G,B))
-				    ax.plot_surface(X,r2[0],Z, color = (R,G,B) )
-				    ax.plot_surface(X,r2[1],Z, color = (R,G,B) )
-				    ax.plot_surface(r1[0],Y,z, color = (R,G,B) )
-				    ax.plot_surface(r1[1],Y,z, color = (R,G,B) )
 			    if nz%4==0:
 				Poro_string+="\n"
 				permx_string+="\n"
@@ -685,7 +694,46 @@ class Ui_MainWindow(object):
 			    Poro_string+='%.2E'%Decimal(porov)+"\t"
 			    actnum_string+=str(int(actnumv))+"\t"
 			    nz+=1
-			    if actnumv==1 :
+                    
+			    if nz%4==0:
+					Poro_string+="\n"
+					permx_string+="\n"
+					actnum_string+="\n"
+			    self.SetProgress(float(k)/nblocks_z*100)
+	    
+	    #Detect cells on the edge of the core
+	    
+	    for k in range(0,nblocks_z):
+		    for i in range(0,nblocks):
+			    first=False
+			    for j in range(0,nblocks):
+				actnumv=ACTNUM[k][j][i]
+				
+				if k==0 or k==nblocks_z-1:
+					if actnumv==1:
+						CoreSurface+=[str(i)+","+str(j)+","+str(k)]
+						continue
+				else:
+					if actnumv==1 and not first:
+						CoreSurface+=[str(i)+","+str(j)+","+str(k)]
+						first=True
+					elif actnumv==1 and first and (i==0 or i==nblocks-1):
+						CoreSurface+=[str(i)+","+str(j)+","+str(k)]
+					elif actnumv==1 and first and (ACTNUM[k][j][i-1]==0 or ACTNUM[k][j][i+1]==0):
+						CoreSurface+=[str(i)+","+str(j)+","+str(k)]						
+					elif actnumv==0 and first:
+						CoreSurface+=[str(i)+","+str(j)+","+str(k)]
+						break
+					
+
+
+            #Plot the 3d plug	
+	    for k in range(0,nblocks_z):
+	        self.SetProgress(float(k)/nblocks_z*100)	    
+	        for i in range(0,nblocks):
+		    for j in range(0,nblocks):
+			if str(i)+","+str(j)+","+str(k) in CoreSurface:
+				    porov=PORO[k][j][i]
 				    r1=[i*n,(i+1)*n]
 				    r2=[j*n,(j+1)*n]
 				    z=[k*n_z,(k+1)*n_z]
@@ -696,13 +744,8 @@ class Ui_MainWindow(object):
 				    ax.plot_surface(X,r2[0],Z,color = (porov,0,1-porov) )
 				    ax.plot_surface(X,r2[1],Z,color = (porov,0,1-porov) )
 				    ax.plot_surface(r1[0],Y,z,color = (porov,0,1-porov) )
-				    ax.plot_surface(r1[1],Y,z,color = (porov,0,1-porov) )                     
-			    if nz%4==0:
-					Poro_string+="\n"
-					permx_string+="\n"
-					actnum_string+="\n"
-			    self.SetProgress(float(k)/nblocks_z*100)	
-
+				    ax.plot_surface(r1[1],Y,z,color = (porov,0,1-porov) )
+    			    
 	    canv = FigureCanvas(fig)   
 	    self.grid.addWidget(canv, 0, 0)
 	    self.widget.setLayout(self.grid)

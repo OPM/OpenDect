@@ -223,11 +223,22 @@ def WriteString(string,FILE):
     f.write(string)
     f.close()
 
-def WriteDATAfile(nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co,Aw,Ao):
+def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co,Aw,Ao):
     stringlist=[]
+    Crop_pct=float(Crop_pct)
+    Swcr=float(Swcr)
     size_x=round(Crop_pct/10/float(nblocks),2)
-    size_z=round((1000-int(Inputs.filter[4])-int(Inputs.filter[5]))/10/float(nblocks_z),2)
+    size_z=round((1000-Padding_top-Padding_bottom)/10/float(nblocks_z),2)
     Cellnb=nblocks*nblocks*(nblocks_z )
+    WaterRate=float(ExpParams[0])
+    Oil_density=float(ExpParams[1])/1000
+    Water_density=float(ExpParams[2])/1000
+    Oil_compressibility=float(ExpParams[3])
+    Water_compressibility=float(ExpParams[4])
+    Oil_viscosity=float(ExpParams[5])
+    Water_viscosity=float(ExpParams[6])
+    Swir=float(ExpParams[7])
+    Method=ExpParams[8]
     
     if Orientation=="Vertical":
         stringlist="RUNSPEC\nTITLE\nCoreSimulation\nDIMENS\n"+str(nblocks)+"\t"+str(nblocks)+"\t"+str(nblocks_z)+"/\n"
@@ -317,10 +328,12 @@ def WriteDATAfile(nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co
                 stringlist+="TSTEP\n"+str(clength)+"*0.017/\n"
     
     string="".join(stringlist)
-    WriteString(string,"CORE_TEST.DATA")
+    WriteString(string,"temp/CORE_TEST.DATA")
 
-def PlotEclipseResults(CASE):
+def PlotEclipseResults(CASE,ExpParams,Orientation,nblocks,nblocks_z):
     summary = ecl.EclSum(CASE)
+    Method=ExpParams[8]
+    
     if Method=="USS":  
         FOPT=summary["FOPT"]
         FWPT=summary["FWPT"]
@@ -368,6 +381,7 @@ def PlotEclipseResults(CASE):
                 FWPT_values+=[node2.value-node6.value]
                 DIFF+=[abs(node3.value-node4.value)/abs(BPR_IN_init/BPR_OUT_init)]
     
+    plt.clf()
     plt.plot(FOPT_values,'g',DIFF,'r')
     plt.show()
   

@@ -1,0 +1,26 @@
+<eclipse>
+<message date="12/10/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+       1468 KBYTES                                                       
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                        
+ USING  OLDTRAN                                                          
+</message>
+<comment date="12/10/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="12/10/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 0                                             
+</message>
+<error date="12/10/2015" time="0.00000000000000">
+ THERE ARE NO ACTIVE CELLS IN THE RESERVOIR                              
+</error>
+</eclipse>

@@ -1,0 +1,149 @@
+ ECLIPSE   Version 2016.1. Build Number 11072016. (Arch : Linux X86_64 (64 bit, LINUX_REL6IL1364OPT8BYTE))
+
+ Proprietary Notice
+ This application contains the confidential and
+ proprietary trade secrets of Schlumberger and may 
+ not be copied or stored in an information retrieval
+ system, transferred, used, distributed, translated,
+ or retransmitted in any form or by any means, electronic
+ or mechanical, in whole or in part, without the
+ express written permission of the copyright owner.
+
+ ECLIPSE is a mark of Schlumberger. Copyright (c)
+ 1981-2016 Schlumberger. All rights reserved.
+
+     1 READING RUNSPEC 
+     2 READING TITLE   
+     3 READING DIMENS  
+     4 READING OIL     
+     5 READING WATER   
+     6 READING LAB     
+     7 READING EQLDIMS 
+     8 READING TABDIMS 
+     9 READING REGDIMS 
+    10 READING WELLDIMS
+    11 READING NSTACK  
+    12 READING START   
+    13 READING UNIFOUT 
+    14 READING GRID    
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS              
+ @                 2653 KBYTES                                               
+    16 READING INIT    
+    17 READING GRIDFILE
+    18 READING DX      
+    19 READING DY      
+    20 READING DZ      
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  1,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  2,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  3,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  4,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  5,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  6,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  7,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  8,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  9,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK ( 10,  1,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ILLEGAL NEGATIVE VALUE       -1.140                             
+ @           ENTERED FOR BLOCK (  1,  2,  1) OF KEYWORD DZ                   
+ @           VALUE RESET TO 0.                                               
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @                                                                           
+ @           RUN STOPPED BECAUSE NUMBER OF   ERRORS                          
+ @           EXCEEDS MAXIMUM PERMITTED VALUE (    10).                       
+            8 Mbytes of storage required                         
+  No active cells found                                          
+          149 Mbytes (image size)                                
+
+ Error summary 
+ Comments               0
+ Warnings               0
+ Problems               0
+ Errors                12
+ Bugs                   0
+ Final cpu       0.10 elapsed       0.52
+ Total number of time steps forced to be accepted          0
+Sender: LSF System <f_lsf@st-rst16-01-15>
+Subject: Job 984408: <eclipse CORE_TEST> in cluster <STAVANGER> Done
+
+Job <eclipse CORE_TEST> was submitted from host <st-grid03> by user <thif> in cluster <STAVANGER>.
+Job was executed on host(s) <st-rst16-01-15>, in queue <daily>, as user <thif> in cluster <STAVANGER>.
+</private/thif> was used as the home directory.
+</private/thif/Python/OpenDect/temp> was used as the working directory.
+Started at Sun Jan 29 21:01:58 2017
+Results reported on Sun Jan 29 21:02:03 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/private/thif/Python/OpenDect/temp/CORE_TEST.job
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               1.36 sec.
+    Total Requested Memory : 512.00 MB
+    Delta Memory :           -
+    (Delta: the difference between Total Requested Memory and Max Memory.)
+
+The output (if any) follows:
+
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+stty: standard input: Inappropriate ioctl for device
+stty: standard input: Inappropriate ioctl for device
