@@ -11,6 +11,6 @@ Here are described the major steps in the code:
 6. The relative permeabilities are history-matched using ERT Ensemble
 
 ##Dependencies
-pydicom python library
+Python libraries : PyQt4, pydicom
 
 ##License
