@@ -22,6 +22,7 @@ from matplotlib import pyplot as plt
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 from Tools.CoreSimulation import *
 from Tools.CTUpscaling import *
+from Tools.Optimization import *
 import dicom
 import os
 import sys
@@ -535,6 +536,7 @@ class Ui_MainWindow(object):
 	self.grid  = QtGui.QGridLayout(self.widget)
 	self.pushButton_3.clicked.connect(self.CreateGrid)
 	self.pushButton_4.clicked.connect(self.Simulate)
+	self.pushButton_5.clicked.connect(self.Optimize)
 	self.pushButton.clicked.connect(self.GetHighEnergy)
 	self.pushButton_2.clicked.connect(self.GetLowEnergy)
 	self.horizontalSlider.valueChanged.connect(self.UpdatePaddingTop)
@@ -617,16 +619,27 @@ class Ui_MainWindow(object):
     		self.progressBar.setProperty("value", value)
     	elif flag==2:
     		self.progressBar_2.setProperty("value", value)
+	app.processEvents()
+    
+    def Writetoconsole(self,Text,Clear=False):
+    	if Clear:self.textEdit_2.clear()
+	self.textEdit_2.append(Text)
+	app.processEvents()
+	
+    def ParseInput(self):
+    	RawInput=self.textEdit.toPlainText()
+	Hist=[str(row) for row in RawInput.split("\n")]
+	return Hist
+	
     		
     def Simulate(self):
-    	self.GetValues()
-    	self.textEdit_2.clear()
-    	WriteDATAfile(self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,4.3,2.5,1,self.Swir,0.15,1,5,1,0.86,0,0,1,1)
+    	self.GetValues()    	
+    	WriteDATAfile(self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,4.3,2.5,1,self.Swir,0.15,1,5,1,0.86,0,0,1,1,self.nCycle,self.clength)
     	self.SetProgress(33,2)
-    	self.textEdit_2.append("Running Eclipse...")
+    	self.Writetoconsole("Running Eclipse...",True)
     	RunEclipse("temp/CORE_TEST.DATA")
     	self.SetProgress(66,2)
-    	self.textEdit_2.append("Plotting Results...")
+    	self.Writetoconsole("Plotting Results...")
     	FOPT,DIFF=PlotEclipseResults("temp/CORE_TEST",self.ExpParams,self.Orientation,self.nblocks,self.nblocks_z)
     	plt.clf()
     	fig  = plt.figure(facecolor="white")
@@ -637,7 +650,14 @@ class Ui_MainWindow(object):
     	self.widget.setLayout(self.grid)
     	self.widget.show()
     	self.SetProgress(0,2)
-    	self.textEdit_2.append("Simulation Finished")
+    	self.Writetoconsole("Simulation Finished")
+	
+    def Optimize(self):
+   	self.hist=self.ParseInput()
+    	self.Writetoconsole("Running Optimization...",True)
+    	lb = [0,0,0,0,0.2,0,0,0,0,0,0.25,0.25]
+    	ub = [5,5,5,0.5,1,5,5,5,10,10,2,2]       
+    	xopt,fopt = pso(Swarm, lb, ub,args=(self.hist),swarmsize=10,maxiter = 1,debug=True)
     	
     def CreateGrid(self):
     	    if self.LowEnergyPath=="" or self.HighEnergyPath=="":
@@ -646,8 +666,8 @@ class Ui_MainWindow(object):
 		    return
 		    
 	    self.GetValues()
-	    self.textEdit_2.clear()
-    	    self.textEdit_2.append("Reading DICOM Files...")
+	    
+    	    self.Writetoconsole("Reading DICOM Files...",True)
     	    files=[f for f in os.listdir(self.LowEnergyPath)]
     	    files2=[f for f in os.listdir(self.HighEnergyPath)]
     	    files=sorted(files)
@@ -683,9 +703,9 @@ class Ui_MainWindow(object):
     			PORO=np.zeros(shape=(nblocks_z,nblocks,nblocks))
     			ACTNUM=np.zeros(shape=(nblocks_z,nblocks,nblocks))
     			PERMX=np.zeros(shape=(nblocks_z,nblocks,nblocks))
-    			self.textEdit_2.append("Cropping values:"+"top:"+str(self.Padding_top)+"mm,bottom:"+str(self.Padding_bottom)+"mm")
-    			self.textEdit_2.append("Offset values:"+"x:"+str(self.Offsetx)+"mm,y:"+str(self.Offsety)+"mm")
-    			self.textEdit_2.append("Grid size:"+str(nblocks)+","+str(nblocks)+","+str(nblocks_z))
+    			self.Writetoconsole("Cropping values:"+"top:"+str(self.Padding_top)+"mm,bottom:"+str(self.Padding_bottom)+"mm")
+    			self.Writetoconsole("Offset values:"+"x:"+str(self.Offsetx)+"mm,y:"+str(self.Offsety)+"mm")
+    			self.Writetoconsole("Grid size:"+str(nblocks)+","+str(nblocks)+","+str(nblocks_z))
     
     		parameters=[2650,1,-0.77,1.98,1007,36597.06,-35330.83,233946.02]
     		x, y = np.meshgrid(np.arange(x1.shape[0]), np.arange(x1.shape[1]),indexing='ij')
@@ -721,8 +741,8 @@ class Ui_MainWindow(object):
     	    PERMX=10**(PORO/0.1)
     	    PERMX[PERMX<10]=10
     	    
-    	    self.textEdit_2.append("Average Porosity:"+str(np.mean(PORO[PORO!=0])))
-    	    self.textEdit_2.append("Average Permeability:"+str(np.mean(PERMX)))
+    	    self.Writetoconsole("Average Porosity:"+str(np.mean(PORO[PORO!=0])))
+    	    self.Writetoconsole("Average Permeability:"+str(np.mean(PERMX)))
     	    self.nblocks=nblocks
     	    self.nblocks_z=nblocks_z
     	    fig  = plt.figure(facecolor="white")
@@ -733,7 +753,7 @@ class Ui_MainWindow(object):
     	    permx_string="PERMX\n"
     	    nz=0
     
-    	    self.textEdit_2.append("Creating Grid Properties...")
+    	    self.Writetoconsole("Creating Grid Properties...")
     	    if self.Orientation=="Vertical":
     		for k in range(0,nblocks_z):
     		    for j in range(0,nblocks):
@@ -806,7 +826,7 @@ class Ui_MainWindow(object):
     	    WriteString(actnum_string,"temp/ACTNUM.INC")
     	    WriteString(Poro_string,"temp/PORO.INC")
 	    WriteString(permx_string,"temp/PERMX.INC")
-	    self.textEdit_2.append("Grid Generated")
+	    self.Writetoconsole("Grid Generated")
 	    
 if __name__ == '__main__':
    	app = QApplication(sys.argv)

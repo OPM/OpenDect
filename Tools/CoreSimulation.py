@@ -226,7 +226,7 @@ def WriteString(string,FILE):
     f.write(string)
     f.close()
 
-def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co,Aw,Ao):
+def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co,Aw,Ao,nCycle,clength):
     stringlist=[]
     Crop_pct=float(Crop_pct)
     Swcr=float(Swcr)
@@ -278,7 +278,7 @@ def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblo
         if Method=="USS":
             stringlist+="WELSPECS\nINJ1 G "+str(int(float(nblocks)/2)+1)+"\t"+str(int(float(nblocks)/2)+1)+" 1* WATER  /\nPROD1 G "+str(int(float(nblocks)/2)+1)+"\t"+str(int(float(nblocks)/2)+1)+" 1* OIL  /\n/\n"
             stringlist+="COMPDAT\nINJ1 2*   1 1 OPEN 2* 0.01 3* Z /\nPROD1 2* "+str(nblocks_z)+" \t"+str(nblocks_z)+" OPEN 2* 0.01 3* Z /\n/\n"
-            stringlist+="WCONPROD\nPROD1 OPEN BHP 5* 1 /\n/\nWCONINJE\nINJ1 WATER OPEN RATE "+str(WaterRate)+" /\n/\nTSTEP\n100*0.017/\n"
+            stringlist+="WCONPROD\nPROD1 OPEN BHP 5* 1 /\n/\nWCONINJE\nINJ1 WATER OPEN RATE "+str(WaterRate)+" /\n/\nTSTEP\n"+str(clength)+"*0.017/\n"
         else:
             stringlist+="WELSPECS\nINJ1 G "+str(int(float(nblocks)/2)+1)+"\t"+str(int(float(nblocks)/2)+1)+" 1* WATER  /\nINJ2 G "+str(int(float(nblocks)/2)+1)+"\t"+str(int(float(nblocks)/2)+1)+" 1* OIL  /\nPROD1 G "+str(int(float(nblocks)/2)+1)+"\t"+str(int(float(nblocks)/2)+1)+" 1* OIL  /\n/\n"
             stringlist+="COMPDAT\nINJ1 2*   1 1 OPEN 2* 0.01 3* Z /\nINJ2 2*   1 1 OPEN 2* 0.01 3* Z /\nPROD1 2* "+str(nblocks_z)+" \t"+str(nblocks_z)+" OPEN 2* 0.01 3* Z /\n/\n"
@@ -321,7 +321,7 @@ def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblo
         if Method=="USS":
             stringlist+="WELSPECS\nINJ1 G 1 "+str(int(float(nblocks)/2)+1)+" 1* WATER  /\nPROD1 G "+str(int(float(nblocks_z)))+"\t"+str(int(float(nblocks)/2)+1)+" 1* OIL  /\n/\n"
             stringlist+="COMPDAT\nINJ1 2*   "+str(int(float(nblocks)/2)+1)+" \t"+str(int(float(nblocks)/2)+1)+" OPEN 2* 0.01 3* Z /\nPROD1 2* "+str(int(float(nblocks)/2)+1)+" \t"+str(int(float(nblocks)/2)+1)+" OPEN 2* 0.01 3* Z /\n/\n"
-            stringlist+="WCONPROD\nPROD1 OPEN BHP 5* 1 /\n/\nWCONINJE\nINJ1 WATER OPEN RATE "+str(WaterRate)+" /\n/\nTSTEP\n100*0.017/\n"
+            stringlist+="WCONPROD\nPROD1 OPEN BHP 5* 1 /\n/\nWCONINJE\nINJ1 WATER OPEN RATE "+str(WaterRate)+" /\n/\nTSTEP\n"+str(clength)+"*0.017/\n"
         else:
             stringlist+="WELSPECS\nINJ1 G 1 "+str(int(float(nblocks)/2)+1)+" 1* WATER  /\nINJ2 G 1 "+str(int(float(nblocks)/2)+1)+" 1* OIL  /\nPROD1 G "+str(int(float(nblocks_z)))+"\t"+str(int(float(nblocks)/2)+1)+" 1* OIL  /\n/\n"
             stringlist+="COMPDAT\nINJ1 2*   "+str(int(float(nblocks)/2)+1)+" \t"+str(int(float(nblocks)/2)+1)+" OPEN 2* 0.01 3* Z /\nINJ2 2*   "+str(int(float(nblocks)/2)+1)+" \t"+str(int(float(nblocks)/2)+1)+" OPEN 2* 0.01 3* Z /\nPROD1 2* "+str(int(float(nblocks)/2)+1)+" \t"+str(int(float(nblocks)/2)+1)+" OPEN 2* 0.01 3* Z /\n/\n"
