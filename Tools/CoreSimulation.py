@@ -40,8 +40,11 @@ def GetRGB(poro):
 		G=-2*poro+2
 		B=0
 	if R>1:R=1
+	if R<0:R=0
 	if G>1:G=1
+	if G<0:G=0
 	if B>1:B=1
+	if B<0:B=0
 	return R,G,B
 	
 def create_SWFN_LET_Skj(Lw,Ew,Tw, Swcr,Sorw,Krwmax,Cw,Co,Aw,Ao):
@@ -381,9 +384,8 @@ def PlotEclipseResults(CASE,ExpParams,Orientation,nblocks,nblocks_z):
                 FWPT_values+=[node2.value-node6.value]
                 DIFF+=[abs(node3.value-node4.value)/abs(BPR_IN_init/BPR_OUT_init)]
     
-    plt.clf()
-    plt.plot(FOPT_values,'g',DIFF,'r')
-    plt.show()
+    return FOPT_values,DIFF
+
   
 
 
