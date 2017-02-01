@@ -26,7 +26,7 @@ def GetMult(rows):
     while found==False:
         istart=int(round(math.sqrt(rows)))
         for i in range(istart,rows):
-            if rows%i==0 and i>=10:
+            if rows%i==0:
                 found=True
                 return max(i,rows/i),min(i,rows/i)
         rows+=1

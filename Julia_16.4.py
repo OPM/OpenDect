@@ -26,6 +26,7 @@ from Tools.Optimization import *
 import dicom
 import os
 import sys
+import gc
 from os import listdir
 from mpl_toolkits.mplot3d import Axes3D
 from decimal import Decimal
@@ -653,12 +654,71 @@ class Ui_MainWindow(object):
     	self.Writetoconsole("Simulation Finished")
 	
     def Optimize(self):
+        self.GetValues()
    	self.hist=self.ParseInput()
     	self.Writetoconsole("Running Optimization...",True)
     	lb = [0,0,0,0,0.2,0,0,0,0,0,0.25,0.25]
     	ub = [5,5,5,0.5,1,5,5,5,10,10,2,2]       
-    	xopt,fopt = pso(Swarm, lb, ub,args=(self.hist),swarmsize=10,maxiter = 1,debug=True)
-    	
+    	best=Swarm(self.hist,10,3,lb,ub,1,self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,self.nCycle,self.clength,self.Swir)
+    
+    def CreateDummyGrid(self):
+    	    self.GetValues()
+       	    self.Writetoconsole("Creating Grid Properties...",True)
+	    nblocks_z=6
+	    nblocks=4
+	    
+	    Offsetr=int(nblocks*self.Offsetx/self.Diameter)
+    	    Offsetc=int(nblocks*self.Offsety/self.Diameter)
+	    X=np.ones((nblocks,nblocks))
+	    X=GetMaskedValues(X,Offsetr,Offsetc)
+	    ACTNUM=np.ones((nblocks_z,nblocks,nblocks))
+	    for i in range(0,nblocks_z):
+	    	ACTNUM[i]=X
+		
+	    PERMX=ACTNUM*100
+	    PORO=ACTNUM*0.4
+	    permx_string=""
+	    Poro_string=""
+	    actnum_string=""
+	    nz=0
+	      
+    	    if self.Orientation=="Vertical":
+    		for k in range(0,nblocks_z):
+    		    for j in range(0,nblocks):
+    			for i in range(0,nblocks): 
+    
+    			    porov=PORO[k][j][i]
+    			    permxv=PERMX[k][j][i]
+    			    actnumv=ACTNUM[k][j][i]
+    			    permx_string+=str(int(permxv))+"\t"
+    			    Poro_string+='%.2E'%Decimal(porov)+"\t"
+    			    actnum_string+=str(int(actnumv))+"\t"
+    			    nz+=1
+    
+    			    if nz%4==0:
+    				Poro_string+="\n"
+    				permx_string+="\n"
+    				actnum_string+="\n"
+    
+    			    self.SetProgress(float(k)/nblocks_z*100,1)
+    	    else:
+    		for i in range(0,nblocks):
+    		    for j in range(0,nblocks):
+    			for k in range(0,nblocks_z):
+    			    porov=PORO[k][j][i]
+    			    permxv=PERMX[k][j][i]
+    			    actnumv=ACTNUM[k][j][i]
+    			    permx_string+=str(int(permxv))+"\t"
+    			    Poro_string+='%.2E'%Decimal(porov)+"\t"
+    			    actnum_string+=str(int(actnumv))+"\t"
+    			    nz+=1
+                        
+    			    if nz%4==0:
+    					Poro_string+="\n"
+    					permx_string+="\n"
+    					actnum_string+="\n"
+    			    self.SetProgress(float(k)/nblocks_z*100,1)
+	    
     def CreateGrid(self):
     	    if self.LowEnergyPath=="" or self.HighEnergyPath=="":
 		    self.textEdit_2.clear()
@@ -831,6 +891,7 @@ class Ui_MainWindow(object):
 if __name__ == '__main__':
    	app = QApplication(sys.argv)
 	Mainwindow = QMainWindow()
+	gc.disable()
 	ui = Ui_MainWindow()	
    	ui.setupUi(Mainwindow)
     	Mainwindow.show()

@@ -17,7 +17,6 @@
    along with OPM.  If not, see <http://www.gnu.org/licenses/>. 
 '''
 
-import matplotlib.pyplot as plt
 import os
 import subprocess
 import ert.ecl as ecl

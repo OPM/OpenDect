@@ -1,14 +1,14 @@
 
  Error summary 
  Comments               1
- Warnings              12
- Problems               0
+ Warnings               2
+ Problems               2
  Errors                 0
  Bugs                   0
 
                
  This was an ECLIPSE 100 run. 4 diagnostics follow:-
- Newtons              323
- Linears             1908
- TCPU           1.750    
- ELAPSED        3.900    
+ Newtons               44
+ Linears              239
+ TCPU          0.3800    
+ ELAPSED        3.140    
