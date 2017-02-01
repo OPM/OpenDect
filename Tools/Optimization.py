@@ -1,7 +1,69 @@
-from pyswarm import pso
 from Tools.Coresimulation import WriteDATAfile
+import numpy as np
+import random
 
-def Swarm(x,*hist):
+def Swarm(hist,imax,n,pmin,pmax,treshold):
+    
+    #Get parameters from inputs
+    ndim=len(pmax)
+
+    #Initialization 
+    p=np.zeros((ndim,n)) #Random parameter value for each particles
+    for k in range(0,ndim):
+        pk=np.random.rand(n,1)*(pmax[k]-pmin[k])+pmin[k]
+        p[k]=pk.T
+    
+    pbest=p # Initial best value set equal to initial value
+    gbest=np.zeros(ndim) # Initial global best value set equal to 0 for all parameters
+    v=np.zeros((ndim,n)) # speed for each particles
+    p_out=np.zeros(n) # Output for the current particle position
+    pb_out=np.zeros(n) # Best personnal output for the particle
+    gb_out=np.zeros(0) # Best global output for the swarm
+    
+    for i in range(0,n):
+        pb_out[i]=Swarmfunction(pbest[:,i],hist)
+    
+    gb_out=pb_out[0]
+       
+    #Main Loop
+    
+    for epoch in range(0,imax):
+        
+        #Test if the new point is a personnal best
+        if epoch<>0:
+            for i in range(0,n):
+                p_out[i]=Swarmfunction(p[:,i],hist)
+                
+            for i in range(0,n):    
+                if p_out[i]<pb_out[i]:
+                    for k in range(0,ndim):
+                        pbest[k,i]=p[k,i]
+                pb_out[i]=p_out[i]
+                    
+        #Check if the new personnal best is the global best
+        for i in range(0,n):     
+            if pb_out[i]<gb_out:
+                for k in range(0,ndim):
+                    gbest[k]=pbest[k,i]
+                gb_out=pb_out[i]
+        
+        #Stop the function if global best output below treshold
+        if gb_out<treshold:
+            print "Global best below treshold:"+str(gbest)+"after "+str(epoch)+" iterations"
+            return gbest
+            break
+        
+        #Update speed of each particle
+        for i in range(0,n):
+            for k in range(0,ndim):
+                v[k,i]=0.1*v[k,i]+1.5*random.random()*(pbest[k,i]-p[k,i])+2.5*random.random()*(gbest[k]-p[k,i])
+                p[k,i]+=v[k,i]
+    
+    
+    print "Global best after max iteration:"+str(gbest)      
+    return gbest
+    
+def Swarmfunction(x,*hist):
     Lw = x[0]
     Ew = x[1] 
     Tw = x[2]
@@ -40,3 +102,4 @@ def Swarm(x,*hist):
     
 
     return np.sum(DELTA[1]+DELTA[2])
+
