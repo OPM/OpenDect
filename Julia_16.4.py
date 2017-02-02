@@ -798,7 +798,9 @@ class Ui_MainWindow(object):
     
     	    #PORO=PORO*1.7
     	    ACTNUM[ACTNUM!=0]=1
-    	    PERMX=10**(PORO/0.1)
+    	    #PERMX=10**(PORO/0.1)
+            #Poro-perm correlation with percolation threshold
+            PERMX=5*(PORO-0.05)**3.12*PORO*1E5
     	    PERMX[PERMX<10]=10
     	    
     	    self.Writetoconsole("Average Porosity:"+str(np.mean(PORO[PORO!=0])))
