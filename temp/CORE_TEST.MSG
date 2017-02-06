@@ -7,7 +7,7 @@
 </message>
 <message date="12/10/2015" time="0.00000000000000">
  THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
-     769220 BYTES                                                        
+     213988 BYTES                                                        
 </message>
 <message date="12/10/2015" time="0.00000000000000">
  NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
@@ -18,7 +18,7 @@
  NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
 </comment>
 <message date="12/10/2015" time="0.00000000000000">
- NUMBER OF ACTIVE CELLS IS 1034                                          
+ NUMBER OF ACTIVE CELLS IS 65                                            
 </message>
 <warning date="12/10/2015" time="0.00000000000000">
  NSTACK =     50   WHICH EXCEEDS THE                                     
@@ -31,7 +31,7 @@
 </warning>
 <message date="12/10/2015" time="0.00000000000000">
  THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
-       2013 KBYTES                                                       
+     953828 BYTES                                                        
 </message>
 <message date="12/10/2015" time="0.00000000000000">
     62244 CHARACTER VARIABLES USED                                       
@@ -48,24 +48,10 @@
  OPENING WELL INJ1     AT TIME      0.00   HOURS                         
  CONTROLLED BY WATER RATE                                                
 </message>
-<problem date="12/10/2015" time="0.00000000000000">
- NON-LINEAR EQUATION CONVERGENCE FAILURE                                 
- ITERATION LIMIT REACHED - BUT TIME STEP                                 
- ACCEPTED BECAUSE IT IS TOO SMALL TO CHOP.                               
- USE KEYWORD MESSOPTS TO MODIFY THE SEVERITY CODE FOR                    
- MESSAGES REPORTING TIME STEPS FORCED TO BE ACCEPTED.                    
-</problem>
 <message date="12/10/2015" time="0.01700000000000">
  RESTART FILE WRITTEN   REPORT     1                                     
  RESTART INCLUDES FLUIDS IN PLACE                                        
 </message>
-<problem date="12/10/2015" time="0.01700000000000">
- NON-LINEAR EQUATION CONVERGENCE FAILURE                                 
- ITERATION LIMIT REACHED - BUT TIME STEP                                 
- ACCEPTED BECAUSE IT IS TOO SMALL TO CHOP.                               
- USE KEYWORD MESSOPTS TO MODIFY THE SEVERITY CODE FOR                    
- MESSAGES REPORTING TIME STEPS FORCED TO BE ACCEPTED.                    
-</problem>
 <message date="12/10/2015" time="0.03400000000000">
  RESTART FILE WRITTEN   REPORT     2                                     
  RESTART INCLUDES FLUIDS IN PLACE                                        

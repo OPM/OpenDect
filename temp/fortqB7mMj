@@ -1,0 +1,2 @@
+RPTSCHED
+'FIP=3' 'RESTART=2'  'WELLS=5'  'SUMMARY=2' 'RS' 'SGAS'  'SOIL'  'SWAT' 'PRESSURE' 'CPU=1' 'NEWTON=1'/                              

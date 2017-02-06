@@ -67,15 +67,16 @@ def GetMaskedValues(x,Offsetr,Offsetc):
 
 	# A circle shape is generated based on the diameter and the x/y offsets
     n=x.shape[0]
+    
     a=n/2+Offsetc
     b=n/2+Offsetr
     r=n/2
 
     ny,nx = np.ogrid[-a:n-a, -b:n-b]
     	# The mask will apply to the values inside the circle
-    	
-    mask = nx*nx + ny*ny > r*r
+    mask = (nx*nx + ny*ny > r*r)
     x[mask]=0
+	
     return x
     
 def GetMaskedValues2(x,Offsetr,Offsetc,Crop_pct,Diameter):

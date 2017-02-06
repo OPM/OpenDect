@@ -24,7 +24,7 @@ import os
 import subprocess
 import ert.ecl as ecl
 
-def Swarm(hist,imax,n,pmin,pmax,treshold,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,nCycle,clength,Swcr):
+def Swarm(hist,imax,n,pmin,pmax,treshold,window,app):
     
     #Get parameters from inputs
     ndim=len(pmax)
@@ -43,7 +43,7 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,ExpParams,Orientation,Padding_top,Paddi
     gb_out=np.zeros(0) # Best global output for the swarm
     
     for i in range(0,n):
-        pb_out[i]=Swarmfunction(pbest[:,i],hist,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,nCycle,clength,Swcr)
+        pb_out[i]=Swarmfunction(pbest[:,i],window.hist,window.ExpParams,window.Orientation,window.Padding_top,window.Padding_bottom,window.Crop_pct,window.nblocks,window.nblocks_z,window.nCycle,window.clength,window.Swir)
     
     gb_out=pb_out[0]
        
@@ -54,7 +54,7 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,ExpParams,Orientation,Padding_top,Paddi
         #Test if the new point is a personnal best
         if epoch<>0:
             for i in range(0,n):
-                p_out[i]=Swarmfunction(p[:,i],hist,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,nCycle,clength,Swcr)
+                p_out[i]=Swarmfunction(p[:,i],window.hist,window.ExpParams,window.Orientation,window.Padding_top,window.Padding_bottom,window.Crop_pct,window.nblocks,window.nblocks_z,window.nCycle,window.clength,window.Swir)
                 
             for i in range(0,n):    
                 if p_out[i]<pb_out[i]:
@@ -81,6 +81,15 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,ExpParams,Orientation,Padding_top,Paddi
                 v[k,i]=0.1*v[k,i]+1.5*random.random()*(pbest[k,i]-p[k,i])+2.5*random.random()*(gbest[k]-p[k,i])
                 p[k,i]+=v[k,i]
     	print "Current Best values:"+str(gbest)+" with "+str(gb_out)
+	window.label_24.setText(str(gbest[5]))
+	window.label_25.setText(str(gbest[6]))
+	window.label_26.setText(str(gbest[7]))
+	window.label_27.setText(str(gbest[0]))
+	window.label_30.setText(str(gbest[1]))
+	window.label_29.setText(str(gbest[2]))
+	window.label_32.setText(str(gbest[3]))
+	window.label_34.setText(str(gbest[4]))
+	app.processEvents()
     
     print "Global best after max iteration:"+str(gbest)+" with "+str(gb_out)      
     return gbest

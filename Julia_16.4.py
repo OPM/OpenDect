@@ -618,8 +618,8 @@ class Ui_MainWindow(object):
     	self.Water_compressibility=float(self.lineEdit_8.text())
     	self.Oil_viscosity=float(self.lineEdit_5.text())
     	self.Water_viscosity=float(self.lineEdit_6.text())
-    	self.nblocks_z=int(self.spinBox_3.value())
-    	self.nblocks=int(self.spinBox_4.value())
+    	self.nblocks_z=int(self.spinBox_4.value())
+    	self.nblocks=int(self.spinBox_3.value())
     	self.Dummyporo=float(self.lineEdit_19.text())
     	self.Dummyperm=float(self.lineEdit_20.text())
     	self.ExpParams=[self.WaterRate,self.Oil_density,self.Water_density,self.Oil_compressibility,self.Water_compressibility,self.Oil_viscosity,self.Water_viscosity,self.Swir,self.Method]
@@ -715,17 +715,14 @@ class Ui_MainWindow(object):
     	self.Writetoconsole("Running Optimization...",True)
     	lb = [0,0,0,0,0.2,0,0,0,0,0,0.25,0.25]
     	ub = [5,5,5,0.5,1,5,5,5,10,10,2,2]       
-    	best=Swarm(self.hist,10,3,lb,ub,1,self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,self.nCycle,self.clength,self.Swir)
+    	best=Swarm(self.hist,10,3,lb,ub,1,self,app)
     
     def CreateDummyGrid(self):
     	    self.GetValues()
        	    self.Writetoconsole("Creating Grid Properties...",True)
-	    nblocks_z=self.nblocks
-	    nblocks=self.nblocks_z
+	    nblocks_z=self.nblocks_z
+	    nblocks=self.nblocks
 	    
-	    if nblocks%2==0:
-	    	self.Writetoconsole("Warning: Cannot handle even number of gridblocks, the number has been increased by 1 unit")
-	    	nblocks+=1
 	    	
 	    n=self.Diameter/nblocks
 	    n_z=1000/nblocks_z
@@ -742,10 +739,10 @@ class Ui_MainWindow(object):
 		
 	    PERMX=ACTNUM*self.Dummyperm
 	    PORO=ACTNUM*self.Dummyporo
-	    permx_string=""
-	    Poro_string=""
-	    actnum_string=""
-	    nz=0
+    	    Poro_string="PORO\n"
+    	    actnum_string="ACTNUM\n"
+    	    permx_string="PERMX\n"
+    	    nz=0
 	      
     	    if self.Orientation=="Vertical":
     		for k in range(0,nblocks_z):
@@ -801,12 +798,12 @@ class Ui_MainWindow(object):
 			    Z,Z = np.meshgrid(z, z)
     			    R,G,B=GetRGB(porov)
 			    if ACTNUM[k][j][i]==1:
-				if k==0 :
+				if k==0 and j>=nblocks/2:
 				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.5) )
-				if k==nblocks_z-1 :
+				if k==nblocks_z-1 and j>=nblocks/2:
 				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.5) )
 				if j==nblocks/2:
-				    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.1) )
+				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.5) )
         			    
     	    canv = FigureCanvas(fig)   
     	    self.grid.addWidget(canv, 0, 0)
@@ -838,8 +835,10 @@ class Ui_MainWindow(object):
     	    Padding_top=self.Padding_top*length/1000  #avoid slices at the beginning
     	    Padding_bottom=self.Padding_bottom*length/1000# avoid Slices at the end
     	    nslices=length-Padding_bottom-Padding_top
-    	    nblocks_z,n_z=GetMult(nslices)
-    	    firstime=True
+    	    #nblocks_z,n_z=GetMult(nslices)
+    	    nblocks_z=self.nblocks_z
+	    n_z=nslices/nblocks_z
+	    firstime=True
     	    i=0
     	    CoreSurface=[]
     
@@ -861,7 +860,9 @@ class Ui_MainWindow(object):
     		x2=GetMaskedValues2(ds2.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
     
     		if (firstime):
-    			n,nblocks=GetMult(x1.shape[0])
+    			#n,nblocks=GetMult(x1.shape[0])
+			nblocks=self.nblocks
+	    		n=nslices/nblocks
     			PORO=np.zeros(shape=(nblocks_z,nblocks,nblocks))
     			ACTNUM=np.zeros(shape=(nblocks_z,nblocks,nblocks))
     			PERMX=np.zeros(shape=(nblocks_z,nblocks,nblocks))
@@ -976,12 +977,12 @@ class Ui_MainWindow(object):
 			    Z,Z = np.meshgrid(z, z)
     			    R,G,B=GetRGB(porov)
 			    if ACTNUM[k][j][i]==1:
-				if k==0 :
+				if k==0 and j>=nblocks/2:
 				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.5) )
-				if k==nblocks_z-1 :
+				if k==nblocks_z-1 and j>=nblocks/2:
 				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.5) )
 				if j==nblocks/2:
-				    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.1) )
+				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.5) )
     				    
 	    canv = FigureCanvas(fig)   
 	    self.grid.addWidget(canv, 0, 0)
