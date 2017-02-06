@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1211</width>
-    <height>579</height>
+    <height>644</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>341</width>
-      <height>524</height>
+      <width>336</width>
+      <height>590</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -252,7 +252,14 @@
        </widget>
       </item>
       <item>
-       <spacer name="verticalSpacer_2">
+       <widget class="QPushButton" name="pushButton_3">
+        <property name="text">
+         <string>Create Upscaled model</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_3">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
         </property>
@@ -265,11 +272,80 @@
        </spacer>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_3">
+       <widget class="QSplitter" name="splitter_8">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_36">
+         <property name="text">
+          <string>Dimensions (XY,Z)</string>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spinBox_3">
+         <property name="value">
+          <number>5</number>
+         </property>
+        </widget>
+        <widget class="QSpinBox" name="spinBox_4">
+         <property name="value">
+          <number>5</number>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter_9">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_37">
+         <property name="text">
+          <string>Porosity</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_19">
+         <property name="text">
+          <string>0.2</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter_10">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_38">
+         <property name="text">
+          <string>Permeability</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_20">
+         <property name="text">
+          <string>200</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_6">
         <property name="text">
-         <string>Create Upscaled model</string>
+         <string>Create Dummy Model</string>
         </property>
        </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer_2">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>24</height>
+         </size>
+        </property>
+       </spacer>
       </item>
       <item>
        <widget class="QProgressBar" name="progressBar">
@@ -290,7 +366,16 @@
      <zorder>splitter_7</zorder>
      <zorder>progressBar</zorder>
      <zorder>pushButton_3</zorder>
+     <zorder>spinBox_4</zorder>
+     <zorder>spinBox_3</zorder>
+     <zorder>label_36</zorder>
+     <zorder>pushButton_6</zorder>
      <zorder>verticalSpacer_2</zorder>
+     <zorder>label_37</zorder>
+     <zorder>label_38</zorder>
+     <zorder>lineEdit_19</zorder>
+     <zorder>lineEdit_20</zorder>
+     <zorder>verticalSpacer_3</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -542,6 +627,13 @@
        </widget>
       </item>
       <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>Run Simulation</string>
+        </property>
+       </widget>
+      </item>
+      <item>
        <spacer name="verticalSpacer">
         <property name="orientation">
          <enum>Qt::Vertical</enum>
@@ -553,13 +645,6 @@
          </size>
         </property>
        </spacer>
-      </item>
-      <item>
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="text">
-         <string>Run Simulation</string>
-        </property>
-       </widget>
       </item>
       <item>
        <widget class="QProgressBar" name="progressBar_2">
@@ -1002,7 +1087,7 @@
       <item>
        <widget class="QProgressBar" name="progressBar_3">
         <property name="value">
-         <number>24</number>
+         <number>0</number>
         </property>
        </widget>
       </item>
@@ -1015,7 +1100,7 @@
       <x>350</x>
       <y>20</y>
       <width>581</width>
-      <height>501</height>
+      <height>571</height>
      </rect>
     </property>
    </widget>
@@ -1025,13 +1110,17 @@
       <x>940</x>
       <y>20</y>
       <width>261</width>
-      <height>491</height>
+      <height>471</height>
      </rect>
     </property>
     <property name="readOnly">
      <bool>true</bool>
     </property>
    </widget>
+   <zorder>tabWidget</zorder>
+   <zorder>widget</zorder>
+   <zorder>textEdit_2</zorder>
+   <zorder>progressBar</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
