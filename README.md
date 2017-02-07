@@ -1,4 +1,8 @@
-# OpenDect
+     _____ _____ _____ _____ ____  _____ _____ _____ 
+    |     |  _  |   __|   | |    \|   __|     |_   _|
+    |  |  |   __|   __| | | |  |  |   __|   --| | |  
+    |_____|__|  |_____|_|___|____/|_____|_____| |_|  
+  
 3D Core simulation tool based on CT-images
 ## Structure
 Here are described the major steps in the code:
@@ -11,6 +15,10 @@ Here are described the major steps in the code:
 6. The relative permeabilities are history-matched using Swarm algorithm (possibly ERT Ensemble at some stage)
 
 ##Dependencies
-Python libraries : PyQt4, pydicom
+- PyQt4
+- [pydicom] (http://pydicom.readthedocs.io/en/stable/getting_started.html)
+- [Ensemble/ERT] (https://github.com/Ensembles/ert)
+- OPM Flow
 
 ##License
+GPLv3+
