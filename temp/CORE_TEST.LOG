@@ -35,109 +35,202 @@
 
  @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
  @           THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS              
- @                 2653 KBYTES                                               
+ @               213988 BYTES                                                
     16 READING INIT    
     17 READING GRIDFILE
     18 READING DX      
     19 READING DY      
     20 READING DZ      
+    21 READING TOPS    
+    22 READING INCLUDE PORO.INC                                                                                                                            
+    23 READING PORO    
 
  @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  1,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @           TOO MUCH DATA FOR BOX (  1-  5,  1-  5,  1-  5)                 
+ @           OF KEYWORD PORO     - SURPLUS IGNORED                           
+               END OF INCLUDE FILE 
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           SPURIOUS DATA BEFORE INCLUDE  KEYWORD                           
+ @           5.00E-02	5.00E-02	5.00E-02	8.58E-02	                            
+ @           5.00E-02	5.00E-02	5.00E-02	5.00E-02	                            
+ @           5.00E-02	5.00E-02	5.00E-02	5.00E-02	                            
+ @           5.00E-02	5.00E-02	5.00E-02	5.00E-02	                            
+ @           5.00E-02	5.00E-02	5.00E-02	5.00E-02	                            
+ @           5.00E-02	5.00E-02	5.00E-02	5.00E-02	                            
+ @           5.00E-02	5.00E-02	5.00E-02	1.53E-01	                            
+ @           5.00E-02	5.00E-02	5.00E-02	5.00E-02	                            
+ @           /                                                               
+    24 READING INCLUDE PERMX.INC                                                                                                                           
+    25 READING PERMX   
 
  @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  2,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @           TOO MUCH DATA FOR BOX (  1-  5,  1-  5,  1-  5)                 
+ @           OF KEYWORD PERMX    - SURPLUS IGNORED                           
+               END OF INCLUDE FILE 
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  3,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           SPURIOUS DATA BEFORE INCLUDE  KEYWORD                           
+ @           10	10	10	10	                                                    
+ @           10	10	10	10	                                                    
+ @           10	10	10	10	                                                    
+ @           10	10	10	10	                                                    
+ @           10	10	10	10	                                                    
+ @           10	10	10	10	                                                    
+ @           10	10	10	64	                                                    
+ @           10	10	10	10	                                                    
+ @           /                                                               
+    26 READING INCLUDE ACTNUM.INC                                                                                                                          
+    27 READING ACTNUM  
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  4,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           TOO MUCH DATA FOR BOX (  1-  5,  1-  5,  1-  5)                 
+ @           OF KEYWORD ACTNUM   - SURPLUS IGNORED                           
+               END OF INCLUDE FILE 
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  5,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           SPURIOUS DATA BEFORE COPY     KEYWORD                           
+ @           0	0	0	0	                                                        
+ @           0	0	0	0	                                                        
+ @           0	0	0	0	                                                        
+ @           0	0	0	0	                                                        
+ @           0	0	0	0	                                                        
+ @           0	0	0	0	                                                        
+ @           0	0	0	1	                                                        
+ @           0	0	0	0	                                                        
+ @           /                                                               
+    28 READING COPY    
+    29 READING EDIT    
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  6,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                  
+ @           BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                
+ @           USING  OLDTRAN                                                  
+    30 READING PROPS   
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  7,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--COMMENT  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NO NON-NEIGHBOUR CONNECTIONS FOUND                              
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  8,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NUMBER OF ACTIVE CELLS IS 12                                    
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  9,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NSTACK =     50   WHICH EXCEEDS THE                             
+ @           LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .        
+ @           THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED          
+ @           AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.      
+ @           NSTACK WILL BE REDUCED                                          
+ @           TO THE LARGEST LITMAX VALUE IN THE DECK.                        
+ @           SET OPTIONS(256)=1 TO STOP THIS FROM HAPPENING.                 
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK ( 10,  1,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ADDITIONAL     0.000 MEGABYTES REQUIRED FOR SIMULATION          
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @           ILLEGAL NEGATIVE VALUE       -1.140                             
- @           ENTERED FOR BLOCK (  1,  2,  1) OF KEYWORD DZ                   
- @           VALUE RESET TO 0.                                               
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS          
+ @               917900 BYTES                                                
 
- @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
- @                                                                           
- @           RUN STOPPED BECAUSE NUMBER OF   ERRORS                          
- @           EXCEEDS MAXIMUM PERMITTED VALUE (    10).                       
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @              62244 CHARACTER VARIABLES USED                               
+    31 READING SWFN    
+    32 READING SOF2    
+    33 READING DENSITY 
+    34 READING PVCDO   
+    35 READING PVTW    
+    36 READING ROCK    
+    37 READING REGIONS 
+    38 READING SOLUTION
+    39 READING PRESSURE
+    40 READING SWAT    
+    41 READING SUMMARY 
+    42 READING FOPT    
+    43 READING FWPT    
+    44 READING FOIT    
+    45 READING FWIT    
+    46 READING BPR     
+    47 READING RUNSUM  
+    48 READING SCHEDULE
+    49 READING RPTSCHED
+    50 READING WELSPECS
+    51 READING COMPDAT 
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           WELL INJ1     CONNECTS WITH A DEAD BLOCK                        
+ @           (   3   3   1). THIS CONNECTION WILL BE IGNORED.                
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           WELL PROD1    CONNECTS WITH A DEAD BLOCK                        
+ @           (   3   3   5). THIS CONNECTION WILL BE IGNORED.                
+    52 READING WCONPROD
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CONNECTION DATA FOR WELL PROD1    IS MISSING.                   
+ @           THE CONNECTIONS MUST BE DEFINED USING KEYWORD COMPDAT           
+ @           BEFORE THE WELL CONTROL KEYWORD (E.G. WCONPROD).                
+ @           SHUTTING WELL.                                                  
+    53 READING WCONINJE
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE BOTTOM HOLE PRESSURE LIMIT FOR WELL INJ1                    
+ @           HAS BEEN DEFAULTED. THE DEFAULT VALUE IS    6803.  ATMOSA       
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CONNECTION DATA FOR WELL INJ1     IS MISSING.                   
+ @           THE CONNECTIONS MUST BE DEFINED USING KEYWORD COMPDAT           
+ @           BEFORE THE WELL CONTROL KEYWORD (E.G. WCONPROD).                
+ @           SHUTTING WELL.                                                  
+    54 READING TSTEP   
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           WELL INJ1     HAS NO CONNECTIONS WITH THE GRID.                 
+ @           SET THE CONNECTION DATA.                                        
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           WELL PROD1    HAS NO CONNECTIONS WITH THE GRID.                 
+ @           SET THE CONNECTION DATA.                                        
+    55 READING END     
             8 Mbytes of storage required                         
-  No active cells found                                          
+ 687.7327     KB/active cell                                     
           149 Mbytes (image size)                                
 
  Error summary 
- Comments               0
- Warnings               0
+ Comments               1
+ Warnings              12
  Problems               0
- Errors                12
+ Errors                 2
  Bugs                   0
- Final cpu       0.10 elapsed       0.52
+ Final cpu       0.07 elapsed       0.80
  Total number of time steps forced to be accepted          0
-Sender: LSF System <f_lsf@st-rst16-01-15>
-Subject: Job 984408: <eclipse CORE_TEST> in cluster <STAVANGER> Done
+Sender: LSF System <f_lsf@st-rsh00-02-15>
+Subject: Job 30251: <eclipse CORE_TEST> in cluster <STAVANGER> Done
 
 Job <eclipse CORE_TEST> was submitted from host <st-grid03> by user <thif> in cluster <STAVANGER>.
-Job was executed on host(s) <st-rst16-01-15>, in queue <daily>, as user <thif> in cluster <STAVANGER>.
+Job was executed on host(s) <st-rsh00-02-15>, in queue <daily>, as user <thif> in cluster <STAVANGER>.
 </private/thif> was used as the home directory.
-</private/thif/Python/OpenDect/temp> was used as the working directory.
-Started at Sun Jan 29 21:01:58 2017
-Results reported on Sun Jan 29 21:02:03 2017
+</private/thif/Python/OpenDect> was used as the working directory.
+Started at Tue Feb  7 11:52:41 2017
+Results reported on Tue Feb  7 11:52:48 2017
 
 Your job looked like:
 
 ------------------------------------------------------------
 # LSBATCH: User input
-/private/thif/Python/OpenDect/temp/CORE_TEST.job
+/private/thif/Python/OpenDect/temp//CORE_TEST.job
 ------------------------------------------------------------
 
 Successfully completed.
 
 Resource usage summary:
 
-    CPU time :               1.36 sec.
+    CPU time :               0.86 sec.
+    Max Memory :             19 MB
+    Average Memory :         19.00 MB
     Total Requested Memory : 512.00 MB
-    Delta Memory :           -
+    Delta Memory :           493.00 MB
     (Delta: the difference between Total Requested Memory and Max Memory.)
+    Max Swap :               381 MB
+    Max Processes :          4
+    Max Threads :            7
 
 The output (if any) follows:
 

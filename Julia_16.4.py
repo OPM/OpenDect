@@ -623,6 +623,14 @@ class Ui_MainWindow(object):
     	self.Dummyporo=float(self.lineEdit_19.text())
     	self.Dummyperm=float(self.lineEdit_20.text())
     	self.ExpParams=[self.WaterRate,self.Oil_density,self.Water_density,self.Oil_compressibility,self.Water_compressibility,self.Oil_viscosity,self.Water_viscosity,self.Swir,self.Method]
+    	self.Lo=float(self.lineEdit_11.text())
+    	self.Eo=float(self.lineEdit_12.text())
+    	self.To=float(self.lineEdit_13.text())
+    	self.Lw=float(self.lineEdit_16.text())
+    	self.Ew=float(self.lineEdit_15.text())
+    	self.Tw=float(self.lineEdit_14.text())
+    	self.Sorw=float(self.lineEdit_17.text())
+    	self.Krw=float(self.lineEdit_18.text())
     	
     def UpdatePaddingTop(self):
     	self.Padding_top=self.horizontalSlider.value()
@@ -676,6 +684,8 @@ class Ui_MainWindow(object):
     		self.progressBar.setProperty("value", value)
     	elif flag==2:
     		self.progressBar_2.setProperty("value", value)
+    	elif flag==3:
+    		self.progressBar_3.setProperty("value", value)
 	app.processEvents()
     
     def Writetoconsole(self,Text,Clear=False):
@@ -691,7 +701,7 @@ class Ui_MainWindow(object):
     		
     def Simulate(self):
     	self.GetValues()    	
-    	WriteDATAfile(self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,4.3,2.5,1,self.Swir,0.15,1,5,1,0.86,0,0,1,1,self.nCycle,self.clength)
+    	WriteDATAfile(self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,self.Lw,self.Ew,self.Tw,self.Swir,self.Sorw,self.Krw,self.Lo,self.Eo,self.To,0,0,1,1,self.nCycle,self.clength)
     	self.SetProgress(33,2)
     	self.Writetoconsole("Running Eclipse...",True)
     	RunEclipse("temp/CORE_TEST.DATA")
@@ -713,9 +723,11 @@ class Ui_MainWindow(object):
         self.GetValues()
    	self.hist=self.ParseInput()
     	self.Writetoconsole("Running Optimization...",True)
+    	app.processEvents()
     	lb = [0,0,0,0,0.2,0,0,0,0,0,0.25,0.25]
     	ub = [5,5,5,0.5,1,5,5,5,10,10,2,2]       
     	best=Swarm(self.hist,10,3,lb,ub,1,self,app)
+    	self.Writetoconsole("Optimization finished")
     
     def CreateDummyGrid(self):
     	    self.GetValues()
@@ -798,13 +810,51 @@ class Ui_MainWindow(object):
 			    Z,Z = np.meshgrid(z, z)
     			    R,G,B=GetRGB(porov)
 			    if ACTNUM[k][j][i]==1:
-				if k==0 and j>=nblocks/2:
-				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.5) )
-				if k==nblocks_z-1 and j>=nblocks/2:
-				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.5) )
-				if j==nblocks/2:
-				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.5) )
-        			    
+				if k==0 :
+				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.8) )
+				if k==nblocks_z-1:
+				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.8) )
+				    
+				if j==0:
+				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+				    	ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    continue
+				if j==nblocks-1:
+				    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+			            	ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+			            if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    continue
+				    	
+				    
+				if i==0:
+				    ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8))
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    continue
+				elif i==nblocks-1:
+				    ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    continue
+				
+				if ACTNUM[k][j-1][i]==0:
+				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				if ACTNUM[k][j+1][i]==0:
+				    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )    	
+				if ACTNUM[k][j][i+1]==0:
+				    ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				if ACTNUM[k][j][i-1]==0:
+				    ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+				    
     	    canv = FigureCanvas(fig)   
     	    self.grid.addWidget(canv, 0, 0)
     	    self.widget.setLayout(self.grid)
@@ -817,6 +867,7 @@ class Ui_MainWindow(object):
     	    WriteString(Poro_string,"temp/PORO.INC")
 	    WriteString(permx_string,"temp/PERMX.INC")
 	    self.Writetoconsole("Grid Generated")
+
 	    
     def CreateGrid(self):
     	    if self.LowEnergyPath=="" or self.HighEnergyPath=="":
@@ -835,12 +886,9 @@ class Ui_MainWindow(object):
     	    Padding_top=self.Padding_top*length/1000  #avoid slices at the beginning
     	    Padding_bottom=self.Padding_bottom*length/1000# avoid Slices at the end
     	    nslices=length-Padding_bottom-Padding_top
-    	    #nblocks_z,n_z=GetMult(nslices)
-    	    nblocks_z=self.nblocks_z
-	    n_z=nslices/nblocks_z
+    	    nblocks_z,n_z=GetMult(nslices)
 	    firstime=True
     	    i=0
-    	    CoreSurface=[]
     
     	    for f1,f2 in zip(files,files2):
     
@@ -855,14 +903,13 @@ class Ui_MainWindow(object):
     		a = ds1.pixel_array.shape[0]/2 
     		Offsetr=int(2*a*self.Offsetx/self.Diameter)
     		Offsetc=int(2*a*self.Offsety/self.Diameter)
-
+		
     		x1=GetMaskedValues2(ds1.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
     		x2=GetMaskedValues2(ds2.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
-    
+    		
+
     		if (firstime):
-    			#n,nblocks=GetMult(x1.shape[0])
-			nblocks=self.nblocks
-	    		n=nslices/nblocks
+    			nblocks,n=GetMult(x1.shape[0])
     			PORO=np.zeros(shape=(nblocks_z,nblocks,nblocks))
     			ACTNUM=np.zeros(shape=(nblocks_z,nblocks,nblocks))
     			PERMX=np.zeros(shape=(nblocks_z,nblocks,nblocks))
@@ -874,8 +921,7 @@ class Ui_MainWindow(object):
     		x, y = np.meshgrid(np.arange(x1.shape[0]), np.arange(x1.shape[1]),indexing='ij')
     		z=GetPoro(x1,x2,parameters)
     		poro_coarse=UpscalePoro(z,x,y,nblocks,n)
-    
-    
+
     		if (firstime):
     		    poro_coarse_avg=poro_coarse
     		    a = poro_coarse.shape[0]/2 
@@ -886,8 +932,11 @@ class Ui_MainWindow(object):
     
     
     		if (i-Padding_bottom)%n_z==0:
-    		    PORO[(i-Padding_top)/n_z]=poro_coarse_avg
-    		    ACTNUM[(i-Padding_top)/n_z]=GetMaskedValues(poro_coarse_avg,Offsetr,Offsetc)
+    		    a = poro_coarse.shape[0]/2 
+		    Offsetr=int(2*a*self.Offsetx/self.Crop_pct)
+    		    Offsetc=int(2*a*self.Offsety/self.Crop_pct)
+    		    PORO[(i-Padding_top)/n_z]=poro_coarse_avg 
+    		    ACTNUM[(i-Padding_top)/n_z]=GetMaskedValues(poro_coarse_avg,0,0)
     
     
     		else:
@@ -913,8 +962,9 @@ class Ui_MainWindow(object):
     	    self.Writetoconsole("Average Permeability:"+str(np.mean(PERMX)))
     	    self.nblocks=nblocks
     	    self.nblocks_z=nblocks_z
-
-    
+	    self.spinBox_4.setProperty("value", nblocks_z)
+    	    self.spinBox_3.setProperty("value", nblocks)
+    	    
     	    Poro_string="PORO\n"
     	    actnum_string="ACTNUM\n"
     	    permx_string="PERMX\n"
@@ -977,12 +1027,51 @@ class Ui_MainWindow(object):
 			    Z,Z = np.meshgrid(z, z)
     			    R,G,B=GetRGB(porov)
 			    if ACTNUM[k][j][i]==1:
-				if k==0 and j>=nblocks/2:
-				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.5) )
-				if k==nblocks_z-1 and j>=nblocks/2:
-				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.5) )
-				if j==nblocks/2:
-				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.5) )
+				if k==0 :
+				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.8) )
+				if k==nblocks_z-1:
+				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.8) )
+				    
+				if j==0 and i<>0 and i<>nblocks-1:
+				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+				    	ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    continue
+				if j==nblocks-1 and i<>0 and i<>nblocks-1:
+				    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+			            	ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+			            if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    continue
+				    	
+				    
+				if i==0 and j<>0 and j<>nblocks-1:
+				    ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8))
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    continue
+				if i==nblocks-1 and j<>0 and j<>nblocks-1:
+				    ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    continue
+				
+				if i<>0 and i<>nblocks-1 and i<>0 and i<>nblocks-1:
+					if ACTNUM[k][j-1][i]==0:
+					    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+					if ACTNUM[k][j+1][i]==0:
+					    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )    	
+					if ACTNUM[k][j][i+1]==0:
+					    ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+					if ACTNUM[k][j][i-1]==0:
+					    ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
     				    
 	    canv = FigureCanvas(fig)   
 	    self.grid.addWidget(canv, 0, 0)

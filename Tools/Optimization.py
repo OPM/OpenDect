@@ -17,12 +17,14 @@
    along with OPM.  If not, see <http://www.gnu.org/licenses/>. 
 '''
 
-from CoreSimulation import WriteDATAfile,RunEclipse
+from CoreSimulation import WriteDATAfile,RunEclipse,PlotEclipseResults
 import numpy as np
 import random
 import os
 import subprocess
 import ert.ecl as ecl
+from matplotlib import pyplot as plt
+from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
 def Swarm(hist,imax,n,pmin,pmax,treshold,window,app):
     
@@ -50,7 +52,7 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,window,app):
     #Main Loop
     
     for epoch in range(0,imax):
-        
+        window.SetProgress(float(epoch)/imax*100,3)
         #Test if the new point is a personnal best
         if epoch<>0:
             for i in range(0,n):
@@ -67,11 +69,13 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,window,app):
             if pb_out[i]<gb_out:
                 for k in range(0,ndim):
                     gbest[k]=pbest[k,i]
+                    
                 gb_out=pb_out[i]
+                window.Writetoconsole("New Best values with delta "+str(gb_out))
         
         #Stop the function if global best output below treshold
         if gb_out<treshold:
-            print "Global best below treshold:"+str(gbest)+"after "+str(epoch)+" iterations"
+            window.Writetoconsole("Global best below treshold:"+str(gbest)+"after "+str(epoch)+" iterations")
             return gbest
             break
         
@@ -80,7 +84,7 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,window,app):
             for k in range(0,ndim):
                 v[k,i]=0.1*v[k,i]+1.5*random.random()*(pbest[k,i]-p[k,i])+2.5*random.random()*(gbest[k]-p[k,i])
                 p[k,i]+=v[k,i]
-    	print "Current Best values:"+str(gbest)+" with "+str(gb_out)
+    	
 	window.label_24.setText(str(gbest[5]))
 	window.label_25.setText(str(gbest[6]))
 	window.label_26.setText(str(gbest[7]))
@@ -89,9 +93,19 @@ def Swarm(hist,imax,n,pmin,pmax,treshold,window,app):
 	window.label_29.setText(str(gbest[2]))
 	window.label_32.setText(str(gbest[3]))
 	window.label_34.setText(str(gbest[4]))
+	FOPT,DIFF=PlotEclipseResults("temp/CORE_TEST",window.ExpParams,window.Orientation,window.nblocks,window.nblocks_z)
+	plt.clf()
+	fig  = plt.figure(facecolor="white")
+	ax  = fig.add_subplot(111)
+	ax.plot(FOPT,'g',DIFF,'r')
+	canv = FigureCanvas(fig)   
+	window.grid.addWidget(canv, 0, 0)
+	window.widget.setLayout(window.grid)
+    	window.widget.show()
 	app.processEvents()
     
-    print "Global best after max iteration:"+str(gbest)+" with "+str(gb_out)      
+    window.Writetoconsole("Global best after max iteration:"+str(gbest)+" with "+str(gb_out))
+    window.SetProgress(0,3)
     return gbest
     
 def Swarmfunction(x,hist,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,nCycle,clength,Swcr):
@@ -130,6 +144,5 @@ def Swarmfunction(x,hist,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_p
             DELTA[1]+=[((node2.value-hist_wat)/hist_wat)**2]
             DELTA[2]+=[(((abs(node3.value-node4.value)/abs(BPR_IN_init/BPR_OUT_init))-hist_diff)/hist_diff)**2]
     
-    print "Delta:"+str(np.sum(DELTA[1]+DELTA[2]))
     return np.sum(DELTA[1]+DELTA[2])
 

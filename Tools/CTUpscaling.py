@@ -83,9 +83,11 @@ def GetMaskedValues2(x,Offsetr,Offsetc,Crop_pct,Diameter):
 
 	# A circle shape is generated based on the diameter and the x/y offsets
     n=x.shape[0]
-    a=n/2+Offsetc
-    r=1-float(Crop_pct)/Diameter
-    x=x[a*r:-a*r,a*r:-a*r]
+    ncrop=int(n*float(Crop_pct)/Diameter/2)
+    a=n/2+Offsetr
+    b=n/2+Offsetc
+    #r=1-float(Crop_pct)/Diameter
+    x=x[a-ncrop:a+ncrop,b-ncrop:b+ncrop]
 
     return x
 
