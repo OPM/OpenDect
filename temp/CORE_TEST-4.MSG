@@ -1,0 +1,77 @@
+<eclipse>
+<message date="12/10/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+     213988 BYTES                                                        
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                        
+ USING  OLDTRAN                                                          
+</message>
+<comment date="12/10/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="12/10/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 65                                            
+</message>
+<warning date="12/10/2015" time="0.00000000000000">
+ NSTACK =     50   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ NSTACK WILL BE REDUCED                                                  
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ SET OPTIONS(256)=1 TO STOP THIS FROM HAPPENING.                         
+</warning>
+<message date="12/10/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+     953828 BYTES                                                        
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+    62244 CHARACTER VARIABLES USED                                       
+</message>
+<error date="12/10/2015" time="0.00000000000000">
+ ERROR ENCOUNTERED WHILE READING SECTION    1 OF KEYWORD SOF2            
+  	0.20	Nan                                                              
+ SYSTEM ERROR CODE IS       20                                           
+ COMMON CAUSES ARE MISSED DATA FIELD, INVALID                            
+ FORMAT (E.G. LETTER IN NUMERIC FIELD) ETC.                              
+</error>
+<warning date="12/10/2015" time="0.00000000000000">
+ SPURIOUS DATA BEFORE DENSITY  KEYWORD                                   
+  	0.23	1.089825                                                         
+  	0.27	1.084783                                                         
+  	0.30	1.075737                                                         
+  	0.33	1.065576                                                         
+  	0.37	1.055343                                                         
+  	0.40	1.045536                                                         
+  	0.43	1.036428                                                         
+  	0.47	1.028180                                                         
+  	/                                                                     
+</warning>
+<warning date="12/10/2015" time="0.00000000000000">
+ INCONSISTENT END POINTS IN SATURATION TABLE   1                         
+ THE MAXIMUM OIL SATURATION (0.2000)                                     
+ PLUS THE CONNATE WATER SATURATION (0.3000)                              
+ PLUS THE CONNATE GAS SATURATION (0.0000)                                
+ MUST EQUAL 1.0                                                          
+</warning>
+<message date="12/10/2015" time="0.00000000000000">
+ OPENING WELL PROD1    AT TIME      0.00   HOURS                         
+ CONTROLLED BY BOTTOM HOLE PRESSURE                                      
+</message>
+<warning date="12/10/2015" time="0.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL INJ1                            
+ HAS BEEN DEFAULTED. THE DEFAULT VALUE IS    6803.  ATMOSA               
+</warning>
+<message date="12/10/2015" time="0.00000000000000">
+ OPENING WELL INJ1     AT TIME      0.00   HOURS                         
+ CONTROLLED BY WATER RATE                                                
+</message>
+</eclipse>

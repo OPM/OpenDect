@@ -1,0 +1,16 @@
+#!/bin/sh 
+export LM_LICENSE_FILE=7321@eclipse-lic-no.statoil.no
+export F_UFMTENDIAN=big
+export ARCH=`uname -m`
+cd /private/thif/Python/OpenDect/temp/
+/bin/rm -f ECL.CFG
+/bin/cp /prog/ecl/grid/macros/CONFIG.ECL ./ECL.CFG 2>> CORE_TEST-8.ERR
+executable=/prog/ecl/grid/2016.1/bin/linux_x86_64/eclipse.exe
+$executable <<END > CORE_TEST-8.LOG 2> CORE_TEST-8.ERR
+CORE_TEST-8
+CORE_TEST-8
+30000000
+30000000
+$executable
+END
+mv -f /private/thif/Python/OpenDect/temp//CORE_TEST-8.job /private/thif/Python/OpenDect/temp//CORE_TEST-8.job.done

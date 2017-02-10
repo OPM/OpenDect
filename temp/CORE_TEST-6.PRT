@@ -1,0 +1,481 @@
+
+
+
+ $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+ $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+ $      $      $       $   $   $  $      $         $   $   $  $   $
+ $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+ $      $      $       $   $          $  $         $   $   $  $   $
+ $      $   $  $       $   $      $   $  $         $   $   $  $   $
+ $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+
+
+                       $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+                       $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+                       $      $      $       $   $   $  $      $         $   $   $  $   $
+                       $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+                       $      $      $       $   $          $  $         $   $   $  $   $
+                       $      $   $  $       $   $      $   $  $         $   $   $  $   $
+                       $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+
+
+                                             $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+                                             $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+                                             $      $      $       $   $   $  $      $         $   $   $  $   $
+                                             $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+                                             $      $      $       $   $          $  $         $   $   $  $   $
+                                             $      $   $  $       $   $      $   $  $         $   $   $  $   $
+                                             $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+
+
+                                                                   $$$$$   $$$   $      $$$  $$$$    $$$   $$$$$     $    $$$    $$$ 
+                                                                   $      $   $  $       $   $   $  $   $  $        $$   $   $  $   $
+                                                                   $      $      $       $   $   $  $      $         $   $   $  $   $
+                                                                   $$$$   $      $       $   $$$$    $$$   $$$$      $   $   $  $   $
+                                                                   $      $      $       $   $          $  $         $   $   $  $   $
+                                                                   $      $   $  $       $   $      $   $  $         $   $   $  $   $
+                                                                   $$$$$   $$$   $$$$$  $$$  $       $$$   $$$$$    $$$   $$$    $$$ 
+
+Proprietary Notice
+This application contains the confidential and proprietary trade secrets of Schlumberger and may not be copied or stored in an
+information retrieval system, transferred, used, distributed, translated, or retransmitted in any form or by any means, electronic
+or mechanical, in whole or in part, without the express written permission of the copyright owner.
+
+ECLIPSE is a mark of Schlumberger. Copyright (c) 1981-2016 Schlumberger. All rights reserved.
+
+Version =  2016.1  
+Arch    =  Linux X86_64 (64 bit, LINUX_REL6IL1364OPT8BYTE)
+
+Annex    | Modification date    | Update date          | baseline             
+=====    | =================    | ===========          | ========             
+ECLIPSE  | 04-JUL-2016 16:46:24 | 11-JUL-2016 08:41:31 | 2016.1_580721
+petlast  | 29-FEB-2012 11:48:27 | 11-JUL-2016 08:41:34 | 2016.1_580721
+system   | 15-APR-2016 09:41:26 | 11-JUL-2016 08:41:36 | 2016.1_580721
+tpb      | 17-JUL-2013 16:28:58 | 11-JUL-2016 08:41:36 | 2016.1_580721
+utility  | 23-NOV-2015 16:07:04 | 11-JUL-2016 08:41:36 | 2016.1_580721
+ 
+ HOST st-rsh00-01-14 USER thif ARCH  
+
+1
+
+ ******** ECHO OF INPUT DATA FOR RUN CORE_TEST-6
+
+ 0: RUNSPEC
+ 0: TITLE
+ 0: CoreSimulation
+ 0: DIMENS
+ 0: 5	5	5/
+ 0: OIL
+ 0: WATER
+ 0: LAB
+ 0: EQLDIMS
+ 0: 1 100 10 0 0 /
+ 0: TABDIMS
+ 0: 1 1 50 15 0 15/
+ 0: REGDIMS
+ 0: 0 0 0 0/
+ 0: WELLDIMS
+ 0: 3 100 1 3/
+ 0: NSTACK
+ 0: 50/
+ 0: START
+ 0: 12 OCT 2015/
+ 0: UNIFOUT
+ 0: GRID
+ 0: INIT
+ 0: GRIDFILE
+ 0: 0 1/
+ 0: DX
+ 0: 125*1.0/
+ 0: DY
+ 0: 125*1.0/
+ 0: DZ
+ 0: 125*20.0/
+ 0: TOPS
+ 0: 25*100.0
+ 0: 25*80.0
+ 0: 25*60.0
+ 0: 25*40.0
+ 0: 25*20.0
+ 0: /
+ 0: INCLUDE
+
+ ******** START OF INCLUDED FILE PORO.INC                                                                                                                            
+
+ 1: PORO
+ 1: 0.00E+00	0.00E+00	2.00E-01	0.00E+00	
+ 1: 0.00E+00	0.00E+00	2.00E-01	2.00E-01	
+ 1: 2.00E-01	0.00E+00	2.00E-01	2.00E-01	
+ 1: 2.00E-01	2.00E-01	2.00E-01	0.00E+00	
+ 1: 2.00E-01	2.00E-01	2.00E-01	0.00E+00	
+ 1: 0.00E+00	0.00E+00	2.00E-01	0.00E+00	
+ 1: 0.00E+00	0.00E+00	0.00E+00	2.00E-01	
+ 1: 0.00E+00	0.00E+00	0.00E+00	2.00E-01	
+ 1: 2.00E-01	2.00E-01	0.00E+00	2.00E-01	
+ 1: 2.00E-01	2.00E-01	2.00E-01	2.00E-01	
+ 1: 0.00E+00	2.00E-01	2.00E-01	2.00E-01	
+ 1: 0.00E+00	0.00E+00	0.00E+00	2.00E-01	
+ 1: 0.00E+00	0.00E+00	0.00E+00	0.00E+00	
+ 1: 2.00E-01	0.00E+00	0.00E+00	0.00E+00	
+ 1: 2.00E-01	2.00E-01	2.00E-01	0.00E+00	
+ 1: 2.00E-01	2.00E-01	2.00E-01	2.00E-01	
+ 1: 2.00E-01	0.00E+00	2.00E-01	2.00E-01	
+ 1: 2.00E-01	0.00E+00	0.00E+00	0.00E+00	
+ 1: 2.00E-01	0.00E+00	0.00E+00	0.00E+00	
+ 1: 0.00E+00	2.00E-01	0.00E+00	0.00E+00	
+ 1: 0.00E+00	2.00E-01	2.00E-01	2.00E-01	
+ 1: 0.00E+00	2.00E-01	2.00E-01	2.00E-01	
+ 1: 2.00E-01	2.00E-01	0.00E+00	2.00E-01	
+ 1: 2.00E-01	2.00E-01	0.00E+00	0.00E+00	
+ 1: 0.00E+00	2.00E-01	0.00E+00	0.00E+00	
+ 1: 0.00E+00	0.00E+00	2.00E-01	0.00E+00	
+ 1: 0.00E+00	0.00E+00	2.00E-01	2.00E-01	
+ 1: 2.00E-01	0.00E+00	2.00E-01	2.00E-01	
+ 1: 2.00E-01	2.00E-01	2.00E-01	0.00E+00	
+ 1: 2.00E-01	2.00E-01	2.00E-01	0.00E+00	
+ 1: 0.00E+00	0.00E+00	2.00E-01	0.00E+00	
+ 1: 0.00E+00	
+ 1: /
+
+ ******** END OF INCLUDED FILE 
+
+ 0: INCLUDE
+
+ ******** START OF INCLUDED FILE PERMX.INC                                                                                                                           
+
+ 1: PERMX
+ 1: 0	0	200	0	
+ 1: 0	0	200	200	
+ 1: 200	0	200	200	
+ 1: 200	200	200	0	
+ 1: 200	200	200	0	
+ 1: 0	0	200	0	
+ 1: 0	0	0	200	
+ 1: 0	0	0	200	
+ 1: 200	200	0	200	
+ 1: 200	200	200	200	
+ 1: 0	200	200	200	
+ 1: 0	0	0	200	
+ 1: 0	0	0	0	
+ 1: 200	0	0	0	
+ 1: 200	200	200	0	
+ 1: 200	200	200	200	
+ 1: 200	0	200	200	
+ 1: 200	0	0	0	
+ 1: 200	0	0	0	
+ 1: 0	200	0	0	
+ 1: 0	200	200	200	
+ 1: 0	200	200	200	
+ 1: 200	200	0	200	
+ 1: 200	200	0	0	
+ 1: 0	200	0	0	
+ 1: 0	0	200	0	
+ 1: 0	0	200	200	
+ 1: 200	0	200	200	
+ 1: 200	200	200	0	
+ 1: 200	200	200	0	
+ 1: 0	0	200	0	
+ 1: 0	
+ 1: /
+
+ ******** END OF INCLUDED FILE 
+
+ 0: INCLUDE
+
+ ******** START OF INCLUDED FILE ACTNUM.INC                                                                                                                          
+
+ 1: ACTNUM
+ 1: 0	0	1	0	
+ 1: 0	0	1	1	
+ 1: 1	0	1	1	
+ 1: 1	1	1	0	
+ 1: 1	1	1	0	
+ 1: 0	0	1	0	
+ 1: 0	0	0	1	
+ 1: 0	0	0	1	
+ 1: 1	1	0	1	
+ 1: 1	1	1	1	
+ 1: 0	1	1	1	
+ 1: 0	0	0	1	
+ 1: 0	0	0	0	
+ 1: 1	0	0	0	
+ 1: 1	1	1	0	
+ 1: 1	1	1	1	
+ 1: 1	0	1	1	
+ 1: 1	0	0	0	
+ 1: 1	0	0	0	
+ 1: 0	1	0	0	
+ 1: 0	1	1	1	
+ 1: 0	1	1	1	
+ 1: 1	1	0	1	
+ 1: 1	1	0	0	
+ 1: 0	1	0	0	
+ 1: 0	0	1	0	
+ 1: 0	0	1	1	
+ 1: 1	0	1	1	
+ 1: 1	1	1	0	
+ 1: 1	1	1	0	
+ 1: 0	0	1	0	
+ 1: 0	
+ 1: /
+
+ ******** END OF INCLUDED FILE 
+
+ 0: COPY
+ 0: PERMX PERMY /
+ 0: PERMX PERMZ /
+ 0: /
+ 0: EDIT
+ 0: PROPS
+ 0: 
+ 0: SWFN
+ 0: -- SW	KRW	PCw
+ 0:  	0.30	0	0.0
+ 0:  	0.33	0.029484029484	0.0
+ 0:  	0.37	0.0652173913043	0.0
+ 0:  	0.40	0.108108108108	0.0
+ 0:  	0.43	0.158940397351	0.0
+ 0:  	0.47	0.218181818182	0.0
+ 0:  	0.50	0.285714285714	0.0
+ 0:  	0.53	0.360515021459	0.0
+ 0:  	0.57	0.440366972477	0.0
+ 0:  	0.60	0.521739130435	0.0
+ 0:  	0.63	0.6	0.0
+ 0:  	0.67	0.670050761421	0.0
+ 0:  	0.70	0.727272727273	0.0
+ 0:  	0.73	0.768472906404	0.0
+ 0:  	0.77	0.792452830189	0.0
+ 0:  	1.00	1.000000	0
+ 0:  	/
+ 0: 
+ 0: SOF2
+ 0: -- SO	KROW	KROG
+ 0:  	0.00	0.000000
+ 0:  	0.03	0.000000
+ 0:  	0.07	0.000000
+ 0:  	0.10	0.000000
+ 0:  	0.13	0.000000
+ 0:  	0.17	0.000000
+ 0:  	0.20	nan
+ 0:  	0.23	1.057279
+ 0:  	0.27	1.051809
+ 0:  	0.30	1.045252
+ 0:  	0.33	1.038624
+ 0:  	0.37	1.032271
+ 0:  	0.40	1.026355
+ 0:  	0.43	1.020960
+ 0:  	0.47	1.016136
+ 0:  	0.50	1.011912
+ 0:  	0.53	1.008310
+ 0:  	0.57	1.005341
+ 0:  	0.60	1.003018
+ 0:  	0.63	1.001347
+ 0:  	0.67	1.000338
+ 0:  	0.70	1.000000
+ 0:  	/
+ 0: DENSITY
+ 0: 0.78	1.0/
+ 0: PVCDO
+ 0: 1	1	0.0	1.2
+ 0: /
+ 0: PVTW
+ 0: 1	1	0.0	0.36
+ 0: /
+ 0: ROCK
+ 0: 5801.5         2.8e-6   /
+ 0: REGIONS
+ 0: SOLUTION
+ 0: PRESSURE
+ 0: 125*1 /
+ 0: SWAT
+ 0: 125*0.3/
+ 0: SUMMARY
+ 0: FOPT
+ 0: FWPT
+ 0: FOIT
+ 0: FWIT
+ 0: BPR
+ 0:  3	3 1 /
+ 0: 3	3	5 /
+ 0: /
+ 0: RUNSUM
+ 0: SCHEDULE
+ 0: RPTSCHED
+ 0: 'FIP=3' 'RESTART=2'  'WELLS=5'  'SUMMARY=2' 'RS' 'SGAS'  'SOIL'  'SWAT' 'PRESSURE' 'CPU=1' 'NEWTON=1'/
+ 0: WELSPECS
+ 0: INJ1 G 3	3 1* WATER  /
+ 0: PROD1 G 3	3 1* OIL  /
+ 0: /
+ 0: COMPDAT
+ 0: INJ1 2*   1 1 OPEN 2* 0.01 3* Z /
+ 0: PROD1 2* 5 	5 OPEN 2* 0.01 3* Z /
+ 0: /
+ 0: WCONPROD
+ 0: PROD1 OPEN BHP 5* 1 /
+ 0: /
+ 0: WCONINJE
+ 0: INJ1 WATER OPEN RATE 12.0 /
+ 0: /
+ 0: TSTEP
+ 0: 100*0.017/
+
+ ******** END OF INPUT DATA FOR RUN CORE_TEST-6
+     1 READING RUNSPEC 
+     2 READING TITLE   
+     3 READING DIMENS  
+     4 READING OIL     
+     5 READING WATER   
+     6 READING LAB     
+     7 READING EQLDIMS 
+     8 READING TABDIMS 
+     9 READING REGDIMS 
+    10 READING WELLDIMS
+    11 READING NSTACK  
+    12 READING START   
+    13 READING UNIFOUT 
+    14 READING GRID    
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS              
+ @               213988 BYTES                                                
+    16 READING INIT    
+    17 READING GRIDFILE
+    18 READING DX      
+    19 READING DY      
+    20 READING DZ      
+    21 READING TOPS    
+    22 READING INCLUDE PORO.INC                                                                                                                            
+    23 READING PORO    
+               END OF INCLUDE FILE 
+    24 READING INCLUDE PERMX.INC                                                                                                                           
+    25 READING PERMX   
+               END OF INCLUDE FILE 
+    26 READING INCLUDE ACTNUM.INC                                                                                                                          
+    27 READING ACTNUM  
+               END OF INCLUDE FILE 
+    28 READING COPY    
+    29 READING EDIT    
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                  
+ @           BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                
+ @           USING  OLDTRAN                                                  
+    30 READING PROPS   
+
+ @--COMMENT  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NO NON-NEIGHBOUR CONNECTIONS FOUND                              
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NUMBER OF ACTIVE CELLS IS 65                                    
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NSTACK =     50   WHICH EXCEEDS THE                             
+ @           LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .        
+ @           THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED          
+ @           AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.      
+ @           NSTACK WILL BE REDUCED                                          
+ @           TO THE LARGEST LITMAX VALUE IN THE DECK.                        
+ @           SET OPTIONS(256)=1 TO STOP THIS FROM HAPPENING.                 
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS          
+ @               953828 BYTES                                                
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @              62244 CHARACTER VARIABLES USED                               
+    31 READING SWFN    
+    32 READING SOF2    
+
+ @--  ERROR  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           ERROR ENCOUNTERED WHILE READING SECTION    1 OF KEYWORD SOF2    
+ @            	0.20	Nan                                                      
+ @           SYSTEM ERROR CODE IS       20                                   
+ @           COMMON CAUSES ARE MISSED DATA FIELD, INVALID                    
+ @           FORMAT (E.G. LETTER IN NUMERIC FIELD) ETC.                      
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           SPURIOUS DATA BEFORE DENSITY  KEYWORD                           
+ @            	0.23	1.057279                                                 
+ @            	0.27	1.051809                                                 
+ @            	0.30	1.045252                                                 
+ @            	0.33	1.038624                                                 
+ @            	0.37	1.032271                                                 
+ @            	0.40	1.026355                                                 
+ @            	0.43	1.020960                                                 
+ @            	0.47	1.016136                                                 
+ @            	/                                                             
+    33 READING DENSITY 
+    34 READING PVCDO   
+    35 READING PVTW    
+    36 READING ROCK    
+    37 READING REGIONS 
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           INCONSISTENT END POINTS IN SATURATION TABLE   1                 
+ @           THE MAXIMUM OIL SATURATION (0.2000)                             
+ @           PLUS THE CONNATE WATER SATURATION (0.3000)                      
+ @           PLUS THE CONNATE GAS SATURATION (0.0000)                        
+ @           MUST EQUAL 1.0                                                  
+    38 READING SOLUTION
+    39 READING PRESSURE
+    40 READING SWAT    
+    41 READING SUMMARY 
+    42 READING FOPT    
+    43 READING FWPT    
+    44 READING FOIT    
+    45 READING FWIT    
+    46 READING BPR     
+    47 READING RUNSUM  
+    48 READING SCHEDULE
+    49 READING RPTSCHED
+    50 READING WELSPECS
+    51 READING COMPDAT 
+    52 READING WCONPROD
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           OPENING WELL PROD1    AT TIME      0.00   HOURS                 
+ @           CONTROLLED BY BOTTOM HOLE PRESSURE                              
+    53 READING WCONINJE
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE BOTTOM HOLE PRESSURE LIMIT FOR WELL INJ1                    
+ @           HAS BEEN DEFAULTED. THE DEFAULT VALUE IS    6803.  ATMOSA       
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           OPENING WELL INJ1     AT TIME      0.00   HOURS                 
+ @           CONTROLLED BY WATER RATE                                        
+    54 READING TSTEP   
+    55 READING END     
+            8 Mbytes of storage required                         
+ 126.9660     KB/active cell                                     
+          149 Mbytes (image size)                                
+ =======================================================
+ TIMING REPORTS AT CPU =     0 SECS - ELAPSED=     1 SECS
+ =======================================================
+ +-------+-----------+-----------+----------------------------
+ |CALLED |    %CPU   |  %ELAPSED |      COMPONENT
+ +-------+-----------+-----------+----------------------------
+       1 |    66.667 |    95.000 |  > READING AND ANALYZING UP TO PROPS SECTION START                 
+       1 |     0.000 |     8.333 |     >> READING AND ANALYZING THE GRID SECTION                          
+         |    66.667 |    86.667 |     >> OTHER
+       1 |    33.333 |     3.333 |  > READING AND INTERPRETING PROPS TO SUMMARY SECTIONS              
+         |     0.000 |     1.667 |  > OTHER
+ +-------+-----------+-----------+----------------------------
+
+ Error summary 
+ Comments               1
+ Warnings               4
+ Problems               0
+ Errors                 1
+ Bugs                   0
+ Final cpu       0.06 elapsed       0.60
+ Total number of time steps forced to be accepted          0

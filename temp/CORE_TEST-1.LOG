@@ -1,0 +1,1474 @@
+ ECLIPSE   Version 2016.1. Build Number 11072016. (Arch : Linux X86_64 (64 bit, LINUX_REL6IL1364OPT8BYTE))
+
+ Proprietary Notice
+ This application contains the confidential and
+ proprietary trade secrets of Schlumberger and may 
+ not be copied or stored in an information retrieval
+ system, transferred, used, distributed, translated,
+ or retransmitted in any form or by any means, electronic
+ or mechanical, in whole or in part, without the
+ express written permission of the copyright owner.
+
+ ECLIPSE is a mark of Schlumberger. Copyright (c)
+ 1981-2016 Schlumberger. All rights reserved.
+
+     1 READING RUNSPEC 
+     2 READING TITLE   
+     3 READING DIMENS  
+     4 READING OIL     
+     5 READING WATER   
+     6 READING LAB     
+     7 READING EQLDIMS 
+     8 READING TABDIMS 
+     9 READING REGDIMS 
+    10 READING WELLDIMS
+    11 READING NSTACK  
+    12 READING START   
+    13 READING UNIFOUT 
+    14 READING GRID    
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           CHECKING FOR LICENSES                                           
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS              
+ @               213988 BYTES                                                
+    16 READING INIT    
+    17 READING GRIDFILE
+    18 READING DX      
+    19 READING DY      
+    20 READING DZ      
+    21 READING TOPS    
+    22 READING INCLUDE PORO.INC                                                                                                                            
+    23 READING PORO    
+               END OF INCLUDE FILE 
+    24 READING INCLUDE PERMX.INC                                                                                                                           
+    25 READING PERMX   
+               END OF INCLUDE FILE 
+    26 READING INCLUDE ACTNUM.INC                                                                                                                          
+    27 READING ACTNUM  
+               END OF INCLUDE FILE 
+    28 READING COPY    
+    29 READING EDIT    
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                  
+ @           BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                
+ @           USING  OLDTRAN                                                  
+    30 READING PROPS   
+
+ @--COMMENT  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NO NON-NEIGHBOUR CONNECTIONS FOUND                              
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NUMBER OF ACTIVE CELLS IS 65                                    
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           NSTACK =     50   WHICH EXCEEDS THE                             
+ @           LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .        
+ @           THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED          
+ @           AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.      
+ @           NSTACK WILL BE REDUCED                                          
+ @           TO THE LARGEST LITMAX VALUE IN THE DECK.                        
+ @           SET OPTIONS(256)=1 TO STOP THIS FROM HAPPENING.                 
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS          
+ @               953828 BYTES                                                
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @              62244 CHARACTER VARIABLES USED                               
+    31 READING SWFN    
+    32 READING SOF2    
+    33 READING DENSITY 
+    34 READING PVCDO   
+    35 READING PVTW    
+    36 READING ROCK    
+    37 READING REGIONS 
+    38 READING SOLUTION
+    39 READING PRESSURE
+    40 READING SWAT    
+    41 READING SUMMARY 
+    42 READING FOPT    
+    43 READING FWPT    
+    44 READING FOIT    
+    45 READING FWIT    
+    46 READING BPR     
+    47 READING RUNSUM  
+    48 READING SCHEDULE
+    49 READING RPTSCHED
+    50 READING WELSPECS
+    51 READING COMPDAT 
+    52 READING WCONPROD
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           OPENING WELL PROD1    AT TIME      0.00   HOURS                 
+ @           CONTROLLED BY BOTTOM HOLE PRESSURE                              
+    53 READING WCONINJE
+
+ @--WARNING  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           THE BOTTOM HOLE PRESSURE LIMIT FOR WELL INJ1                    
+ @           HAS BEEN DEFAULTED. THE DEFAULT VALUE IS    6803.  ATMOSA       
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           OPENING WELL INJ1     AT TIME      0.00   HOURS                 
+ @           CONTROLLED BY WATER RATE                                        
+    54 READING TSTEP   
+ STEP    1 TIME=      0.02  HOUR (    +0.0  HOUR REPT  3 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT= 0.00 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         0.       0.         0. -0.045(       3,       3,       1) -0.045(       3,       3,       1)
+ WAT       0.         0.      12.         0.  0.045(       3,       3,       1)  0.045(       3,       3,       1)
+      MAX DP =    0.18(       3,       3,       1) 
+      MAX DP =    0.18(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     1                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    2 TIME=      0.03  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT= 0.00 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         0.       0.         0. -0.041(       3,       3,       1)  0.005(       3,       3,       1)
+ WAT       0.         0.      12.         0.  0.041(       3,       3,       1) -0.005(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     2                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    3 TIME=      0.05  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         1.       0.         0. -0.035(       3,       3,       1)  0.006(       3,       3,       1)
+ WAT       0.         0.      12.         1.  0.035(       3,       3,       1) -0.006(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     3                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    4 TIME=      0.07  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         1.       0.         0. -0.031(       3,       3,       1)  0.004(       3,       3,       1)
+ WAT       0.         0.      12.         1.  0.031(       3,       3,       1) -0.004(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     4                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    5 TIME=      0.09  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         1.       0.         0. -0.029(       3,       3,       1)  0.002(       3,       3,       1)
+ WAT       0.         0.      12.         1.  0.029(       3,       3,       1) -0.002(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     5                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    6 TIME=      0.10  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         1.       0.         0. -0.026(       3,       3,       1)  0.003(       3,       3,       1)
+ WAT       0.         0.      12.         1.  0.026(       3,       3,       1) -0.003(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     6                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    7 TIME=      0.12  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         1.       0.         0. -0.023(       3,       3,       1)  0.002(       3,       3,       1)
+ WAT       0.         0.      12.         1.  0.023(       3,       3,       1) -0.002(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     7                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    8 TIME=      0.14  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         2.       0.         0. -0.022(       3,       3,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         2.  0.022(       3,       3,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     8                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP    9 TIME=      0.15  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         2.       0.         0. -0.021(       3,       3,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         2.  0.021(       3,       3,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT     9                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   10 TIME=      0.17  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         2.       0.         0. -0.019(       3,       3,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         2.  0.019(       3,       3,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    10                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   11 TIME=      0.19  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         2.       0.         0. -0.018(       3,       3,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         2.  0.018(       3,       3,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    11                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   12 TIME=      0.20  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         2.       0.         0. -0.017(       3,       3,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         2.  0.017(       3,       3,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    12                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   13 TIME=      0.22  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         3.       0.         0. -0.017(       3,       3,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         3.  0.017(       3,       3,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    13                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   14 TIME=      0.24  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         3.       0.         0. -0.016(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         3.  0.016(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    14                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   15 TIME=      0.26  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         3.       0.         0. -0.016(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         3.  0.016(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    15                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   16 TIME=      0.27  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         3.       0.         0. -0.015(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         3.  0.015(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    16                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   17 TIME=      0.29  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         3.       0.         0. -0.015(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         3.  0.015(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    17                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   18 TIME=      0.31  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         4.       0.         0. -0.015(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         4.  0.015(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    18                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   19 TIME=      0.32  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         4.       0.         0. -0.014(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         4.  0.014(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    19                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   20 TIME=      0.34  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         4.       0.         0. -0.014(       3,       3,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         4.  0.014(       3,       3,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    20                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   21 TIME=      0.36  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         4.       0.         0. -0.014(       3,       3,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         4.  0.014(       3,       3,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       1) 
+      MAX DP =   -0.00(       3,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    21                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   22 TIME=      0.37  HOUR (    +0.0  HOUR REPT  2 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         4.       0.         0. -0.011(       3,       3,       1)  0.003(       3,       3,       1)
+ WAT       0.         0.      12.         4.  0.011(       3,       3,       1) -0.003(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       2) 
+      MAX DP =   -0.00(       3,       3,       2) 
+
+ @--MESSAGE  AT TIME        0.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    22                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   23 TIME=      0.39  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         5.       0.         0. -0.008(       3,       3,       1)  0.003(       3,       3,       1)
+ WAT       0.         0.      12.         5.  0.008(       3,       3,       1) -0.003(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       2) 
+      MAX DP =   -0.00(       3,       3,       2) 
+
+ @--MESSAGE  AT TIME        0.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    23                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   24 TIME=      0.41  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         5.       0.         0. -0.006(       3,       2,       1)  0.003(       3,       3,       1)
+ WAT       0.         0.      12.         5.  0.006(       3,       2,       1) -0.003(       3,       3,       1)
+      MAX DP =   -0.00(       3,       3,       2) 
+      MAX DP =   -0.00(       3,       3,       2) 
+
+ @--MESSAGE  AT TIME        0.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    24                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   25 TIME=      0.43  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         5.       0.         0. -0.007(       3,       2,       1)  0.002(       3,       3,       1)
+ WAT       0.         0.      12.         5.  0.007(       3,       2,       1) -0.002(       3,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    25                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   26 TIME=      0.44  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         5.       0.         0. -0.007(       3,       2,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         5.  0.007(       3,       2,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    26                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   27 TIME=      0.46  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         6.       0.         0. -0.007(       3,       2,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         6.  0.007(       3,       2,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    27                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   28 TIME=      0.48  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         6.       0.         0. -0.007(       3,       2,       1)  0.001(       3,       3,       1)
+ WAT       0.         0.      12.         6.  0.007(       3,       2,       1) -0.001(       3,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    28                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   29 TIME=      0.49  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         6.       0.         0. -0.007(       3,       2,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         6.  0.007(       3,       2,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    29                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   30 TIME=      0.51  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         6.       0.         0. -0.007(       3,       2,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         6.  0.007(       3,       2,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    30                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   31 TIME=      0.53  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         6.       0.         0. -0.007(       3,       2,       1)  0.000(       3,       3,       1)
+ WAT       0.         0.      12.         6.  0.007(       3,       2,       1) -0.000(       3,       3,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    31                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   32 TIME=      0.54  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         7.       0.         0. -0.007(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         7.  0.007(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    32                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   33 TIME=      0.56  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         7.       0.         0. -0.006(       3,       2,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.         7.  0.006(       3,       2,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    33                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   34 TIME=      0.58  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         7.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         7.  0.006(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    34                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   35 TIME=      0.60  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         7.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         7.  0.006(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    35                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   36 TIME=      0.61  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.000 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         7.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         7.  0.006(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    36                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   37 TIME=      0.63  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         8.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       4,       1)
+ WAT       0.         0.      12.         8.  0.006(       3,       2,       1) -0.000(       3,       4,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    37                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   38 TIME=      0.65  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         8.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         8.  0.006(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    38                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   39 TIME=      0.66  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         8.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         8.  0.006(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    39                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   40 TIME=      0.68  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         8.       0.         0. -0.006(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         8.  0.006(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    40                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   41 TIME=      0.70  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         8.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.         8.  0.005(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    41                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   42 TIME=      0.71  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         9.       0.         0. -0.005(       2,       3,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         9.  0.005(       2,       3,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    42                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   43 TIME=      0.73  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         9.       0.         0. -0.005(       2,       3,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         9.  0.005(       2,       3,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        0.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    43                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   44 TIME=      0.75  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         9.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         9.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        0.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    44                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   45 TIME=      0.77  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         9.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         9.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.8   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    45                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   46 TIME=      0.78  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.         9.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.         9.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        0.8   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    46                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   47 TIME=      0.80  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        10.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        10.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.8   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    47                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   48 TIME=      0.82  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        10.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        10.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.8   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    48                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   49 TIME=      0.83  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.001 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        10.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        10.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.8   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    49                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   50 TIME=      0.85  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        10.       0.         0. -0.005(       2,       3,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        10.  0.005(       2,       3,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.9   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    50                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   51 TIME=      0.87  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        10.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        10.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        0.9   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    51                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   52 TIME=      0.88  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        11.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        11.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.9   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    52                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   53 TIME=      0.90  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        11.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        11.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.9   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    53                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   54 TIME=      0.92  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        11.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        11.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        0.9   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    54                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   55 TIME=      0.94  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        11.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        11.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        0.9   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    55                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   56 TIME=      0.95  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        11.       0.         0. -0.005(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        11.  0.005(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    56                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   57 TIME=      0.97  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.002 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        12.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        12.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    57                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   58 TIME=      0.99  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.003 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        12.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        12.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    58                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   59 TIME=      1.00  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.003 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        12.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        12.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    59                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   60 TIME=      1.02  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.003 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        12.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        12.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    60                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   61 TIME=      1.04  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.003 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        12.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        12.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.0   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    61                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   62 TIME=      1.05  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.003 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        13.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        13.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    62                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   63 TIME=      1.07  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.003 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        13.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       2,       1)
+ WAT       0.         0.      12.        13.  0.004(       3,       2,       1) -0.000(       3,       2,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    63                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   64 TIME=      1.09  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.004 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        13.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        13.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    64                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   65 TIME=      1.11  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.004 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        13.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        13.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    65                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   66 TIME=      1.12  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.004 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        13.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        13.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    66                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   67 TIME=      1.14  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.004 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        14.       0.         0. -0.004(       3,       2,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        14.  0.004(       3,       2,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        1.1   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    67                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   68 TIME=      1.16  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.004 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        14.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        14.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        1.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    68                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   69 TIME=      1.17  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.005 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        14.       0.         0. -0.004(       3,       2,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        14.  0.004(       3,       2,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    69                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   70 TIME=      1.19  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.005 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        14.       0.         0. -0.004(       3,       2,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        14.  0.004(       3,       2,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    70                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   71 TIME=      1.21  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.005 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        14.       0.         0. -0.004(       3,       2,       1)  0.000(       4,       3,       1)
+ WAT       0.         0.      12.        14.  0.004(       3,       2,       1) -0.000(       4,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    71                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   72 TIME=      1.22  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.005 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        15.       0.         0. -0.004(       3,       2,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        15.  0.004(       3,       2,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    72                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   73 TIME=      1.24  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.005 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        15.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        15.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.2   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    73                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   74 TIME=      1.26  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.006 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        15.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        15.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        1.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    74                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   75 TIME=      1.27  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.006 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        15.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        15.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    75                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   76 TIME=      1.29  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.006 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        15.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        16.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    76                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   77 TIME=      1.31  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.007 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        16.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       4,       1)
+ WAT       0.         0.      12.        16.  0.004(       3,       4,       1) -0.000(       3,       4,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    77                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   78 TIME=      1.33  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.007 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        16.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        16.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    78                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   79 TIME=      1.34  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.007 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        16.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        16.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.3   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    79                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   80 TIME=      1.36  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.007 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        16.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       1)
+ WAT       0.         0.      12.        16.  0.004(       3,       4,       1) -0.000(       2,       3,       1)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    80                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   81 TIME=      1.38  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.008 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        16.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       3)
+ WAT       0.         0.      12.        17.  0.004(       3,       4,       1) -0.000(       3,       3,       3)
+      MAX DP =   -0.00(       2,       3,       1) 
+      MAX DP =   -0.00(       2,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    81                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   82 TIME=      1.39  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.008 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        17.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        17.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        1.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    82                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   83 TIME=      1.41  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.008 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        17.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       3)
+ WAT       0.         0.      12.        17.  0.004(       3,       4,       1) -0.000(       3,       3,       3)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    83                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   84 TIME=      1.43  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.009 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        17.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       3)
+ WAT       0.         0.      12.        17.  0.004(       3,       4,       1) -0.000(       3,       3,       3)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    84                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   85 TIME=      1.44  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.009 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        17.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        17.  0.004(       3,       4,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.4   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    85                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   86 TIME=      1.46  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.009 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        18.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        18.  0.004(       3,       4,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    86                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   87 TIME=      1.48  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.010 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        18.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        18.  0.004(       3,       4,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    87                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   88 TIME=      1.50  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.010 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        18.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        18.  0.004(       3,       4,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       2,       1) 
+      MAX DP =   -0.00(       3,       2,       1) 
+
+ @--MESSAGE  AT TIME        1.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    88                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   89 TIME=      1.51  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.010 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        18.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       3,       2)
+ WAT       0.         0.      12.        18.  0.004(       3,       4,       1) -0.000(       3,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    89                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   90 TIME=      1.53  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.011 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        18.       0.         0. -0.004(       3,       4,       1)  0.000(       3,       4,       2)
+ WAT       0.         0.      12.        18.  0.004(       3,       4,       1) -0.000(       3,       4,       2)
+      MAX DP =   -0.00(       1,       3,       1) 
+      MAX DP =   -0.00(       1,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    90                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   91 TIME=      1.55  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.011 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        19.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        19.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       1,       3,       1) 
+      MAX DP =   -0.00(       1,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.5   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    91                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   92 TIME=      1.56  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.011 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        19.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        19.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       1,       3,       1) 
+      MAX DP =   -0.00(       1,       3,       1) 
+
+ @--MESSAGE  AT TIME        1.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    92                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   93 TIME=      1.58  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.012 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        19.       0.         0. -0.004(       3,       4,       1)  0.000(       4,       3,       2)
+ WAT       0.         0.      12.        19.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    93                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   94 TIME=      1.60  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.012 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        19.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        19.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    94                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   95 TIME=      1.61  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.013 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        19.       0.         0. -0.004(       3,       4,       1)  0.000(       4,       3,       2)
+ WAT       0.         0.      12.        19.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    95                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   96 TIME=      1.63  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.013 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        20.       0.         0. -0.004(       3,       4,       1)  0.000(       4,       3,       2)
+ WAT       0.         0.      12.        20.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    96                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   97 TIME=      1.65  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.013 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        20.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        20.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.6   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    97                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   98 TIME=      1.67  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.014 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        20.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        20.  0.004(       3,       4,       1) -0.000(       4,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    98                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP   99 TIME=      1.68  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.014 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        20.       0.         0. -0.004(       3,       4,       1)  0.000(       4,       3,       2)
+ WAT       0.         0.      12.        20.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       5,       1) 
+      MAX DP =   -0.00(       3,       5,       1) 
+
+ @--MESSAGE  AT TIME        1.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT    99                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+ STEP  100 TIME=      1.70  HOUR (    +0.0  HOUR REPT  1 ITS) (12-OCT-2015)      
+  PAV=     1.1 ATMOSA  WCT=0.015 GOR= 0.00000   SCC/SCC WGR= 0.00000   SCC/SCC   
+
+      PR.RATE   PR.TOTAL  IN.RATE   IN.TOTAL  MAXIMUM SATURATION CHANGE          MAXIMUM TIME TRUNCATION ERROR
+
+ OIL      12.        20.       0.         0. -0.004(       3,       4,       1)  0.000(       2,       3,       2)
+ WAT       0.         0.      12.        20.  0.004(       3,       4,       1) -0.000(       2,       3,       2)
+      MAX DP =   -0.00(       3,       4,       1) 
+      MAX DP =   -0.00(       3,       4,       1) 
+
+ @--MESSAGE  AT TIME        1.7   HOURS   (12-OCT-2015):
+ @           RESTART FILE WRITTEN   REPORT   100                             
+ @           RESTART INCLUDES FLUIDS IN PLACE                                
+    55 READING END     
+            8 Mbytes of storage required                         
+ 126.9660     KB/active cell                                     
+          147 Mbytes (image size)                                
+
+ Error summary 
+ Comments               1
+ Warnings               2
+ Problems               0
+ Errors                 0
+ Bugs                   0
+ Final cpu       0.61 elapsed       1.95
+ Total number of time steps forced to be accepted          0
+ PRODUCING RUN SUMMARIES
+ CORE_TEST-1.SMSPEC exists
+ SPEC file succesfully read
+ Opened file CORE_TEST-1.UNSMRY
+     1 files exist containing      101 timesteps
+ Summary file CORE_TEST-1.UNSMRY opened
+                     7  vectors loaded
+ RUN SUMMARIES COMPLETE
+Sender: LSF System <f_lsf@st-rst14-01-08>
+Subject: Job 67394: <eclipse CORE_TEST-1> in cluster <STAVANGER> Done
+
+Job <eclipse CORE_TEST-1> was submitted from host <st-grid03> by user <thif> in cluster <STAVANGER>.
+Job was executed on host(s) <st-rst14-01-08>, in queue <daily>, as user <thif> in cluster <STAVANGER>.
+</private/thif> was used as the home directory.
+</private/thif/Python/OpenDect> was used as the working directory.
+Started at Fri Feb 10 21:39:28 2017
+Results reported on Fri Feb 10 21:39:38 2017
+
+Your job looked like:
+
+------------------------------------------------------------
+# LSBATCH: User input
+/private/thif/Python/OpenDect/temp//CORE_TEST-1.job
+------------------------------------------------------------
+
+Successfully completed.
+
+Resource usage summary:
+
+    CPU time :               1.74 sec.
+    Total Requested Memory : 512.00 MB
+    Delta Memory :           -
+    (Delta: the difference between Total Requested Memory and Max Memory.)
+
+The output (if any) follows:
+
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+Warning: no access to tty (Bad file descriptor).
+Thus no job control in this shell.
+stty: standard input: Inappropriate ioctl for device
+stty: standard input: Inappropriate ioctl for device
