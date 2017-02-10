@@ -1,10 +1,38 @@
-# -*- coding: utf-8 -*-
+'''
+  Copyright 2016 Statoil ASA. 
+ 
+  This file is part of the Open Porous Media project (OPM). 
+ 
+  OPM is free software: you can redistribute it and/or modify 
+  it under the terms of the GNU General Public License as published by 
+  the Free Software Foundation, either version 3 of the License, or 
+  (at your option) any later version. 
+  
+   OPM is distributed in the hope that it will be useful, 
+   but WITHOUT ANY WARRANTY; without even the implied warranty of 
+   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the 
+   GNU General Public License for more details. 
+  
+   You should have received a copy of the GNU General Public License 
+   along with OPM.  If not, see <http://www.gnu.org/licenses/>. 
+'''
 
-# Form implementation generated from reading ui file 'GUI/Julia.ui'
-#
-# Created by: PyQt4 UI code generator 4.11.4
-#
-# WARNING! All changes made in this file will be lost!
+from PyQt4.QtGui import (QMainWindow, QApplication)
+from matplotlib import pyplot as plt
+from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
+from Tools.CoreSimulation import *
+from Tools.CTUpscaling import *
+from Tools.Optimization import *
+import dicom
+import shutil
+import os
+import sys
+import gc
+from os import listdir
+from mpl_toolkits.mplot3d import Axes3D
+from decimal import Decimal
+from os.path import join
+
 
 from PyQt4 import QtCore, QtGui
 
@@ -852,3 +880,562 @@ class Ui_MainWindow(object):
         self.actionSave.setText(_translate("MainWindow", "Save", None))
         self.actionExit.setText(_translate("MainWindow", "Exit", None))
 
+
+
+
+
+        #ADDED
+        
+	self.grid  = QtGui.QGridLayout(self.widget)
+	self.pushButton_3.clicked.connect(self.CreateGrid)
+	self.pushButton_4.clicked.connect(self.Simulate)
+	self.pushButton_5.clicked.connect(self.Optimize)
+	self.pushButton_6.clicked.connect(self.CreateDummyGrid)
+	self.pushButton_7.clicked.connect(self.Stop)
+	self.pushButton_8.clicked.connect(self.Stop)
+	self.pushButton_17.clicked.connect(self.Stop)
+	self.pushButton.clicked.connect(self.GetHighEnergy)
+	self.pushButton_2.clicked.connect(self.GetLowEnergy)
+	self.horizontalSlider.sliderReleased.connect(self.UpdatePaddingTop)
+	self.horizontalSlider_2.sliderReleased.connect(self.UpdatePaddingBottom)
+	self.horizontalSlider_3.sliderReleased.connect(self.UpdateOffsetX)
+	self.horizontalSlider_4.sliderReleased.connect(self.UpdateOffsetY)
+	self.comboBox.addItems(["Vertical","Horizontal"])
+	self.comboBox_2.addItems(["USS","SS"])
+	self.fig  = plt.figure(facecolor="white")
+	self.canv = FigureCanvas(self.fig)   
+	self.grid.addWidget(self.canv, 0, 0)
+	self.widget.setLayout(self.grid)
+    	self.widget.setFixedSize(600,600)
+	
+    def GetValues(self):
+    	self.StopAction=False
+    	self.height=int(self.lineEdit_21.text())
+    	self.Padding_top=int(self.horizontalSlider.value())
+    	self.Padding_bottom=int(self.horizontalSlider_2.value())
+    	self.Offsetx=int(self.horizontalSlider_3.value())
+    	self.Offsety=int(self.horizontalSlider_4.value())
+    	self.Diameter=float(self.lineEdit.text())
+    	self.Crop_pct=float(self.lineEdit_2.text())
+    	self.Orientation=self.comboBox.currentText()
+    	self.nCycle=int(self.spinBox.value())
+    	self.clength=int(self.spinBox_2.value())
+    	self.Swir=float(self.lineEdit_9.text())
+    	self.Method=self.comboBox_2.currentText()
+    	self.WaterRate=float(self.lineEdit_10.text())
+    	self.Oil_density=float(self.lineEdit_3.text())
+    	self.Water_density=float(self.lineEdit_4.text())
+    	self.Oil_compressibility=float(self.lineEdit_7.text())
+    	self.Water_compressibility=float(self.lineEdit_8.text())
+    	self.Oil_viscosity=float(self.lineEdit_5.text())
+    	self.Water_viscosity=float(self.lineEdit_6.text())
+    	self.nblocks_z=int(self.spinBox_4.value())
+    	self.nblocks=int(self.spinBox_3.value())
+    	self.Dummyporo=float(self.lineEdit_19.text())
+    	self.Dummyperm=float(self.lineEdit_20.text())
+    	self.ExpParams=[self.WaterRate,self.Oil_density,self.Water_density,self.Oil_compressibility,self.Water_compressibility,self.Oil_viscosity,self.Water_viscosity,self.Swir,self.Method]
+    	self.Lo=float(self.lineEdit_11.text())
+    	self.Eo=float(self.lineEdit_12.text())
+    	self.To=float(self.lineEdit_13.text())
+    	self.Lw=float(self.lineEdit_16.text())
+    	self.Ew=float(self.lineEdit_15.text())
+    	self.Tw=float(self.lineEdit_14.text())
+    	self.Sorw=float(self.lineEdit_17.text())
+    	self.Krw=float(self.lineEdit_18.text())
+    	self.Ao=float(self.lineEdit_22.text())
+    	self.Aw=float(self.lineEdit_23.text())
+    	self.Co=float(self.lineEdit_24.text())
+    	self.Cw=float(self.lineEdit_25.text())
+    	self.StaticParams=[self.Lo,self.Eo,self.To,self.Lw,self.Ew,self.Tw,self.Sorw,self.Krw,self.Ao,self.Aw,self.Co,self.Cw]
+    	self.DynamicParams=self.StaticParams
+    	self.ActiveParams=[self.checkBox.isChecked(),self.checkBox_2.isChecked(),self.checkBox_3.isChecked(),self.checkBox_4.isChecked(),self.checkBox_5.isChecked(),self.checkBox_6.isChecked(),self.checkBox_7.isChecked(),self.checkBox_8.isChecked(),self.checkBox_9.isChecked(),self.checkBox_10.isChecked(),self.checkBox_11.isChecked(),self.checkBox_12.isChecked()]
+    	self.Lowerbounds=[int(self.spinBox_5.value()),int(self.spinBox_6.value()),int(self.spinBox_7.value()),int(self.spinBox_8.value()),int(self.spinBox_9.value()),int(self.spinBox_10.value()),int(self.spinBox_11.value()),int(self.spinBox_12.value()),int(self.spinBox_13.value()),int(self.spinBox_14.value()),int(self.spinBox_16.value()),int(self.spinBox_15.value())]
+    	self.Upperbounds=[int(self.spinBox_33.value()),int(self.spinBox_36.value()),int(self.spinBox_43.value()),int(self.spinBox_41.value()),int(self.spinBox_40.value()),int(self.spinBox_39.value()),int(self.spinBox_42.value()),int(self.spinBox_35.value()),int(self.spinBox_38.value()),int(self.spinBox_44.value()),int(self.spinBox_34.value()),int(self.spinBox_37.value())]
+    
+    def RemoveTemp(self):
+    	shutil.rmtree("./temp")
+	
+    def CreateTemp(self):
+    	if not os.path.exists("./temp"):
+    		os.makedirs("./temp")
+		
+    def Stop(self,number):
+    	self.StopAction=True
+    	self.SetProgress(0,1)
+    	self.SetProgress(0,2)
+    	self.SetProgress(0,3)
+    	app.processEvents()
+    	
+    def UpdatePaddingTop(self):
+    	self.Padding_top=self.horizontalSlider.value()
+    	self.label_40.setText(str(self.Padding_top))
+    
+    def UpdatePaddingBottom(self):
+    	self.Padding_bottom=self.horizontalSlider_2.value()
+    	self.label_41.setText(str(self.Padding_bottom))
+    
+    def UpdateOffsetX(self):
+    	self.Offsetx=self.horizontalSlider_3.value()
+    	self.label_42.setText(str(self.Offsetx))
+    	self.UpdateCircle()
+    
+    def UpdateOffsetY(self):
+    	self.Offsety=self.horizontalSlider_4.value()
+    	self.label_43.setText(str(self.Offsety))
+    	self.UpdateCircle()
+    
+    def PrintOutput(self,Text):
+    	self.textEdit_2.append(Text)
+    
+    def UpdateCircle(self):
+    	self.GetValues()
+    	if self.LowEnergyPath=="":return
+    	plt.clf()
+    	ds1 = dicom.read_file(join(str(self.LowEnergyPath), os.listdir(self.LowEnergyPath)[0]))
+    	
+    	axs  = self.fig.add_subplot(111)
+    	a = ds1.pixel_array.shape[0]/2 
+    	Offsetr=2*a*self.Offsetx/self.Diameter
+    	Offsetc=2*a*self.Offsety/self.Diameter
+    	r=int(ds1.pixel_array.shape[0]*self.Crop_pct/self.Diameter/2)
+    	axs.imshow(ds1.pixel_array, cmap=plt.cm.bone)
+    	circle=plt.Circle((ds1.pixel_array.shape[0]/2+Offsetr,ds1.pixel_array.shape[0]/2+Offsetc),r,color='r',linewidth=1,fill=False)
+    
+    	plt.gcf().gca().add_artist(circle)
+    	axs.plot((a-10+Offsetr , a+10+Offsetr), (a+Offsetc, a+Offsetc), 'k')
+    	axs.plot((a+Offsetr, a+Offsetr),(a-10+Offsetc , a+10+Offsetc), 'k')
+    	self.canv.draw()
+
+    
+    def GetLowEnergy(self):
+    	self.LowEnergyPath=QtGui.QFileDialog.getExistingDirectory()
+    
+    def GetHighEnergy(self):
+    	self.HighEnergyPath=QtGui.QFileDialog.getExistingDirectory()
+    
+    def SetProgress(self,value,flag):
+    	if flag==1:
+    		self.progressBar.setProperty("value", value)
+    	elif flag==2:
+    		self.progressBar_2.setProperty("value", value)
+    	elif flag==3:
+    		self.progressBar_3.setProperty("value", value)
+	app.processEvents()
+    
+    def Writetoconsole(self,Text,Clear=False):
+    	if Clear:self.textEdit_2.clear()
+	self.textEdit_2.append(Text)
+	app.processEvents()
+	
+    def ParseInput(self):
+    	RawInput=self.textEdit.toPlainText()
+	Hist=[str(row) for row in RawInput.split("\n")]
+	Hist = filter(None, Hist) 
+	return Hist
+	
+    		
+    def Simulate(self):
+    	self.GetValues()    	
+    	WriteDATAfile(self.height,self.ExpParams,self.Orientation,self.Padding_top,self.Padding_bottom,self.Crop_pct,self.nblocks,self.nblocks_z,self.Lw,self.Ew,self.Tw,self.Swir,self.Sorw,self.Krw,self.Lo,self.Eo,self.To,self.Cw,self.Co,self.Aw,self.Ao,self.nCycle,self.clength)
+    	self.SetProgress(33,2)
+    	self.Writetoconsole("Running Eclipse...",True)
+    	RunEclipse("temp/CORE_TEST-0.DATA")
+    	self.SetProgress(66,2)
+    	self.Writetoconsole("Plotting Results...")
+    	FOPT,DIFF=PlotEclipseResults("temp/CORE_TEST-0",self.ExpParams,self.Orientation,self.nblocks,self.nblocks_z)
+    	plt.clf()
+    	ax  = self.fig.add_subplot(111)
+    	ax.plot(FOPT,'g',DIFF,'r')
+    	self.canv.draw()
+    	self.SetProgress(0,2)
+    	self.Writetoconsole("Simulation Finished")
+	
+    def Optimize(self):
+        self.GetValues()
+   	self.hist=self.ParseInput()
+    	self.Writetoconsole("Running Optimization...",True)
+    	app.processEvents()
+    	lb = []
+    	ub = []
+    	
+    	index=0
+        for i,param in enumerate(self.StaticParams):
+		if self.ActiveParams[i]:
+			lb+=[self.Lowerbounds[i]]
+			ub+=[self.Upperbounds[i]]
+			index+=1
+      	if len(lb)==0:
+      		self.Writetoconsole("No Active modifiers !")
+      		return
+
+    	best=Swarm(20,10,lb,ub,1,self,app)
+    	self.Writetoconsole("Optimization finished")
+    
+    def CreateDummyGrid(self):
+    	    self.GetValues()
+	    self.CreateTemp()
+       	    self.Writetoconsole("Creating Grid Properties...",True)
+	    nblocks_z=self.nblocks_z
+	    nblocks=self.nblocks
+	    
+	    	
+	    n=self.Diameter/nblocks
+	    n_z=self.height/nblocks_z
+	    
+	    Offsetr=int(nblocks*self.Offsetx/self.Diameter)
+    	    Offsetc=int(nblocks*self.Offsety/self.Diameter)
+
+	    X=np.ones((nblocks,nblocks))
+	    X=GetMaskedValues(X,Offsetr,Offsetc)
+
+	    ACTNUM=np.ones((nblocks_z,nblocks,nblocks))
+	    for i in range(0,nblocks_z):
+	    	ACTNUM[i]=X
+		
+	    PERMX=ACTNUM*self.Dummyperm
+	    PORO=ACTNUM*self.Dummyporo
+    	    Poro_string="PORO\n"
+    	    actnum_string="ACTNUM\n"
+    	    permx_string="PERMX\n"
+    	    nz=0
+	      
+    	    if self.Orientation=="Vertical":
+    		for k in range(0,nblocks_z):
+    		    for j in range(0,nblocks):
+    			for i in range(0,nblocks): 
+    
+    			    porov=PORO[k][j][i]
+    			    permxv=PERMX[k][j][i]
+    			    actnumv=ACTNUM[k][j][i]
+    			    permx_string+=str(int(permxv))+"\t"
+    			    Poro_string+='%.2E'%Decimal(porov)+"\t"
+    			    actnum_string+=str(int(actnumv))+"\t"
+    			    nz+=1
+    
+    			    if nz%4==0:
+    				Poro_string+="\n"
+    				permx_string+="\n"
+    				actnum_string+="\n"
+    
+    			    self.SetProgress(float(k)/nblocks_z*100,1)
+    	    else:
+    		for i in range(0,nblocks):
+    		    for j in range(0,nblocks):
+    			for k in range(0,nblocks_z):
+    			    porov=PORO[k][j][i]
+    			    permxv=PERMX[k][j][i]
+    			    actnumv=ACTNUM[k][j][i]
+    			    permx_string+=str(int(permxv))+"\t"
+    			    Poro_string+='%.2E'%Decimal(porov)+"\t"
+    			    actnum_string+=str(int(actnumv))+"\t"
+    			    nz+=1
+                        
+    			    if nz%4==0:
+    					Poro_string+="\n"
+    					permx_string+="\n"
+    					actnum_string+="\n"
+    			    self.SetProgress(float(k)/nblocks_z*100,1)
+    			    
+  	    size_x=round(self.Crop_pct/float(nblocks),2)
+	    size_z=round((self.height-self.Padding_top-self.Padding_bottom)/float(nblocks_z),2)
+	    
+    	    ax  = self.fig.add_subplot(111, projection='3d')
+    	    for k in range(0,nblocks_z):
+    	        self.SetProgress(float(k)/nblocks_z*100,1)
+		if self.StopAction: 
+			self.Writetoconsole("Stopped by user")
+    			return
+    	        for i in range(0,nblocks):
+    		    for j in range(0,nblocks):
+			    r1=[i*size_x,(i+1)*size_x]
+			    r2=[j*size_x,(j+1)*size_x]
+			    z=[k*size_z,(k+1)*size_z]
+			    X, Y = np.meshgrid(r1, r2)
+			    Z,Z = np.meshgrid(z, z)
+			    if ACTNUM[k][j][i]==1:
+				if k==0 :
+				    ax.plot_surface(X,Y,z[0],color = (1,0,0,0.8) )
+				if k==nblocks_z-1:
+				    ax.plot_surface(X,Y,z[1],color = (1,0,0,0.8) )
+				    
+				if j==0:
+				    ax.plot_surface(X,r2[0],Z,color = (1,0,0,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+				    	ax.plot_surface(r1[0],Y,z,color = (1,0,0,0.8) )
+				    if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (1,0,0,0.8) )
+				    continue
+				if j==nblocks-1:
+				    ax.plot_surface(X,r2[1],Z,color = (1,0,0,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+			            	ax.plot_surface(r1[0],Y,z,color = (1,0,0,0.8) )
+			            if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (1,0,0,0.8) )
+				    continue
+				    	
+				    
+				if i==0:
+				    ax.plot_surface(r1[0],Y,z,color = (1,0,0,0.8))
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (1,0,0,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (1,0,0,0.8) )
+				    continue
+				elif i==nblocks-1:
+				    ax.plot_surface(r1[1],Y,z,color = (1,0,0,0.8) )
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (1,0,0,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (1,0,0,0.8) )
+				    continue
+				
+				if ACTNUM[k][j-1][i]==0:
+				    ax.plot_surface(X,r2[0],Z,color = (1,0,0,0.8) )
+				if ACTNUM[k][j+1][i]==0:
+				    ax.plot_surface(X,r2[1],Z,color = (1,0,0,0.8) )    	
+				if ACTNUM[k][j][i+1]==0:
+				    ax.plot_surface(r1[1],Y,z,color = (1,0,0,0.8) )
+				if ACTNUM[k][j][i-1]==0:
+				    ax.plot_surface(r1[0],Y,z,color = (1,0,0,0.8) )
+				    
+	    self.canv.draw()
+    	    Poro_string+="\n/\n"
+    	    actnum_string+="\n/\n"
+    	    permx_string+="\n/\n"
+    	    self.progressBar.setProperty("value", 0)
+
+    	    WriteString(actnum_string,"temp/ACTNUM.INC")
+    	    WriteString(Poro_string,"temp/PORO.INC")
+	    WriteString(permx_string,"temp/PERMX.INC")
+	    self.Writetoconsole("Grid Generated")
+
+	    
+    def CreateGrid(self):
+    	    self.GetValues()
+	    self.CreateTemp()
+    	    try:
+    	    	self.LowEnergyPath
+	    except:
+		    self.Writetoconsole("Error:Folder Path missing !",True)
+		    return	    
+
+	    
+    	    self.Writetoconsole("Reading DICOM Files...",True)
+    	    files=[f for f in os.listdir(self.LowEnergyPath)]
+    	    files2=[f for f in os.listdir(self.HighEnergyPath)]
+    	    files=sorted(files)
+    	    files2=sorted(files2)
+    	    length=len(os.listdir(self.HighEnergyPath))-1
+    	    Padding_top=self.Padding_top*length/self.height  #avoid slices at the beginning
+    	    Padding_bottom=self.Padding_bottom*length/self.height# avoid Slices at the end
+    	    nslices=length-Padding_bottom-Padding_top
+    	    nblocks_z,n_z=GetMult(nslices)
+	    firstime=True
+    	    i=0
+    
+    	    for f1,f2 in zip(files,files2):
+    		if self.StopAction: 
+    			self.Writetoconsole("Stopped by user")
+    			return
+    		
+    		if i<Padding_top:
+    		    i+=1
+    		    continue
+    		if i>=length-Padding_bottom:break
+    
+    		self.SetProgress(float(i-Padding_top)*100/(length-Padding_bottom-Padding_top),1)
+    		ds1 = dicom.read_file(join(str(self.LowEnergyPath), f1))
+    		ds2 = dicom.read_file(join(str(self.HighEnergyPath), f2))
+    		a = ds1.pixel_array.shape[0]/2 
+    		Offsetr=int(2*a*self.Offsetx/self.Diameter)
+    		Offsetc=int(2*a*self.Offsety/self.Diameter)
+		
+    		x1=GetMaskedValues2(ds1.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
+    		x2=GetMaskedValues2(ds2.pixel_array,Offsetr,Offsetc,self.Crop_pct,self.Diameter)
+    		
+
+    		if (firstime):
+    			nblocks,n=GetMult(x1.shape[0])
+    			PORO=np.zeros(shape=(nblocks_z,nblocks,nblocks))
+    			ACTNUM=np.zeros(shape=(nblocks_z,nblocks,nblocks))
+    			PERMX=np.zeros(shape=(nblocks_z,nblocks,nblocks))
+    			self.Writetoconsole("Cropping values:"+"top:"+str(self.Padding_top)+"mm,bottom:"+str(self.Padding_bottom)+"mm")
+    			self.Writetoconsole("Offset values:"+"x:"+str(self.Offsetx)+"mm,y:"+str(self.Offsety)+"mm")
+    			self.Writetoconsole("Grid size:"+str(nblocks)+","+str(nblocks)+","+str(nblocks_z))
+    
+    		parameters=[2650,1,-0.77,1.98,1007,36597.06,-35330.83,233946.02]
+    		x, y = np.meshgrid(np.arange(x1.shape[0]), np.arange(x1.shape[1]),indexing='ij')
+    		z=GetPoro(x1,x2,parameters)
+    		poro_coarse=UpscalePoro(z,x,y,nblocks,n)
+
+    		if (firstime):
+    		    poro_coarse_avg=poro_coarse
+    		    a = poro_coarse.shape[0]/2 
+    		    Offsetr=int(2*a*self.Offsetx/self.Crop_pct)
+    		    Offsetc=int(2*a*self.Offsety/self.Crop_pct)
+    		    firstime=False
+    
+    
+    
+    		if (i-Padding_bottom)%n_z==0:
+    		    a = poro_coarse.shape[0]/2 
+		    Offsetr=int(2*a*self.Offsetx/self.Crop_pct)
+    		    Offsetc=int(2*a*self.Offsety/self.Crop_pct)
+    		    PORO[(i-Padding_top)/n_z]=poro_coarse_avg 
+    		    ACTNUM[(i-Padding_top)/n_z]=GetMaskedValues(poro_coarse_avg,0,0)
+    
+    
+    		else:
+    		    poro_coarse_avg=poro_coarse_avg*(i-Padding_top)/((i-Padding_top)+1)+poro_coarse/((i-Padding_top)+1)
+    		i+=1
+    	    self.progressBar.setProperty("value", 0)
+
+    	    PORO[PORO<0]=0
+    	    PORO[PORO>1]=1
+    
+    	    #PORO=PORO*1.7
+    	    ACTNUM[ACTNUM!=0]=1
+    	    #PERMX=10**(PORO/0.1)
+            #
+            #Poro-perm correlation with percolation threshold
+            #
+            PORO[PORO<0.05]=0.05
+            PERMX=5*(PORO-0.05)**3.12*PORO*1E5
+    	    PERMX[PERMX<10]=10
+    	    
+    	    self.Writetoconsole("Average Porosity:"+str(np.mean(PORO[PORO!=0])))
+    	    self.Writetoconsole("Average Permeability:"+str(np.mean(PERMX)))
+    	    self.nblocks=nblocks
+    	    self.nblocks_z=nblocks_z
+	    self.spinBox_4.setProperty("value", nblocks_z)
+    	    self.spinBox_3.setProperty("value", nblocks)
+    	    
+    	    Poro_string="PORO\n"
+    	    actnum_string="ACTNUM\n"
+    	    permx_string="PERMX\n"
+    	    nz=0
+    
+    	    self.Writetoconsole("Creating Grid Properties...")
+    	    if self.Orientation=="Vertical":
+    		for k in range(0,nblocks_z):
+    		    for j in range(0,nblocks):
+    			for i in range(0,nblocks): 
+    
+    			    porov=PORO[k][j][i]
+    			    permxv=PERMX[k][j][i]
+    			    actnumv=ACTNUM[k][j][i]
+    			    permx_string+=str(int(permxv))+"\t"
+    			    Poro_string+='%.2E'%Decimal(porov)+"\t"
+    			    actnum_string+=str(int(actnumv))+"\t"
+    			    nz+=1
+    
+    			    if nz%4==0:
+    				Poro_string+="\n"
+    				permx_string+="\n"
+    				actnum_string+="\n"
+    
+    			    self.SetProgress(float(k)/nblocks_z*100,1)
+    	    else:
+    		for i in range(0,nblocks):
+    		    for j in range(0,nblocks):
+    			for k in range(0,nblocks_z):
+    			    porov=PORO[k][j][i]
+    			    permxv=PERMX[k][j][i]
+    			    actnumv=ACTNUM[k][j][i]
+    			    permx_string+=str(int(permxv))+"\t"
+    			    Poro_string+='%.2E'%Decimal(porov)+"\t"
+    			    actnum_string+=str(int(actnumv))+"\t"
+    			    nz+=1
+                        
+    			    if nz%4==0:
+    					Poro_string+="\n"
+    					permx_string+="\n"
+    					actnum_string+="\n"
+    			    self.SetProgress(float(k)/nblocks_z*100,1)
+    	      					    
+    
+                #Plot the 3d plug
+            maxporo=np.max(np.ma.masked_where(ACTNUM==0, PORO))
+            minporo=np.min(np.ma.masked_where(ACTNUM==0, PORO))
+  
+	    size_x=round(self.Crop_pct/float(nblocks),2)
+	    size_z=round((self.height-self.Padding_top-self.Padding_bottom)/float(nblocks_z),2)
+	    
+    	    ax  = self.fig.add_subplot(111, projection='3d')
+    	    for k in range(0,nblocks_z):
+    	        self.SetProgress(float(k)/nblocks_z*100,1)	    
+    	        for i in range(0,nblocks):
+    		    for j in range(0,nblocks):
+			    porov=(minporo-PORO[k][j][i])/(minporo-maxporo)
+			    r1=[i*size_x,(i+1)*size_x]
+			    r2=[j*size_x,(j+1)*size_x]
+			    z=[k*size_z,(k+1)*size_z]
+			    X, Y = np.meshgrid(r1, r2)
+			    Z,Z = np.meshgrid(z, z)
+    			    R,G,B=GetRGB(porov)
+			    if ACTNUM[k][j][i]==1:
+				if k==0 :
+				    ax.plot_surface(X,Y,z[0],color = (R,G,B,0.8) )
+				if k==nblocks_z-1:
+				    ax.plot_surface(X,Y,z[1],color = (R,G,B,0.8) )
+				    
+				if j==0 and i<>0 and i<>nblocks-1:
+				    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+				    	ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    continue
+				if j==nblocks-1 and i<>0 and i<>nblocks-1:
+				    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j][i+1]==0:
+			            	ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+			            if ACTNUM[k][j][i-1]==0:
+				    	ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    continue
+				    	
+				    
+				if i==0 and j<>0 and j<>nblocks-1:
+				    ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8))
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    continue
+				if i==nblocks-1 and j<>0 and j<>nblocks-1:
+				    ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j-1][i]==0:
+				    	ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+				    if ACTNUM[k][j+1][i]==0:
+				    	ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )
+				    continue
+				
+				if i<>0 and i<>nblocks-1 and i<>0 and i<>nblocks-1:
+					if ACTNUM[k][j-1][i]==0:
+					    ax.plot_surface(X,r2[0],Z,color = (R,G,B,0.8) )
+					if ACTNUM[k][j+1][i]==0:
+					    ax.plot_surface(X,r2[1],Z,color = (R,G,B,0.8) )    	
+					if ACTNUM[k][j][i+1]==0:
+					    ax.plot_surface(r1[1],Y,z,color = (R,G,B,0.8) )
+					if ACTNUM[k][j][i-1]==0:
+					    ax.plot_surface(r1[0],Y,z,color = (R,G,B,0.8) )
+    				    
+	    self.canv.draw()
+    	    Poro_string+="\n/\n"
+    	    actnum_string+="\n/\n"
+    	    permx_string+="\n/\n"
+    	    self.progressBar.setProperty("value", 0)
+    	    WriteString(actnum_string,"temp/ACTNUM.INC")
+    	    WriteString(Poro_string,"temp/PORO.INC")
+	    WriteString(permx_string,"temp/PERMX.INC")
+	    self.Writetoconsole("Grid Generated")
+
+		    
+if __name__ == '__main__':
+   	app = QApplication(sys.argv)
+	Mainwindow = QMainWindow()
+	gc.disable()
+	ui = Ui_MainWindow()	
+   	ui.setupUi(Mainwindow)
+    	Mainwindow.show()
+   	sys.exit(app.exec_())

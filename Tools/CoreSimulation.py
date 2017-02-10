@@ -19,6 +19,7 @@
 
 import os
 import subprocess
+from subprocess import check_output
 import ert.ecl as ecl
 
 def GetRGB(poro):
@@ -213,7 +214,11 @@ def create_SOF2_Corey(No,Swcr,Sorw):
     string +=" \t"+str(('%.2f' % So))+"\t1.000000\n"
     string +=" \t/\n"
     return string
- 
+
+def RunEclipse_checkout(CASE):
+	number = check_output(["runeclipse", CASE])
+	return number
+	
 def RunEclipse(CASE):
     FNULL = open(os.devnull, 'r+')
     args = ("runeclipse","-i", CASE)
@@ -225,12 +230,13 @@ def WriteString(string,FILE):
     f.write(string)
     f.close()
 
-def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co,Aw,Ao,nCycle,clength):
+def WriteDATAfile(height,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,Lw,Ew,Tw, Swcr,Sorw,Krwmax,Low,Eow,Tow,Cw,Co,Aw,Ao,nCycle,clength,index=0):
     stringlist=[]
     Crop_pct=float(Crop_pct)
     Swcr=float(Swcr)
     size_x=round(Crop_pct/10/float(nblocks),2)
-    size_z=round((1000-Padding_top-Padding_bottom)/10/float(nblocks_z),2)
+
+    size_z=round((height-Padding_top-Padding_bottom)/10/float(nblocks_z),2)
     Cellnb=nblocks*nblocks*(nblocks_z )
     WaterRate=float(ExpParams[0])
     Oil_density=float(ExpParams[1])/1000
@@ -330,7 +336,7 @@ def WriteDATAfile(ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblo
                 stringlist+="TSTEP\n"+str(clength)+"*0.017/\n"
     
     string="".join(stringlist)
-    WriteString(string,"temp/CORE_TEST.DATA")
+    WriteString(string,"temp/CORE_TEST-"+str(index)+".DATA")
 
 def PlotEclipseResults(CASE,ExpParams,Orientation,nblocks,nblocks_z):
     summary = ecl.EclSum(CASE)

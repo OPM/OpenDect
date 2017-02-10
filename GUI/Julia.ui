@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1211</width>
-    <height>644</height>
+    <height>773</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,17 +17,14 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>0</x>
-      <y>0</y>
+      <x>10</x>
+      <y>10</y>
       <width>336</width>
-      <height>590</height>
+      <height>710</height>
      </rect>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
-    </property>
-    <property name="currentIndex">
-     <number>0</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -59,9 +56,15 @@
          </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit">
+         <property name="minimumSize">
+          <size>
+           <width>50</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
+           <width>50</width>
            <height>20</height>
           </size>
          </property>
@@ -84,7 +87,7 @@
         <widget class="QLineEdit" name="lineEdit_2">
          <property name="maximumSize">
           <size>
-           <width>16777215</width>
+           <width>50</width>
            <height>20</height>
           </size>
          </property>
@@ -123,6 +126,12 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_4">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Cropping Top (mm)</string>
          </property>
@@ -153,6 +162,11 @@
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
+        <widget class="QLabel" name="label_40">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>
@@ -161,6 +175,12 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_3">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Cropping Bottom (mm)</string>
          </property>
@@ -191,6 +211,11 @@
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
+        <widget class="QLabel" name="label_41">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>
@@ -199,6 +224,12 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_5">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Offset X (mm)</string>
          </property>
@@ -220,6 +251,11 @@
           <enum>Qt::Horizontal</enum>
          </property>
         </widget>
+        <widget class="QLabel" name="label_42">
+         <property name="text">
+          <string>0</string>
+         </property>
+        </widget>
        </widget>
       </item>
       <item>
@@ -228,6 +264,12 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_6">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
          <property name="text">
           <string>Offset Y (mm)</string>
          </property>
@@ -247,6 +289,11 @@
          </property>
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
+         </property>
+        </widget>
+        <widget class="QLabel" name="label_43">
+         <property name="text">
+          <string>0</string>
          </property>
         </widget>
        </widget>
@@ -272,21 +319,80 @@
        </spacer>
       </item>
       <item>
+       <widget class="QSplitter" name="splitter_16">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_39">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Height (mm)</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_21">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>1000</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
        <widget class="QSplitter" name="splitter_8">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_36">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Dimensions (XY,Z)</string>
          </property>
         </widget>
         <widget class="QSpinBox" name="spinBox_3">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="value">
           <number>5</number>
          </property>
         </widget>
         <widget class="QSpinBox" name="spinBox_4">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="value">
           <number>5</number>
          </property>
@@ -299,11 +405,29 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_37">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>Porosity</string>
          </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_19">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>0.2</string>
          </property>
@@ -316,11 +440,29 @@
          <enum>Qt::Horizontal</enum>
         </property>
         <widget class="QLabel" name="label_38">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
-          <string>Permeability</string>
+          <string>Permeability (mD)</string>
          </property>
         </widget>
         <widget class="QLineEdit" name="lineEdit_20">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
          <property name="text">
           <string>200</string>
          </property>
@@ -348,13 +490,32 @@
        </spacer>
       </item>
       <item>
-       <widget class="QProgressBar" name="progressBar">
-        <property name="value">
-         <number>0</number>
+       <widget class="QSplitter" name="splitter_17">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QProgressBar" name="progressBar">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_7">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Stop</string>
+         </property>
+        </widget>
        </widget>
       </item>
      </layout>
+     <zorder>splitter_8</zorder>
+     <zorder>splitter_9</zorder>
+     <zorder>splitter_10</zorder>
      <zorder>pushButton_2</zorder>
      <zorder>pushButton</zorder>
      <zorder>splitter</zorder>
@@ -366,16 +527,19 @@
      <zorder>splitter_7</zorder>
      <zorder>progressBar</zorder>
      <zorder>pushButton_3</zorder>
-     <zorder>spinBox_4</zorder>
-     <zorder>spinBox_3</zorder>
-     <zorder>label_36</zorder>
      <zorder>pushButton_6</zorder>
      <zorder>verticalSpacer_2</zorder>
-     <zorder>label_37</zorder>
-     <zorder>label_38</zorder>
-     <zorder>lineEdit_19</zorder>
-     <zorder>lineEdit_20</zorder>
      <zorder>verticalSpacer_3</zorder>
+     <zorder>label_39</zorder>
+     <zorder>lineEdit_21</zorder>
+     <zorder>label_40</zorder>
+     <zorder>label_41</zorder>
+     <zorder>label_42</zorder>
+     <zorder>label_43</zorder>
+     <zorder>pushButton_7</zorder>
+     <zorder>horizontalSpacer</zorder>
+     <zorder>horizontalSpacer_2</zorder>
+     <zorder>horizontalSpacer_3</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
      <attribute name="title">
@@ -398,9 +562,6 @@
            <width>16777215</width>
            <height>20</height>
           </size>
-         </property>
-         <property name="currentIndex">
-          <number>-1</number>
          </property>
         </widget>
        </widget>
@@ -627,66 +788,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_4">
-        <property name="text">
-         <string>Run Simulation</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <spacer name="verticalSpacer">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>40</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item>
-       <widget class="QProgressBar" name="progressBar_2">
-        <property name="value">
-         <number>0</number>
-        </property>
-       </widget>
-      </item>
-     </layout>
-    </widget>
-    <widget class="QWidget" name="tab_3">
-     <attribute name="title">
-      <string>Parametrization</string>
-     </attribute>
-     <layout class="QVBoxLayout" name="verticalLayout_3">
-      <item>
-       <widget class="QLabel" name="label_18">
-        <property name="minimumSize">
-         <size>
-          <width>100</width>
-          <height>0</height>
-         </size>
-        </property>
-        <property name="maximumSize">
-         <size>
-          <width>100</width>
-          <height>16777215</height>
-         </size>
-        </property>
-        <property name="font">
-         <font>
-          <weight>75</weight>
-          <bold>true</bold>
-         </font>
-        </property>
-        <property name="text">
-         <string>Oil/Water</string>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <layout class="QGridLayout" name="gridLayout_2">
+       <layout class="QGridLayout" name="gridLayout_3">
         <item row="0" column="0">
          <widget class="QLabel" name="label_19">
           <property name="minimumSize">
@@ -726,9 +828,28 @@
          </widget>
         </item>
         <item row="0" column="2">
-         <widget class="QLabel" name="label_24">
+         <widget class="QLabel" name="label_44">
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
           <property name="text">
-           <string>0</string>
+           <string>Ao</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QLineEdit" name="lineEdit_22">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>1</string>
           </property>
          </widget>
         </item>
@@ -771,9 +892,28 @@
          </widget>
         </item>
         <item row="1" column="2">
-         <widget class="QLabel" name="label_25">
+         <widget class="QLabel" name="label_45">
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
           <property name="text">
-           <string>0</string>
+           <string>Aw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QLineEdit" name="lineEdit_23">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>1</string>
           </property>
          </widget>
         </item>
@@ -816,7 +956,26 @@
          </widget>
         </item>
         <item row="2" column="2">
-         <widget class="QLabel" name="label_26">
+         <widget class="QLabel" name="label_46">
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Co</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QLineEdit" name="lineEdit_24">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
           <property name="text">
            <string>0</string>
           </property>
@@ -861,7 +1020,26 @@
          </widget>
         </item>
         <item row="3" column="2">
-         <widget class="QLabel" name="label_27">
+         <widget class="QLabel" name="label_47">
+          <property name="maximumSize">
+           <size>
+            <width>20</width>
+            <height>20</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>Cw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QLineEdit" name="lineEdit_25">
+          <property name="maximumSize">
+           <size>
+            <width>50</width>
+            <height>20</height>
+           </size>
+          </property>
           <property name="text">
            <string>0</string>
           </property>
@@ -905,13 +1083,6 @@
           </property>
          </widget>
         </item>
-        <item row="4" column="2">
-         <widget class="QLabel" name="label_30">
-          <property name="text">
-           <string>0</string>
-          </property>
-         </widget>
-        </item>
         <item row="5" column="0">
          <widget class="QLabel" name="label_22">
           <property name="minimumSize">
@@ -947,13 +1118,6 @@
           </property>
           <property name="text">
            <string>2</string>
-          </property>
-         </widget>
-        </item>
-        <item row="5" column="2">
-         <widget class="QLabel" name="label_29">
-          <property name="text">
-           <string>0</string>
           </property>
          </widget>
         </item>
@@ -995,13 +1159,6 @@
           </property>
          </widget>
         </item>
-        <item row="6" column="2">
-         <widget class="QLabel" name="label_32">
-          <property name="text">
-           <string>0</string>
-          </property>
-         </widget>
-        </item>
         <item row="7" column="0">
          <widget class="QLabel" name="label_33">
           <property name="minimumSize">
@@ -1040,10 +1197,460 @@
           </property>
          </widget>
         </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QPushButton" name="pushButton_4">
+        <property name="text">
+         <string>Run Simulation</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <spacer name="verticalSpacer">
+        <property name="orientation">
+         <enum>Qt::Vertical</enum>
+        </property>
+        <property name="sizeHint" stdset="0">
+         <size>
+          <width>20</width>
+          <height>40</height>
+         </size>
+        </property>
+       </spacer>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter_18">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QProgressBar" name="progressBar_2">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_8">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Stop</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+    <widget class="QWidget" name="tab_3">
+     <attribute name="title">
+      <string>Parametrization</string>
+     </attribute>
+     <layout class="QVBoxLayout" name="verticalLayout_5">
+      <item>
+       <widget class="QLabel" name="label_18">
+        <property name="minimumSize">
+         <size>
+          <width>100</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="maximumSize">
+         <size>
+          <width>100</width>
+          <height>16777215</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Oil/Water</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <layout class="QGridLayout" name="gridLayout_7">
+        <item row="0" column="0">
+         <widget class="QLabel" name="label_107">
+          <property name="text">
+           <string>Lo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QSpinBox" name="spinBox_5"/>
+        </item>
+        <item row="0" column="2">
+         <widget class="QLabel" name="label_24">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="3">
+         <widget class="QSpinBox" name="spinBox_33">
+          <property name="value">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="4">
+         <widget class="QCheckBox" name="checkBox">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <widget class="QLabel" name="label_108">
+          <property name="text">
+           <string>Eo</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="1">
+         <widget class="QSpinBox" name="spinBox_6"/>
+        </item>
+        <item row="1" column="2">
+         <widget class="QLabel" name="label_25">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="3">
+         <widget class="QSpinBox" name="spinBox_36">
+          <property name="value">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="4">
+         <widget class="QCheckBox" name="checkBox_2">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="0">
+         <widget class="QLabel" name="label_113">
+          <property name="text">
+           <string>To</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="1">
+         <widget class="QSpinBox" name="spinBox_7"/>
+        </item>
+        <item row="2" column="2">
+         <widget class="QLabel" name="label_26">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="3">
+         <widget class="QSpinBox" name="spinBox_43">
+          <property name="value">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="2" column="4">
+         <widget class="QCheckBox" name="checkBox_3">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="0">
+         <widget class="QLabel" name="label_103">
+          <property name="text">
+           <string>Lw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="1">
+         <widget class="QSpinBox" name="spinBox_8"/>
+        </item>
+        <item row="3" column="2">
+         <widget class="QLabel" name="label_27">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="3">
+         <widget class="QSpinBox" name="spinBox_41">
+          <property name="value">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="3" column="4">
+         <widget class="QCheckBox" name="checkBox_4">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QLabel" name="label_114">
+          <property name="text">
+           <string>Ew</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="1">
+         <widget class="QSpinBox" name="spinBox_9"/>
+        </item>
+        <item row="4" column="2">
+         <widget class="QLabel" name="label_30">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="3">
+         <widget class="QSpinBox" name="spinBox_40">
+          <property name="minimumSize">
+           <size>
+            <width>20</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="value">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="4" column="4">
+         <widget class="QCheckBox" name="checkBox_5">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="0">
+         <widget class="QLabel" name="label_104">
+          <property name="text">
+           <string>Tw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="1">
+         <widget class="QSpinBox" name="spinBox_10"/>
+        </item>
+        <item row="5" column="2">
+         <widget class="QLabel" name="label_29">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="3">
+         <widget class="QSpinBox" name="spinBox_39">
+          <property name="value">
+           <number>5</number>
+          </property>
+         </widget>
+        </item>
+        <item row="5" column="4">
+         <widget class="QCheckBox" name="checkBox_6">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="0">
+         <widget class="QLabel" name="label_112">
+          <property name="text">
+           <string>Sorw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="1">
+         <widget class="QSpinBox" name="spinBox_11"/>
+        </item>
+        <item row="6" column="2">
+         <widget class="QLabel" name="label_32">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="3">
+         <widget class="QSpinBox" name="spinBox_42">
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="6" column="4">
+         <widget class="QCheckBox" name="checkBox_7">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="0">
+         <widget class="QLabel" name="label_111">
+          <property name="text">
+           <string>Krw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="1">
+         <widget class="QSpinBox" name="spinBox_12"/>
+        </item>
         <item row="7" column="2">
          <widget class="QLabel" name="label_34">
           <property name="text">
            <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="3">
+         <widget class="QSpinBox" name="spinBox_35">
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="7" column="4">
+         <widget class="QCheckBox" name="checkBox_8">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="0">
+         <widget class="QLabel" name="label_106">
+          <property name="text">
+           <string>Ao</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="1">
+         <widget class="QSpinBox" name="spinBox_13"/>
+        </item>
+        <item row="8" column="2">
+         <widget class="QLabel" name="label_48">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="3">
+         <widget class="QSpinBox" name="spinBox_38">
+          <property name="value">
+           <number>10</number>
+          </property>
+         </widget>
+        </item>
+        <item row="8" column="4">
+         <widget class="QCheckBox" name="checkBox_9">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="0">
+         <widget class="QLabel" name="label_105">
+          <property name="text">
+           <string>Aw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="1">
+         <widget class="QSpinBox" name="spinBox_14"/>
+        </item>
+        <item row="9" column="2">
+         <widget class="QLabel" name="label_49">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="3">
+         <widget class="QSpinBox" name="spinBox_44">
+          <property name="value">
+           <number>10</number>
+          </property>
+         </widget>
+        </item>
+        <item row="9" column="4">
+         <widget class="QCheckBox" name="checkBox_10">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="0">
+         <widget class="QLabel" name="label_109">
+          <property name="text">
+           <string>Co</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="1">
+         <widget class="QSpinBox" name="spinBox_16"/>
+        </item>
+        <item row="10" column="2">
+         <widget class="QLabel" name="label_50">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="3">
+         <widget class="QSpinBox" name="spinBox_34">
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="10" column="4">
+         <widget class="QCheckBox" name="checkBox_11">
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="0">
+         <widget class="QLabel" name="label_110">
+          <property name="text">
+           <string>Cw</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="1">
+         <widget class="QSpinBox" name="spinBox_15"/>
+        </item>
+        <item row="11" column="2">
+         <widget class="QLabel" name="label_51">
+          <property name="text">
+           <string>0</string>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="3">
+         <widget class="QSpinBox" name="spinBox_37">
+          <property name="value">
+           <number>1</number>
+          </property>
+         </widget>
+        </item>
+        <item row="11" column="4">
+         <widget class="QCheckBox" name="checkBox_12">
+          <property name="text">
+           <string/>
           </property>
          </widget>
         </item>
@@ -1085,10 +1692,26 @@
        </widget>
       </item>
       <item>
-       <widget class="QProgressBar" name="progressBar_3">
-        <property name="value">
-         <number>0</number>
+       <widget class="QSplitter" name="splitter_39">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
         </property>
+        <widget class="QProgressBar" name="progressBar_3">
+         <property name="value">
+          <number>0</number>
+         </property>
+        </widget>
+        <widget class="QPushButton" name="pushButton_17">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Stop</string>
+         </property>
+        </widget>
        </widget>
       </item>
      </layout>
@@ -1099,28 +1722,24 @@
      <rect>
       <x>350</x>
       <y>20</y>
-      <width>581</width>
-      <height>571</height>
+      <width>841</width>
+      <height>531</height>
      </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
-      <x>940</x>
-      <y>20</y>
-      <width>261</width>
-      <height>471</height>
+      <x>350</x>
+      <y>560</y>
+      <width>841</width>
+      <height>161</height>
      </rect>
     </property>
     <property name="readOnly">
      <bool>true</bool>
     </property>
    </widget>
-   <zorder>tabWidget</zorder>
-   <zorder>widget</zorder>
-   <zorder>textEdit_2</zorder>
-   <zorder>progressBar</zorder>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
