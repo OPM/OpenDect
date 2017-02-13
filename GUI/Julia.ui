@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1211</width>
-    <height>773</height>
+    <height>830</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,12 +19,15 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>336</width>
-      <height>710</height>
+      <width>355</width>
+      <height>768</height>
      </rect>
     </property>
     <property name="autoFillBackground">
      <bool>false</bool>
+    </property>
+    <property name="currentIndex">
+     <number>2</number>
     </property>
     <widget class="QWidget" name="tab">
      <attribute name="title">
@@ -93,6 +96,41 @@
          </property>
          <property name="text">
           <string>50</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter_16">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_39">
+         <property name="minimumSize">
+          <size>
+           <width>150</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>150</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Height (mm)</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_21">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>1000</string>
          </property>
         </widget>
        </widget>
@@ -319,41 +357,6 @@
        </spacer>
       </item>
       <item>
-       <widget class="QSplitter" name="splitter_16">
-        <property name="orientation">
-         <enum>Qt::Horizontal</enum>
-        </property>
-        <widget class="QLabel" name="label_39">
-         <property name="minimumSize">
-          <size>
-           <width>150</width>
-           <height>0</height>
-          </size>
-         </property>
-         <property name="maximumSize">
-          <size>
-           <width>150</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>Height (mm)</string>
-         </property>
-        </widget>
-        <widget class="QLineEdit" name="lineEdit_21">
-         <property name="maximumSize">
-          <size>
-           <width>50</width>
-           <height>16777215</height>
-          </size>
-         </property>
-         <property name="text">
-          <string>1000</string>
-         </property>
-        </widget>
-       </widget>
-      </item>
-      <item>
        <widget class="QSplitter" name="splitter_8">
         <property name="orientation">
          <enum>Qt::Horizontal</enum>
@@ -513,6 +516,8 @@
        </widget>
       </item>
      </layout>
+     <zorder>splitter_16</zorder>
+     <zorder>splitter_17</zorder>
      <zorder>splitter_8</zorder>
      <zorder>splitter_9</zorder>
      <zorder>splitter_10</zorder>
@@ -525,20 +530,10 @@
      <zorder>splitter_5</zorder>
      <zorder>splitter_6</zorder>
      <zorder>splitter_7</zorder>
-     <zorder>progressBar</zorder>
      <zorder>pushButton_3</zorder>
      <zorder>pushButton_6</zorder>
      <zorder>verticalSpacer_2</zorder>
      <zorder>verticalSpacer_3</zorder>
-     <zorder>label_39</zorder>
-     <zorder>lineEdit_21</zorder>
-     <zorder>label_40</zorder>
-     <zorder>label_41</zorder>
-     <zorder>label_42</zorder>
-     <zorder>label_43</zorder>
-     <zorder>pushButton_7</zorder>
-     <zorder>horizontalSpacer</zorder>
-     <zorder>horizontalSpacer_2</zorder>
      <zorder>horizontalSpacer_3</zorder>
     </widget>
     <widget class="QWidget" name="tab_2">
@@ -1248,7 +1243,89 @@
      <attribute name="title">
       <string>Parametrization</string>
      </attribute>
-     <layout class="QVBoxLayout" name="verticalLayout_5">
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QSplitter" name="splitter_19">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_52">
+         <property name="minimumSize">
+          <size>
+           <width>200</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Simulation number</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_26">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>5</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
+      <item>
+       <widget class="QSplitter" name="splitter_20">
+        <property name="orientation">
+         <enum>Qt::Horizontal</enum>
+        </property>
+        <widget class="QLabel" name="label_53">
+         <property name="minimumSize">
+          <size>
+           <width>100</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>100</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="font">
+          <font>
+           <weight>75</weight>
+           <bold>true</bold>
+          </font>
+         </property>
+         <property name="text">
+          <string>Max iterations</string>
+         </property>
+        </widget>
+        <widget class="QLineEdit" name="lineEdit_27">
+         <property name="maximumSize">
+          <size>
+           <width>50</width>
+           <height>16777215</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>10</string>
+         </property>
+        </widget>
+       </widget>
+      </item>
       <item>
        <widget class="QLabel" name="label_18">
         <property name="minimumSize">
@@ -1660,7 +1737,7 @@
        <widget class="QLabel" name="label_35">
         <property name="minimumSize">
          <size>
-          <width>100</width>
+          <width>200</width>
           <height>0</height>
          </size>
         </property>
@@ -1720,19 +1797,19 @@
    <widget class="QWidget" name="widget" native="true">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>380</x>
       <y>20</y>
-      <width>841</width>
-      <height>531</height>
+      <width>601</width>
+      <height>581</height>
      </rect>
     </property>
    </widget>
    <widget class="QTextEdit" name="textEdit_2">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>560</y>
-      <width>841</width>
+      <x>380</x>
+      <y>610</y>
+      <width>811</width>
       <height>161</height>
      </rect>
     </property>

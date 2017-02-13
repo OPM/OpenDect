@@ -49,7 +49,15 @@ def Swarm(imax,n,pmin,pmax,treshold,window,app):
         p[k]=pk.T
     
     pbest=p # Initial best value set equal to initial value
-    gbest=np.ones(ndim)*0.01 # Initial global best value set equal to 0 for all parameters
+    gbest=np.zeros(ndim)
+    
+    index=0
+    for j,param in enumerate(window.StaticParams):
+	if window.ActiveParams[j]:
+		gbest[index]=window.StaticParams[j]
+		index+=1
+		
+    
     v=np.zeros((ndim,n)) # speed for each particles
     p_out=np.zeros(n) # Output for the current particle position
     pb_out=np.zeros(n) # Best personnal output for the particle
@@ -60,7 +68,7 @@ def Swarm(imax,n,pmin,pmax,treshold,window,app):
     gb_out=pb_out[0]
        
     #Main Loop
-    
+
     for epoch in range(0,imax):
 
         window.SetProgress(float(epoch)/imax*100,3)
@@ -84,10 +92,10 @@ def Swarm(imax,n,pmin,pmax,treshold,window,app):
                 gb_out=pb_out[i]
                 
                 index=0
-	        for i,param in enumerate(window.StaticParams):
-			if not window.ActiveParams[i]:window.DynamicParams[i]=param
+	        for j,param in enumerate(window.StaticParams):
+			if not window.ActiveParams[j]:window.DynamicParams[j]=param
 			else:
-				window.DynamicParams[i]=gbest[index]
+				window.DynamicParams[j]=gbest[index]
 				index+=1
 	                
                 window.label_24.setText(str(window.DynamicParams[0]))
@@ -102,11 +110,15 @@ def Swarm(imax,n,pmin,pmax,treshold,window,app):
 		window.label_49.setText(str(window.DynamicParams[9]))
 		window.label_50.setText(str(window.DynamicParams[10]))
 		window.label_51.setText(str(window.DynamicParams[11]))
-		
-		FOPT,DIFF=PlotEclipseResults("temp/CORE_TEST-"+str(i),window.ExpParams,window.Orientation,window.nblocks,window.nblocks_z)
+
+		FOPT,FWPT,DIFF=PlotEclipseResults("temp/CORE_TEST-"+str(i),window.ExpParams,window.Orientation,window.nblocks,window.nblocks_z)
 		plt.clf()	
-		ax  = window.fig.add_subplot(111)
-		ax.plot(FOPT,'g',DIFF,'r',hist_oil,'g--')
+		ax  = window.fig.add_subplot(221)
+		ax.plot(FOPT,'g',hist_oil,'g--')
+		ax  = window.fig.add_subplot(222)
+		ax.plot(FWPT,'r',hist_water,'r--')
+		ax  = window.fig.add_subplot(223)
+		ax.plot(DIFF,'r',hist_diff,'r--')
 		window.canv.draw()
 		window.Writetoconsole("New Best values with delta "+str(gb_out))
 		app.processEvents()
@@ -121,8 +133,9 @@ def Swarm(imax,n,pmin,pmax,treshold,window,app):
         #Update speed of each particle
         for i in range(0,n):
             for k in range(0,ndim):
-                v[k,i]=0.1*v[k,i]+1.5*random.random()*(pbest[k,i]-p[k,i])+2.5*random.random()*(gbest[k]-p[k,i])
-                p[k,i]+=v[k,i]
+                v[k,i]=v[k,i]+1.5*random.random()*(pbest[k,i]-p[k,i])+2.5*random.random()*(gbest[k]-p[k,i])
+                if p[k,i]+v[k,i]<pmax[k] and  p[k,i]+v[k,i]>pmin[k] and p[k,i]+v[k,i]>0:p[k,i]+=v[k,i]
+                
     	
 
 
@@ -139,15 +152,16 @@ def Swarmfunction(p,hist,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_p
 
 
 	for i in range(0,n):
-	
+	    
 	    index=0
 	    for k,param in enumerate(window.StaticParams):
 
 		if not window.ActiveParams[k]:window.DynamicParams[k]=param
 		else:	
 			window.DynamicParams[k]=p[index,i]
-	    index+=1
-
+	    		index+=1
+	    
+	    window.Writetoconsole("Running simulation for :"+str(window.DynamicParams))
 	    Epsilon=0.00001
 	    WriteDATAfile(window.height,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_pct,nblocks,nblocks_z,window.DynamicParams[3],window.DynamicParams[4],window.DynamicParams[5], Swcr,window.DynamicParams[6],window.DynamicParams[7],window.DynamicParams[0],window.DynamicParams[1],window.DynamicParams[2],window.DynamicParams[11],window.DynamicParams[10],window.DynamicParams[9],window.DynamicParams[8],nCycle,clength,i)
 	    joblist+=[RunEclipse_checkout("temp/CORE_TEST-"+str(i)+".DATA")]
@@ -177,8 +191,8 @@ def Swarmfunction(p,hist,ExpParams,Orientation,Padding_top,Padding_bottom,Crop_p
 		    DELTA[0]+=[((node1.value-hist_oil)/hist_oil)**2]
 		    DELTA[1]+=[((node2.value-hist_wat)/hist_wat)**2]
 		    DELTA[2]+=[(((abs(node3.value-node4.value)/abs(BPR_IN_init/BPR_OUT_init))-hist_diff)/hist_diff)**2]
-	    pb_out+=[np.sum(DELTA[1])] #opt on oil only so far
-	    
+	    pb_out+=[np.sum(DELTA[0]+DELTA[1]+DELTA[2])] #opt on oil only so far
+   
 	return pb_out
 
 def Testforjobs(x):

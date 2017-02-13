@@ -906,9 +906,10 @@ class Ui_MainWindow(object):
 	self.canv = FigureCanvas(self.fig)   
 	self.grid.addWidget(self.canv, 0, 0)
 	self.widget.setLayout(self.grid)
-    	self.widget.setFixedSize(600,600)
+    	self.RemoveTemp()
 	
     def GetValues(self):
+    	plt.clf()
     	self.StopAction=False
     	self.height=int(self.lineEdit_21.text())
     	self.Padding_top=int(self.horizontalSlider.value())
@@ -953,7 +954,8 @@ class Ui_MainWindow(object):
     	self.Upperbounds=[int(self.spinBox_33.value()),int(self.spinBox_36.value()),int(self.spinBox_43.value()),int(self.spinBox_41.value()),int(self.spinBox_40.value()),int(self.spinBox_39.value()),int(self.spinBox_42.value()),int(self.spinBox_35.value()),int(self.spinBox_38.value()),int(self.spinBox_44.value()),int(self.spinBox_34.value()),int(self.spinBox_37.value())]
     
     def RemoveTemp(self):
-    	shutil.rmtree("./temp")
+    	if  os.path.exists("./temp"):
+    		shutil.rmtree("./temp")
 	
     def CreateTemp(self):
     	if not os.path.exists("./temp"):
@@ -1042,10 +1044,13 @@ class Ui_MainWindow(object):
     	RunEclipse("temp/CORE_TEST-0.DATA")
     	self.SetProgress(66,2)
     	self.Writetoconsole("Plotting Results...")
-    	FOPT,DIFF=PlotEclipseResults("temp/CORE_TEST-0",self.ExpParams,self.Orientation,self.nblocks,self.nblocks_z)
-    	plt.clf()
-    	ax  = self.fig.add_subplot(111)
-    	ax.plot(FOPT,'g',DIFF,'r')
+    	FOPT,FWPT,DIFF=PlotEclipseResults("temp/CORE_TEST-0",self.ExpParams,self.Orientation,self.nblocks,self.nblocks_z)
+    	ax  = self.fig.add_subplot(221)
+    	ax.plot(FOPT,"g")
+    	ax  = self.fig.add_subplot(222)
+    	ax.plot(FWPT,"b")
+    	ax  = self.fig.add_subplot(223)
+    	ax.plot(DIFF,"r")
     	self.canv.draw()
     	self.SetProgress(0,2)
     	self.Writetoconsole("Simulation Finished")
@@ -1068,7 +1073,7 @@ class Ui_MainWindow(object):
       		self.Writetoconsole("No Active modifiers !")
       		return
 
-    	best=Swarm(20,10,lb,ub,1,self,app)
+    	best=Swarm(100,10,lb,ub,1,self,app)
     	self.Writetoconsole("Optimization finished")
     
     def CreateDummyGrid(self):

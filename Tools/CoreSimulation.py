@@ -58,14 +58,15 @@ def create_SWFN_LET_Skj(Lw,Ew,Tw, Swcr,Sorw,Krwmax,Cw,Co,Aw,Ao):
         Sw=float(r)/lines
         if ((Sw - Swcr) < 0.0) :
                continue
-        elif (Sw >= Swmax):
-            break
         elif (firsttime):
               Sw = Swcr
               Krw = 0
               firsttime = False
 	      SwPcw=Sw/ (1-Sw-Sorw)
               Pc =str(Cw/SwPcw**Aw)
+        elif (Sw >= Swmax):
+              string +=" \t"+str(('%.2f' % Sw))+"\t"+str(Krw)+"\t"+str(Pc)+"\n"
+              break
     	else:
          Swn=(Sw-Swcr) / (1-Sorw-Swcr)
          SwPco=(1-Sw-Sorw) / (1-Sorw)
@@ -82,6 +83,7 @@ def create_SWFN_LET_Skj(Lw,Ew,Tw, Swcr,Sorw,Krwmax,Cw,Co,Aw,Ao):
     return string
     
 def create_SWFN_Corey_Skj(Swcr,Sorw,Krwmax,Nw,Cw,Co,Aw,Ao):
+    
     string = "\nSWFN\n"
     lines=30
     Swmax = 1 - Sorw
@@ -389,7 +391,7 @@ def PlotEclipseResults(CASE,ExpParams,Orientation,nblocks,nblocks_z):
                 FWPT_values+=[node2.value-node6.value]
                 DIFF+=[abs(node3.value-node4.value)/abs(BPR_IN_init/BPR_OUT_init)]
     
-    return FOPT_values,DIFF
+    return FOPT_values,FWPT_values,DIFF
 
   
 
