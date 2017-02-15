@@ -1,0 +1,451 @@
+<eclipse>
+<message date="12/10/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ CHECKING FOR LICENSES                                                   
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE GRID SECTION IS                      
+     213988 BYTES                                                        
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ NEITHER OLDTRAN,OLDTRANR NOR NEWTRAN SPECIFIED                          
+ BLOCK CENTRE TRANSMISSIBILITIES TO BE CALCULATED                        
+ USING  OLDTRAN                                                          
+</message>
+<comment date="12/10/2015" time="0.00000000000000">
+ NO NON-NEIGHBOUR CONNECTIONS FOUND                                      
+</comment>
+<message date="12/10/2015" time="0.00000000000000">
+ NUMBER OF ACTIVE CELLS IS 65                                            
+</message>
+<warning date="12/10/2015" time="0.00000000000000">
+ NSTACK =     50   WHICH EXCEEDS THE                                     
+ LARGEST VALUE OF LITMAX IN THE DECK,  WHICH IS     25  .                
+ THE EXCESS MEMORY REQUESTED BY NSTACK WILL NOT BE USED                  
+ AND WILL REDUCE PERFORMANCE AND MAY CAUSE MEMORY OVERFLOW.              
+ NSTACK WILL BE REDUCED                                                  
+ TO THE LARGEST LITMAX VALUE IN THE DECK.                                
+ SET OPTIONS(256)=1 TO STOP THIS FROM HAPPENING.                         
+</warning>
+<message date="12/10/2015" time="0.00000000000000">
+ THE MEMORY REQUIRED TO PROCESS THE SOLUTION SECTION IS                  
+     953828 BYTES                                                        
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+    62244 CHARACTER VARIABLES USED                                       
+</message>
+<message date="12/10/2015" time="0.00000000000000">
+ OPENING WELL PROD1    AT TIME      0.00   HOURS                         
+ CONTROLLED BY BOTTOM HOLE PRESSURE                                      
+</message>
+<warning date="12/10/2015" time="0.00000000000000">
+ THE BOTTOM HOLE PRESSURE LIMIT FOR WELL INJ1                            
+ HAS BEEN DEFAULTED. THE DEFAULT VALUE IS    6803.  ATMOSA               
+</warning>
+<message date="12/10/2015" time="0.00000000000000">
+ OPENING WELL INJ1     AT TIME      0.00   HOURS                         
+ CONTROLLED BY WATER RATE                                                
+</message>
+<message date="12/10/2015" time="0.01700000000000">
+ RESTART FILE WRITTEN   REPORT     1                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.03400000000000">
+ RESTART FILE WRITTEN   REPORT     2                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.05100000000000">
+ RESTART FILE WRITTEN   REPORT     3                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.06800000000000">
+ RESTART FILE WRITTEN   REPORT     4                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.08500000000000">
+ RESTART FILE WRITTEN   REPORT     5                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.10200000000000">
+ RESTART FILE WRITTEN   REPORT     6                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.11900000000000">
+ RESTART FILE WRITTEN   REPORT     7                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.13600000000000">
+ RESTART FILE WRITTEN   REPORT     8                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.15300000000000">
+ RESTART FILE WRITTEN   REPORT     9                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.17000000000000">
+ RESTART FILE WRITTEN   REPORT    10                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.18700000000000">
+ RESTART FILE WRITTEN   REPORT    11                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.20400000000000">
+ RESTART FILE WRITTEN   REPORT    12                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.22100000000000">
+ RESTART FILE WRITTEN   REPORT    13                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.23800000000000">
+ RESTART FILE WRITTEN   REPORT    14                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.25500000000000">
+ RESTART FILE WRITTEN   REPORT    15                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.27200000000000">
+ RESTART FILE WRITTEN   REPORT    16                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.28900000000000">
+ RESTART FILE WRITTEN   REPORT    17                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.30600000000000">
+ RESTART FILE WRITTEN   REPORT    18                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.32300000000000">
+ RESTART FILE WRITTEN   REPORT    19                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.34000000000000">
+ RESTART FILE WRITTEN   REPORT    20                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.35700000000000">
+ RESTART FILE WRITTEN   REPORT    21                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.37400000000000">
+ RESTART FILE WRITTEN   REPORT    22                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.39100000000000">
+ RESTART FILE WRITTEN   REPORT    23                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.40800000000000">
+ RESTART FILE WRITTEN   REPORT    24                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.42500000000000">
+ RESTART FILE WRITTEN   REPORT    25                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.44200000000000">
+ RESTART FILE WRITTEN   REPORT    26                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.45900000000000">
+ RESTART FILE WRITTEN   REPORT    27                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.47600000000000">
+ RESTART FILE WRITTEN   REPORT    28                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.49300000000000">
+ RESTART FILE WRITTEN   REPORT    29                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.51000000000000">
+ RESTART FILE WRITTEN   REPORT    30                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.52700000000000">
+ RESTART FILE WRITTEN   REPORT    31                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.54400000000000">
+ RESTART FILE WRITTEN   REPORT    32                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.56100000000000">
+ RESTART FILE WRITTEN   REPORT    33                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.57800000000000">
+ RESTART FILE WRITTEN   REPORT    34                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.59500000000000">
+ RESTART FILE WRITTEN   REPORT    35                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.61200000000000">
+ RESTART FILE WRITTEN   REPORT    36                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.62900000000000">
+ RESTART FILE WRITTEN   REPORT    37                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.64600000000000">
+ RESTART FILE WRITTEN   REPORT    38                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.66300000000000">
+ RESTART FILE WRITTEN   REPORT    39                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.68000000000000">
+ RESTART FILE WRITTEN   REPORT    40                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.69700000000000">
+ RESTART FILE WRITTEN   REPORT    41                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.71400000000000">
+ RESTART FILE WRITTEN   REPORT    42                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.73100000000000">
+ RESTART FILE WRITTEN   REPORT    43                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.74800000000000">
+ RESTART FILE WRITTEN   REPORT    44                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.76500000000000">
+ RESTART FILE WRITTEN   REPORT    45                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.78200000000000">
+ RESTART FILE WRITTEN   REPORT    46                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.79900000000000">
+ RESTART FILE WRITTEN   REPORT    47                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.81600000000000">
+ RESTART FILE WRITTEN   REPORT    48                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.83300000000000">
+ RESTART FILE WRITTEN   REPORT    49                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.85000000000000">
+ RESTART FILE WRITTEN   REPORT    50                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.86700000000000">
+ RESTART FILE WRITTEN   REPORT    51                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.88400000000000">
+ RESTART FILE WRITTEN   REPORT    52                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.90100000000000">
+ RESTART FILE WRITTEN   REPORT    53                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.91800000000000">
+ RESTART FILE WRITTEN   REPORT    54                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.93500000000000">
+ RESTART FILE WRITTEN   REPORT    55                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.95200000000000">
+ RESTART FILE WRITTEN   REPORT    56                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.96900000000000">
+ RESTART FILE WRITTEN   REPORT    57                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="0.98600000000000">
+ RESTART FILE WRITTEN   REPORT    58                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.00300000000000">
+ RESTART FILE WRITTEN   REPORT    59                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.02000000000000">
+ RESTART FILE WRITTEN   REPORT    60                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.03700000000000">
+ RESTART FILE WRITTEN   REPORT    61                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.05400000000000">
+ RESTART FILE WRITTEN   REPORT    62                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.07100000000000">
+ RESTART FILE WRITTEN   REPORT    63                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.08800000000000">
+ RESTART FILE WRITTEN   REPORT    64                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.10500000000000">
+ RESTART FILE WRITTEN   REPORT    65                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.12200000000000">
+ RESTART FILE WRITTEN   REPORT    66                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.13900000000000">
+ RESTART FILE WRITTEN   REPORT    67                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.15600000000000">
+ RESTART FILE WRITTEN   REPORT    68                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.17300000000000">
+ RESTART FILE WRITTEN   REPORT    69                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.19000000000000">
+ RESTART FILE WRITTEN   REPORT    70                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.20700000000000">
+ RESTART FILE WRITTEN   REPORT    71                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.22400000000000">
+ RESTART FILE WRITTEN   REPORT    72                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.24100000000000">
+ RESTART FILE WRITTEN   REPORT    73                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.25800000000000">
+ RESTART FILE WRITTEN   REPORT    74                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.27500000000000">
+ RESTART FILE WRITTEN   REPORT    75                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.29200000000000">
+ RESTART FILE WRITTEN   REPORT    76                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.30900000000000">
+ RESTART FILE WRITTEN   REPORT    77                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.32600000000000">
+ RESTART FILE WRITTEN   REPORT    78                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.34300000000000">
+ RESTART FILE WRITTEN   REPORT    79                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.36000000000000">
+ RESTART FILE WRITTEN   REPORT    80                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.37700000000000">
+ RESTART FILE WRITTEN   REPORT    81                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.39400000000000">
+ RESTART FILE WRITTEN   REPORT    82                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.41100000000000">
+ RESTART FILE WRITTEN   REPORT    83                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.42800000000000">
+ RESTART FILE WRITTEN   REPORT    84                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.44500000000000">
+ RESTART FILE WRITTEN   REPORT    85                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.46200000000000">
+ RESTART FILE WRITTEN   REPORT    86                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.47900000000000">
+ RESTART FILE WRITTEN   REPORT    87                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.49600000000000">
+ RESTART FILE WRITTEN   REPORT    88                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.51300000000000">
+ RESTART FILE WRITTEN   REPORT    89                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.53000000000000">
+ RESTART FILE WRITTEN   REPORT    90                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.54700000000000">
+ RESTART FILE WRITTEN   REPORT    91                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.56400000000000">
+ RESTART FILE WRITTEN   REPORT    92                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.58100000000000">
+ RESTART FILE WRITTEN   REPORT    93                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.59800000000000">
+ RESTART FILE WRITTEN   REPORT    94                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.61500000000000">
+ RESTART FILE WRITTEN   REPORT    95                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.63200000000000">
+ RESTART FILE WRITTEN   REPORT    96                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.64900000000000">
+ RESTART FILE WRITTEN   REPORT    97                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.66600000000000">
+ RESTART FILE WRITTEN   REPORT    98                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.68300000000000">
+ RESTART FILE WRITTEN   REPORT    99                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+<message date="12/10/2015" time="1.70000000000000">
+ RESTART FILE WRITTEN   REPORT   100                                     
+ RESTART INCLUDES FLUIDS IN PLACE                                        
+</message>
+</eclipse>

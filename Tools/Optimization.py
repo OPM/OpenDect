@@ -84,7 +84,11 @@ def Swarm(imax,n,pmin,pmax,treshold,window,app):
                 pb_out[i]=p_out[i]
                     
         #Check if the new personnal best is the global best
-        for i in range(0,n):     
+        for i in range(0,n):  
+	    if window.StopAction: 
+		window.Writetoconsole("Stopped by user")
+	    	return
+	    
             if pb_out[i]<gb_out:
                 for k in range(0,ndim):
                     gbest[k]=pbest[k,i]
