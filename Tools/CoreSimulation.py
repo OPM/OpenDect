@@ -20,7 +20,8 @@
 import os
 import subprocess
 from subprocess import check_output
-import ert.ecl as ecl
+#import ert.ecl as ecl
+import ecl
 
 def GetRGB(poro):
 	if poro<1/3:

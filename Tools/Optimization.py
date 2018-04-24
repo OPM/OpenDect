@@ -23,7 +23,7 @@ import random
 import os
 import subprocess
 from subprocess import check_output
-import ert.ecl as ecl
+import ecl
 from matplotlib import pyplot as plt
 from matplotlib.backends.backend_qt4agg import FigureCanvasQTAgg as FigureCanvas
 
